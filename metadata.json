@@ -1,0 +1,6 @@
+{
+  "name": "IT Passport Mentor",
+  "description": "ITパスポート試験対策学習アプリ。用語集、学習ガイド、確認テスト、進捗管理機能を搭載。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
