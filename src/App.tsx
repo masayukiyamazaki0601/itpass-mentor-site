@@ -18,7 +18,7 @@ export default function App() {
     'management',
     'technology'
   ]);
-  const [currentArticleId, setCurrentArticleId] = useState<string>('corporate-activities-basics');
+  const [currentArticleId, setCurrentArticleId] = useState<string>('corporate-activities');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
@@ -46,8 +46,10 @@ export default function App() {
   // Select category article from Home
   const handleSelectCategoryArticle = (category: CategoryKey) => {
     const art = ARTICLES_DATA.find((a) => a.category === category) || ARTICLES_DATA[0];
-    setCurrentArticleId(art.id);
-    setActiveTab('study-guide');
+    if (art) {
+      setCurrentArticleId(art.id);
+      setActiveTab('study-guide');
+    }
   };
 
   // Open App Promotion Modal

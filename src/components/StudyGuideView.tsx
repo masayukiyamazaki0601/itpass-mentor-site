@@ -16,7 +16,7 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
   const [readingProgress, setReadingProgress] = useState(0);
   const [activeSectionId, setActiveSectionId] = useState<string>('section-1');
 
-  const article: Article =
+  const article: Article | undefined =
     ARTICLES_DATA.find((a) => a.id === currentArticleId) || ARTICLES_DATA[0];
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
       }
 
       // Detect active section based on scroll position
+      if (!article) return;
       article.sections.forEach((sec) => {
         const el = document.getElementById(sec.id);
         if (el) {
@@ -52,6 +53,23 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  // 記事が登録されていない場合のプレースホルダー表示
+  if (!article) {
+    return (
+      <div className="flex-1 w-full max-w-full">
+        <div className="bg-white border border-[#c3c6d0]/60 rounded-xl p-10 text-center">
+          <span className="material-symbols-outlined text-5xl text-[#737780] mb-4 block">
+            menu_book
+          </span>
+          <h2 className="text-xl font-bold text-[#111c2c] mb-2">記事がありません</h2>
+          <p className="text-sm text-[#43474f]">
+            学習ガイドの記事は現在準備中です。しばらくお待ちください。
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex-1 w-full max-w-full">
@@ -251,6 +269,34 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
                               <p className="text-[9px] text-[#737780] mt-1">機能×事業の複合型</p>
                             </div>
                           </div>
+                        </div>
+                      )}
+
+                      {sec.diagram === 'break-even' && (
+                        <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            損益分岐点のイメージ
+                          </p>
+                          <div className="space-y-3">
+                            <div className="bg-white border border-[#c3c6d0]/40 rounded-lg p-4">
+                              <p className="text-[10px] font-extrabold text-[#002b57] mb-2">総費用</p>
+                              <div className="space-y-1.5">
+                                <div className="bg-[#3182CE]/10 rounded px-3 py-2 text-xs font-bold text-[#3182CE]">変動費（売上に比例して増える費用）</div>
+                                <div className="bg-[#D69E2E]/10 rounded px-3 py-2 text-xs font-bold text-[#D69E2E]">固定費（売上に関係なく一定の費用）</div>
+                              </div>
+                            </div>
+                            <div className="bg-white border border-[#c3c6d0]/40 rounded-lg p-4">
+                              <p className="text-[10px] font-extrabold text-[#002b57] mb-2">利益の様子</p>
+                              <div className="space-y-1.5">
+                                <div className="bg-emerald-50 rounded px-3 py-2 text-xs font-bold text-emerald-700">売上高 &gt; 総費用 → 黒字（利益が出る）</div>
+                                <div className="bg-white border border-[#c3c6d0]/50 rounded px-3 py-2 text-xs font-bold text-[#111c2c]">売上高 = 総費用 → 損益分岐点（利益ゼロ）</div>
+                                <div className="bg-rose-50 rounded px-3 py-2 text-xs font-bold text-rose-600">売上高 &lt; 総費用 → 赤字（損失が出る）</div>
+                              </div>
+                            </div>
+                          </div>
+                          <p className="text-[10px] text-[#737780] mt-3 text-center">
+                            ※ 損益分岐点を下回らない売上を確保することが経営上の重要目標になります
+                          </p>
                         </div>
                       )}
                     </div>
