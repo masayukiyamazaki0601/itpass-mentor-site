@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
-import { StudyGuideView } from './components/StudyGuideView';
+import { ArticleReader } from './components/ArticleReader';
 import { GlossaryView } from './components/GlossaryView';
 import { ExamOverviewView } from './components/ExamOverviewView';
 import { QuizModal } from './components/QuizModal';
@@ -18,7 +18,7 @@ export default function App() {
     'management',
     'technology'
   ]);
-  const [currentArticleId, setCurrentArticleId] = useState<string>('corporate-activities');
+  const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
@@ -40,7 +40,14 @@ export default function App() {
   // Global Search Handler
   const handleGlobalSearch = (query: string) => {
     setSearchQuery(query);
+    setCurrentArticleId(null);
     setActiveTab('glossary');
+  };
+
+  // Navigate to a main tab (closes article reader)
+  const handleNavigate = (tab: MainNavTab) => {
+    setCurrentArticleId(null);
+    setActiveTab(tab);
   };
 
   // Select category article from Home
@@ -48,7 +55,6 @@ export default function App() {
     const art = ARTICLES_DATA.find((a) => a.category === category) || ARTICLES_DATA[0];
     if (art) {
       setCurrentArticleId(art.id);
-      setActiveTab('study-guide');
     }
   };
 
@@ -57,12 +63,14 @@ export default function App() {
     setIsAppModalOpen(true);
   };
 
+  const isReadingArticle = currentArticleId !== null;
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f9f9ff] text-[#111c2c] font-sans antialiased">
       {/* Top Header */}
       <Header
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleNavigate}
         onSearch={handleGlobalSearch}
         toggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       />
@@ -70,59 +78,67 @@ export default function App() {
       {/* Main Body Container */}
       <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-6 py-6 flex gap-6">
         {/* Navigation Drawer / Sidebar */}
-        <Sidebar
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          selectedCategories={selectedCategories}
-          onToggleCategory={handleToggleCategory}
-          isMobileOpen={isMobileMenuOpen}
-          onCloseMobile={() => setIsMobileMenuOpen(false)}
-          onOpenAppModal={handleOpenAppModal}
-        />
+        {!isReadingArticle && (
+          <Sidebar
+            activeTab={activeTab}
+            setActiveTab={handleNavigate}
+            selectedCategories={selectedCategories}
+            onToggleCategory={handleToggleCategory}
+            isMobileOpen={isMobileMenuOpen}
+            onCloseMobile={() => setIsMobileMenuOpen(false)}
+            onOpenAppModal={handleOpenAppModal}
+          />
+        )}
 
         {/* Dynamic View Canvas */}
         <main className="flex-1 min-w-0">
-          {activeTab === 'home' && (
-            <HomeView
-              setActiveTab={setActiveTab}
-              onSearch={handleGlobalSearch}
-              onStartQuiz={handleOpenAppModal}
-              onSelectCategoryArticle={handleSelectCategoryArticle}
-            />
-          )}
-
-          {activeTab === 'table-of-contents' && (
-            <TableOfContentsView setActiveTab={setActiveTab} />
-          )}
-
-          {activeTab === 'study-guide' && (
-            <StudyGuideView
+          {isReadingArticle ? (
+            <ArticleReader
               currentArticleId={currentArticleId}
               onSelectArticle={(id) => setCurrentArticleId(id)}
               onStartQuiz={handleOpenAppModal}
+              onBackToToc={() => handleNavigate('table-of-contents')}
             />
-          )}
+          ) : (
+            <>
+              {activeTab === 'home' && (
+                <HomeView
+                  setActiveTab={handleNavigate}
+                  onSearch={handleGlobalSearch}
+                  onStartQuiz={handleOpenAppModal}
+                  onSelectCategoryArticle={handleSelectCategoryArticle}
+                />
+              )}
 
-          {activeTab === 'glossary' && (
-            <GlossaryView
-              selectedCategories={selectedCategories}
-              searchQuery={searchQuery}
-              bookmarkedIds={[]}
-              onToggleBookmark={() => {}}
-            />
-          )}
+              {activeTab === 'table-of-contents' && (
+                <TableOfContentsView
+                  setActiveTab={handleNavigate}
+                  onSelectArticle={(id) => setCurrentArticleId(id)}
+                />
+              )}
 
-          {activeTab === 'exam-overview' && (
-            <ExamOverviewView
-              setActiveTab={setActiveTab}
-              onStartQuiz={handleOpenAppModal}
-            />
+              {activeTab === 'glossary' && (
+                <GlossaryView
+                  selectedCategories={selectedCategories}
+                  searchQuery={searchQuery}
+                  bookmarkedIds={[]}
+                  onToggleBookmark={() => {}}
+                />
+              )}
+
+              {activeTab === 'exam-overview' && (
+                <ExamOverviewView
+                  setActiveTab={handleNavigate}
+                  onStartQuiz={handleOpenAppModal}
+                />
+              )}
+            </>
           )}
         </main>
       </div>
 
       {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer setActiveTab={handleNavigate} />
 
       {/* App Promotion Modal */}
       <QuizModal

@@ -37,12 +37,6 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             用語集
           </button>
           <button
-            onClick={() => setActiveTab('study-guide')}
-            className="hover:text-[#002b57] underline transition-colors"
-          >
-            学習ガイド
-          </button>
-          <button
             onClick={() => setActiveTab('exam-overview')}
             className="hover:text-[#002b57] underline transition-colors"
           >

@@ -6,14 +6,14 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 1,
     title: '企業活動',
     topics: [
-      { id: 'ch1-t1', title: '企業活動' },
-      { id: 'ch1-t2', title: '企業の責任' },
-      { id: 'ch1-t3', title: '経営資源' },
-      { id: 'ch1-t4', title: '経営組織' },
-      { id: 'ch1-t5', title: '業務分析と業務計画' },
-      { id: 'ch1-t6', title: '経営者の意思決定と問題解決手法' },
-      { id: 'ch1-t7', title: '損益分岐点' },
-      { id: 'ch1-t8', title: '財務諸表と5つの利益' }
+      { id: 'ch1-t1', title: '企業活動', articleId: 'corporate-activities' },
+      { id: 'ch1-t2', title: '企業の責任', articleId: 'corporate-responsibility' },
+      { id: 'ch1-t3', title: '経営資源', articleId: 'management-resources' },
+      { id: 'ch1-t4', title: '経営組織', articleId: 'organizational-structure' },
+      { id: 'ch1-t5', title: '業務分析と業務計画', articleId: 'business-analysis-planning' },
+      { id: 'ch1-t6', title: '経営者の意思決定と問題解決手法', articleId: 'decision-making-problem-solving' },
+      { id: 'ch1-t7', title: '損益分岐点', articleId: 'break-even-point' },
+      { id: 'ch1-t8', title: '財務諸表と5つの利益', articleId: 'financial-statements-five-profits' }
     ]
   },
   {
@@ -21,12 +21,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 2,
     title: '法務',
     topics: [
-      { id: 'ch2-t1', title: '3つの知的財産権' },
-      { id: 'ch2-t2', title: '産業財産権とその他の権利' },
-      { id: 'ch2-t3', title: 'セキュリティ関連法規' },
-      { id: 'ch2-t4', title: '労働関連法規と取引関連法規' },
-      { id: 'ch2-t5', title: 'その他の法律' },
-      { id: 'ch2-t6', title: '標準化' }
+      { id: 'ch2-t1', title: '3つの知的財産権', articleId: 'intellectual-property-basics' },
+      { id: 'ch2-t2', title: '産業財産権とその他の権利', articleId: 'industrial-property-rights' },
+      { id: 'ch2-t3', title: 'セキュリティ関連法規', articleId: 'security-related-laws' },
+      { id: 'ch2-t4', title: '労働関連法規と取引関連法規', articleId: 'labor-employment-laws' },
+      { id: 'ch2-t5', title: 'その他の法律', articleId: 'other-laws' },
+      { id: 'ch2-t6', title: '標準化', articleId: 'standardization' }
     ]
   },
   {

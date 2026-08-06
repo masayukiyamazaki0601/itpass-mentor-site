@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Article } from '../types';
 import { ARTICLES_DATA } from '../data/articlesData';
 
-interface StudyGuideViewProps {
+interface ArticleReaderProps {
   currentArticleId: string;
   onSelectArticle: (articleId: string) => void;
   onStartQuiz: (articleId: string) => void;
+  onBackToToc: () => void;
 }
 
-export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
+export const ArticleReader: React.FC<ArticleReaderProps> = ({
   currentArticleId,
   onSelectArticle,
-  onStartQuiz
+  onStartQuiz,
+  onBackToToc
 }) => {
   const [readingProgress, setReadingProgress] = useState(0);
   const [activeSectionId, setActiveSectionId] = useState<string>('section-1');
 
   const article: Article | undefined =
     ARTICLES_DATA.find((a) => a.id === currentArticleId) || ARTICLES_DATA[0];
+
+  useEffect(() => {
+    setReadingProgress(0);
+    setActiveSectionId('section-1');
+  }, [article?.id]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,8 +71,14 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
           </span>
           <h2 className="text-xl font-bold text-[#111c2c] mb-2">記事がありません</h2>
           <p className="text-sm text-[#43474f]">
-            学習ガイドの記事は現在準備中です。しばらくお待ちください。
+            このトピックの記事は現在準備中です。しばらくお待ちください。
           </p>
+          <button
+            onClick={onBackToToc}
+            className="mt-6 bg-[#002b57] hover:bg-[#1a4173] text-white font-label text-sm py-2.5 px-6 rounded-lg font-bold transition-all cursor-pointer"
+          >
+            目次に戻る
+          </button>
         </div>
       </div>
     );
@@ -81,27 +94,15 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
         />
       </div>
 
-      {/* Selector bar for articles if user wants to browse other study topics */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 bg-[#f0f3ff] p-3 rounded-xl border border-[#c3c6d0]/40">
-        <span className="text-xs font-bold text-[#002b57] flex items-center gap-1.5">
-          <span className="material-symbols-outlined text-base">topic</span>
-          学習ガイド記事切り替え:
-        </span>
-        <div className="flex flex-wrap gap-2">
-          {ARTICLES_DATA.map((art) => (
-            <button
-              key={art.id}
-              onClick={() => onSelectArticle(art.id)}
-              className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all cursor-pointer ${
-                art.id === article.id
-                  ? 'bg-[#002b57] text-white shadow-xs font-semibold'
-                  : 'bg-white text-[#43474f] hover:bg-[#dee8ff]'
-              }`}
-            >
-              {art.title}
-            </button>
-          ))}
-        </div>
+      {/* Back to Table of Contents */}
+      <div className="mb-6">
+        <button
+          onClick={onBackToToc}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#002b57] bg-[#f0f3ff] border border-[#c3c6d0]/40 hover:bg-[#dee8ff] px-3 py-2 rounded-full transition-colors cursor-pointer"
+        >
+          <span className="material-symbols-outlined text-base">arrow_back</span>
+          目次に戻る
+        </button>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -109,9 +110,9 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
         <main className="flex-1 w-full max-w-3xl">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#43474f] mb-4">
-            <span className="hover:text-[#002b57] cursor-pointer">学習ガイド</span>
+            <span onClick={onBackToToc} className="hover:text-[#002b57] cursor-pointer">目次</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-            <span className="hover:text-[#002b57] cursor-pointer">{article.breadcrumbPath[1]}</span>
+            <span>{article.breadcrumbPath[1]}</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
             <span className="text-[#002b57] font-semibold">{article.breadcrumbPath[2]}</span>
           </nav>

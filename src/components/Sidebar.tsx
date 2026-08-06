@@ -65,21 +65,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         <button
           onClick={() => {
-            setActiveTab('study-guide');
-            onCloseMobile?.();
-          }}
-          className={`flex items-center gap-3 px-4 py-3 font-label text-sm rounded-full transition-all text-left ${
-            activeTab === 'study-guide'
-              ? 'bg-[#68fadd] text-[#007261] font-bold shadow-xs'
-              : 'text-[#43474f] hover:bg-[#d8e3fa] hover:text-[#002b57]'
-          }`}
-        >
-          <span className="material-symbols-outlined text-xl">menu_book</span>
-          学習ガイド
-        </button>
-
-        <button
-          onClick={() => {
             setActiveTab('exam-overview');
             onCloseMobile?.();
           }}

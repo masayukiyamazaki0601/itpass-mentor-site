@@ -82,16 +82,6 @@ export const Header: React.FC<HeaderProps> = ({
             用語集
           </button>
           <button
-            onClick={() => setActiveTab('study-guide')}
-            className={`font-label text-sm py-2 px-4 rounded-full transition-all ${
-              activeTab === 'study-guide'
-                ? 'bg-[#f0f3ff] text-[#006b5c] font-bold shadow-xs'
-                : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
-            }`}
-          >
-            学習ガイド
-          </button>
-          <button
             onClick={() => setActiveTab('exam-overview')}
             className={`font-label text-sm py-2 px-4 rounded-full transition-all ${
               activeTab === 'exam-overview'

@@ -3,10 +3,14 @@ import { Chapter } from '../types';
 import { TABLE_OF_CONTENTS } from '../data/tableOfContentsData';
 
 interface TableOfContentsViewProps {
-  setActiveTab: (tab: 'home' | 'table-of-contents' | 'glossary' | 'study-guide' | 'exam-overview') => void;
+  setActiveTab: (tab: 'home' | 'table-of-contents' | 'glossary' | 'exam-overview') => void;
+  onSelectArticle: (articleId: string) => void;
 }
 
-export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({ setActiveTab }) => {
+export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
+  setActiveTab,
+  onSelectArticle
+}) => {
   return (
     <div className="flex-1 w-full max-w-full">
       <div className="mb-8">
@@ -14,7 +18,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({ setAct
           学習コンテンツ目次
         </h1>
         <p className="text-sm text-[#43474f] max-w-3xl leading-relaxed">
-          ITパスポート試験の全範囲を15章に体系的に整理しました。各章のトピックをクリックして学習を進めましょう。
+          ITパスポート試験の全範囲を15章に体系的に整理しました。各章のトピックをクリックして記事を読みましょう。
         </p>
       </div>
 
@@ -32,19 +36,40 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({ setAct
               <h2 className="text-lg font-bold text-[#111c2c]">{chapter.title}</h2>
             </div>
             <ul className="space-y-1.5">
-              {chapter.topics.map((topic) => (
-                <li key={topic.id}>
-                  <button
-                    onClick={() => setActiveTab('study-guide')}
-                    className="text-sm text-[#43474f] hover:text-[#002b57] hover:bg-[#f0f3ff] transition-colors px-2 py-1 rounded-lg w-full text-left flex items-center gap-2 cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-base text-[#737780] flex-shrink-0">
-                      chevron_right
-                    </span>
-                    {topic.title}
-                  </button>
-                </li>
-              ))}
+              {chapter.topics.map((topic) => {
+                const hasArticle = !!topic.articleId;
+                return (
+                  <li key={topic.id}>
+                    <button
+                      onClick={() => {
+                        if (hasArticle && topic.articleId) {
+                          onSelectArticle(topic.articleId);
+                        }
+                      }}
+                      disabled={!hasArticle}
+                      className={`text-sm px-2 py-1 rounded-lg w-full text-left flex items-center gap-2 ${
+                        hasArticle
+                          ? 'text-[#43474f] hover:text-[#002b57] hover:bg-[#f0f3ff] transition-colors cursor-pointer'
+                          : 'text-[#b3b6bd] cursor-not-allowed'
+                      }`}
+                    >
+                      <span
+                        className={`material-symbols-outlined text-base flex-shrink-0 ${
+                          hasArticle ? 'text-[#737780]' : 'text-[#c3c6d0]'
+                        }`}
+                      >
+                        {hasArticle ? 'chevron_right' : 'lock'}
+                      </span>
+                      <span className="flex-1">{topic.title}</span>
+                      {hasArticle && (
+                        <span className="text-[10px] text-[#00BFA5] flex items-center gap-0.5 opacity-0 group-hover:opacity-100">
+                          記事へ
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
@@ -52,11 +77,11 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({ setAct
 
       <div className="mt-8 text-center">
         <button
-          onClick={() => setActiveTab('study-guide')}
+          onClick={() => setActiveTab('home')}
           className="bg-[#00BFA5] hover:bg-[#009a85] text-white font-label text-sm py-3 px-8 rounded-lg shadow-sm hover:shadow-md transition-all inline-flex items-center gap-2 active:scale-95 cursor-pointer font-bold"
         >
-          <span className="material-symbols-outlined">menu_book</span>
-          学習ガイドを始める
+          <span className="material-symbols-outlined">home</span>
+          ホームに戻る
         </button>
       </div>
     </div>

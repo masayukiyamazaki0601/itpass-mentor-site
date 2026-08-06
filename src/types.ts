@@ -1,8 +1,9 @@
-export type MainNavTab = 'home' | 'table-of-contents' | 'glossary' | 'study-guide' | 'exam-overview';
+export type MainNavTab = 'home' | 'table-of-contents' | 'glossary' | 'exam-overview';
 
 export interface ChapterTopic {
   id: string;
   title: string;
+  articleId?: string;
 }
 
 export interface Chapter {

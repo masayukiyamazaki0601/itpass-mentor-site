@@ -150,11 +150,11 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
 
         <div className="mt-6 flex flex-wrap gap-4 justify-center">
           <button
-            onClick={() => setActiveTab('study-guide')}
+            onClick={() => setActiveTab('table-of-contents')}
             className="bg-[#002b57] hover:bg-[#1a4173] text-white font-label text-sm py-3 px-6 rounded-lg font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
           >
             <span className="material-symbols-outlined text-base">menu_book</span>
-            学習ガイドを始める
+            目次から学習を始める
           </button>
           <button
             onClick={onStartQuiz}
