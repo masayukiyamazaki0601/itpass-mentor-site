@@ -14,7 +14,7 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
     <div className="flex-1 w-full max-w-full">
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#111c2c] mb-3">
-          試験概要 (Exam Overview)
+          試験概要
         </h1>
         <p className="text-sm text-[#43474f] max-w-3xl leading-relaxed">
           ITパスポート試験（IP）の実施形式、出題範囲、合格基準、効率的な学習ロードマップをまとめて解説します。
@@ -121,7 +121,7 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
             <span className="text-xs font-bold text-[#006b5c] bg-[#68fadd]/40 px-2.5 py-1 rounded-full mb-2 inline-block">
               STEP 1: 基礎単語の暗記
             </span>
-            <h3 className="font-bold text-sm text-[#111c2c] mb-1">用語集（Glossary）のマスター</h3>
+            <h3 className="font-bold text-sm text-[#111c2c] mb-1">用語集のマスター</h3>
             <p className="text-xs text-[#43474f]">
               ITパスポートは用語の意味を正しく理解していれば得点できる問題が多数。A-Zと各分野の専門用語をチェック。
             </p>
@@ -131,7 +131,7 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
             <span className="text-xs font-bold text-[#002b57] bg-[#dee8ff] px-2.5 py-1 rounded-full mb-2 inline-block">
               STEP 2: 体系的な理解
             </span>
-            <h3 className="font-bold text-sm text-[#111c2c] mb-1">学習ガイド（Study Guide）を熟読</h3>
+            <h3 className="font-bold text-sm text-[#111c2c] mb-1">学習ガイドを熟読</h3>
             <p className="text-xs text-[#43474f]">
               著作権法や開発手法、ネットワーク、セキュリティなどの頻出分野の構造や図解をしっかり確認。
             </p>
@@ -141,9 +141,9 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
             <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-full mb-2 inline-block">
               STEP 3: 問題演習と反復
             </span>
-            <h3 className="font-bold text-sm text-[#111c2c] mb-1">確認テストとDaily Challenge</h3>
+            <h3 className="font-bold text-sm text-[#111c2c] mb-1">確認テストと今日のチャレンジ</h3>
             <p className="text-xs text-[#43474f]">
-              章末テストや本日の確認問題に挑戦して、解説で解法を復習。苦手を My Progress で可視化。
+              章末テストや本日の確認問題に挑戦して、解説で解法を復習。苦手をマイ進捗で可視化。
             </p>
           </div>
         </div>
@@ -160,8 +160,8 @@ export const ExamOverviewView: React.FC<ExamOverviewViewProps> = ({
             onClick={onStartQuiz}
             className="bg-[#00BFA5] hover:bg-[#009a85] text-white font-label text-sm py-3 px-6 rounded-lg font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
           >
-            <span className="material-symbols-outlined text-base">quiz</span>
-            確認テストに挑戦する
+            <span className="material-symbols-outlined text-base">smartphone</span>
+            アプリで問題演習に挑戦する
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { MainNavTab, CategoryKey, UserProgress } from './types';
+import React, { useState } from 'react';
+import { MainNavTab, CategoryKey } from './types';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Footer } from './components/Footer';
@@ -8,21 +8,8 @@ import { StudyGuideView } from './components/StudyGuideView';
 import { GlossaryView } from './components/GlossaryView';
 import { ExamOverviewView } from './components/ExamOverviewView';
 import { QuizModal } from './components/QuizModal';
-import { StatsModal } from './components/StatsModal';
+import { TableOfContentsView } from './components/TableOfContentsView';
 import { ARTICLES_DATA } from './data/articlesData';
-
-const INITIAL_PROGRESS: UserProgress = {
-  completedArticles: [],
-  bookmarkedTermIds: ['api', 'dns', 'copyright'],
-  quizScores: {},
-  totalQuestionsAnswered: 8,
-  correctQuestionsAnswered: 6,
-  categoryProgress: {
-    strategy: 65,
-    management: 42,
-    technology: 80
-  }
-};
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<MainNavTab>('home');
@@ -31,35 +18,12 @@ export default function App() {
     'management',
     'technology'
   ]);
-  const [currentArticleId, setCurrentArticleId] = useState<string>('copyright-law-basics');
+  const [currentArticleId, setCurrentArticleId] = useState<string>('corporate-activities-basics');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
-  // Quiz Modal State
-  const [isQuizModalOpen, setIsQuizModalOpen] = useState<boolean>(false);
-  const [targetQuizArticleId, setTargetQuizArticleId] = useState<string | undefined>();
-
-  // Stats Modal State
-  const [isStatsModalOpen, setIsStatsModalOpen] = useState<boolean>(false);
-
-  // User Progress & Bookmarks with localStorage persistence
-  const [userProgress, setUserProgress] = useState<UserProgress>(() => {
-    try {
-      const saved = localStorage.getItem('it_passport_progress');
-      if (saved) return JSON.parse(saved);
-    } catch {
-      // fallback
-    }
-    return INITIAL_PROGRESS;
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('it_passport_progress', JSON.stringify(userProgress));
-    } catch {
-      // ignore
-    }
-  }, [userProgress]);
+  // App Promotion Modal State
+  const [isAppModalOpen, setIsAppModalOpen] = useState<boolean>(false);
 
   // Toggle Category Checkboxes
   const handleToggleCategory = (category: CategoryKey) => {
@@ -70,17 +34,6 @@ export default function App() {
       } else {
         return [...prev, category];
       }
-    });
-  };
-
-  // Toggle Term Bookmark
-  const handleToggleBookmark = (termId: string) => {
-    setUserProgress((prev) => {
-      const exists = prev.bookmarkedTermIds.includes(termId);
-      const updated = exists
-        ? prev.bookmarkedTermIds.filter((id) => id !== termId)
-        : [...prev.bookmarkedTermIds, termId];
-      return { ...prev, bookmarkedTermIds: updated };
     });
   };
 
@@ -97,35 +50,9 @@ export default function App() {
     setActiveTab('study-guide');
   };
 
-  // Start Quiz Handler
-  const handleStartQuiz = (articleId?: string) => {
-    setTargetQuizArticleId(articleId || currentArticleId);
-    setIsQuizModalOpen(true);
-  };
-
-  // Quiz Finished Handler
-  const handleQuizCompleted = (scorePercentage: number) => {
-    setUserProgress((prev) => {
-      const currentCatProgress = { ...prev.categoryProgress };
-      if (scorePercentage >= 60) {
-        currentCatProgress.strategy = Math.min(100, currentCatProgress.strategy + 5);
-        currentCatProgress.management = Math.min(100, currentCatProgress.management + 5);
-        currentCatProgress.technology = Math.min(100, currentCatProgress.technology + 5);
-      }
-      return {
-        ...prev,
-        totalQuestionsAnswered: prev.totalQuestionsAnswered + 3,
-        correctQuestionsAnswered:
-          prev.correctQuestionsAnswered + Math.round((scorePercentage / 100) * 3),
-        categoryProgress: currentCatProgress
-      };
-    });
-  };
-
-  const handleResetProgress = () => {
-    setUserProgress(INITIAL_PROGRESS);
-    localStorage.removeItem('it_passport_progress');
-    setIsStatsModalOpen(false);
+  // Open App Promotion Modal
+  const handleOpenAppModal = () => {
+    setIsAppModalOpen(true);
   };
 
   return (
@@ -148,7 +75,7 @@ export default function App() {
           onToggleCategory={handleToggleCategory}
           isMobileOpen={isMobileMenuOpen}
           onCloseMobile={() => setIsMobileMenuOpen(false)}
-          onOpenStatsModal={() => setIsStatsModalOpen(true)}
+          onOpenAppModal={handleOpenAppModal}
         />
 
         {/* Dynamic View Canvas */}
@@ -157,18 +84,20 @@ export default function App() {
             <HomeView
               setActiveTab={setActiveTab}
               onSearch={handleGlobalSearch}
-              onStartQuiz={handleStartQuiz}
+              onStartQuiz={handleOpenAppModal}
               onSelectCategoryArticle={handleSelectCategoryArticle}
-              userProgress={userProgress}
-              onOpenStatsModal={() => setIsStatsModalOpen(true)}
             />
+          )}
+
+          {activeTab === 'table-of-contents' && (
+            <TableOfContentsView setActiveTab={setActiveTab} />
           )}
 
           {activeTab === 'study-guide' && (
             <StudyGuideView
               currentArticleId={currentArticleId}
               onSelectArticle={(id) => setCurrentArticleId(id)}
-              onStartQuiz={handleStartQuiz}
+              onStartQuiz={handleOpenAppModal}
             />
           )}
 
@@ -176,15 +105,15 @@ export default function App() {
             <GlossaryView
               selectedCategories={selectedCategories}
               searchQuery={searchQuery}
-              bookmarkedIds={userProgress.bookmarkedTermIds}
-              onToggleBookmark={handleToggleBookmark}
+              bookmarkedIds={[]}
+              onToggleBookmark={() => {}}
             />
           )}
 
           {activeTab === 'exam-overview' && (
             <ExamOverviewView
               setActiveTab={setActiveTab}
-              onStartQuiz={() => handleStartQuiz()}
+              onStartQuiz={handleOpenAppModal}
             />
           )}
         </main>
@@ -193,20 +122,11 @@ export default function App() {
       {/* Footer */}
       <Footer setActiveTab={setActiveTab} />
 
-      {/* Interactive Quiz Modal */}
+      {/* App Promotion Modal */}
       <QuizModal
-        isOpen={isQuizModalOpen}
-        onClose={() => setIsQuizModalOpen(false)}
-        targetArticleId={targetQuizArticleId}
-        onQuizCompleted={handleQuizCompleted}
-      />
-
-      {/* Detailed Progress Stats Modal */}
-      <StatsModal
-        isOpen={isStatsModalOpen}
-        onClose={() => setIsStatsModalOpen(false)}
-        userProgress={userProgress}
-        onResetProgress={handleResetProgress}
+        isOpen={isAppModalOpen}
+        onClose={() => setIsAppModalOpen(false)}
+        targetArticleId={undefined}
       />
     </div>
   );

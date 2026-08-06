@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
-import { MainNavTab, CategoryKey, UserProgress } from '../types';
-import { DAILY_QUESTION } from '../data/quizData';
+import React from 'react';
+import { MainNavTab, CategoryKey } from '../types';
 
 interface HomeViewProps {
   setActiveTab: (tab: MainNavTab) => void;
   onSearch: (query: string) => void;
   onStartQuiz: (quizId?: string) => void;
   onSelectCategoryArticle: (category: CategoryKey) => void;
-  userProgress: UserProgress;
-  onOpenStatsModal: () => void;
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
   setActiveTab,
   onSearch,
   onStartQuiz,
-  onSelectCategoryArticle,
-  userProgress,
-  onOpenStatsModal
+  onSelectCategoryArticle
 }) => {
-  const [heroSearchInput, setHeroSearchInput] = useState('');
+  const [heroSearchInput, setHeroSearchInput] = React.useState('');
 
   const handleHeroSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,19 +31,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-[#002b57]/80 via-[#002b57]/60 to-black/30 z-10" />
         <img
           src="https://lh3.googleusercontent.com/aida/AP1WRLurkUA3ZenbUEo2iXgaWTF2iRWh1-yTxPAsMvPPTzNOF2vpXK3jPTBlhyhfimuJx05IwhUCnI6Rl83RsOux6BzHUbPQsF-nSTolFtIoxBomsHH62HPtTMrv3z6C9bPBiZjFARt8M9XirwJPNY-Tgl5jDKMx2OKX59ZkUFhxXVws0rUu_3QaHhLQPbfDMkMFBlJzNeX_DfK8dtfIOkzLeqFZB3_CwFDf8ooIzgvERBPFMwAF9G82N1qCmaYe"
-          alt="Student studying IT"
+          alt="ITを勉強する学生"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
         <div className="relative z-20 px-6 sm:px-12 py-10 text-white max-w-3xl">
           <span className="font-label text-xs text-[#68fadd] uppercase tracking-widest bg-black/40 px-3.5 py-1 rounded-full backdrop-blur-xs border border-white/20 inline-block mb-4">
-            WELCOME TO YOUR IT JOURNEY
+            ITパスポート解説記事サイト
           </span>
           <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 leading-tight drop-shadow-md">
-            Master the IT Passport Exam<br className="hidden sm:inline" /> with Confidence.
+            ITパスポート試験の<br className="hidden sm:inline" />基礎を徹底解説。
           </h1>
           <p className="text-sm sm:text-base mb-6 text-[#f0f3ff] max-w-xl leading-relaxed drop-shadow-xs">
-            Structured learning, practice questions, and expert guidance to help you navigate the foundational concepts of IT smoothly.
+            15章の体系的な解説記事で試験範囲を網羅。基礎知識を固めて、問題演習は専用アプリで。
           </p>
 
           {/* Quick Search Box */}
@@ -63,126 +58,76 @@ export const HomeView: React.FC<HomeViewProps> = ({
               type="text"
               value={heroSearchInput}
               onChange={(e) => setHeroSearchInput(e.target.value)}
-              placeholder="Search topics, keywords, or questions..."
+              placeholder="トピック、キーワードで検索..."
               className="bg-transparent border-none outline-none flex-1 text-[#002b57] placeholder-[#002b57]/60 text-sm font-medium focus:ring-0"
             />
             <button
               type="submit"
               className="bg-[#002b57] hover:bg-[#1a4173] text-white font-label text-xs sm:text-sm px-5 py-2.5 rounded-full transition-colors active:scale-95 cursor-pointer"
             >
-              Search
+              検索
             </button>
           </form>
         </div>
       </section>
 
-      {/* Dashboard Bento Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Today's Question Card */}
-        <div className="md:col-span-2 bg-white rounded-xl border border-[#c3c6d0]/60 p-6 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all">
+      {/* Quick Access Cards */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Table of Contents Card */}
+        <div
+          onClick={() => setActiveTab('table-of-contents')}
+          className="bg-white rounded-xl border border-[#c3c6d0]/60 p-6 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all cursor-pointer"
+        >
           <div className="absolute top-0 left-0 w-1.5 h-full bg-[#006b5c]" />
           <div>
             <div className="flex justify-between items-start mb-3">
               <div>
                 <span className="inline-block px-2.5 py-1 bg-[#d8e3fa] text-[#002b57] font-bold text-[11px] uppercase tracking-wider rounded-md mb-2">
-                  DAILY CHALLENGE
+                  15章の全体像
                 </span>
-                <h2 className="text-xl font-bold text-[#111c2c]">Question of the Day</h2>
+                <h2 className="text-xl font-bold text-[#111c2c]">学習コンテンツ目次を見る</h2>
               </div>
               <span className="material-symbols-outlined text-[#006b5c] text-3xl opacity-30 group-hover:opacity-100 transition-opacity">
-                lightbulb
+                list
               </span>
             </div>
-
-            <p className="text-base text-[#43474f] bg-[#f9f9ff] p-4 rounded-lg border border-[#c3c6d0]/40 leading-relaxed my-2">
-              {DAILY_QUESTION.question}
+            <p className="text-sm text-[#43474f] leading-relaxed">
+              企業活動から情報セキュリティまで、ITパスポート試験の全範囲を体系的に整理した解説記事一覧。
             </p>
           </div>
-
-          <div className="pt-4 mt-2 flex flex-wrap justify-between items-center border-t border-[#c3c6d0]/30 gap-2">
-            <span className="text-xs text-[#43474f] flex items-center gap-1">
-              <span className="material-symbols-outlined text-base">schedule</span>
-              Estimated time: 2 mins
+          <div className="pt-4 mt-2 flex justify-end border-t border-[#c3c6d0]/30">
+            <span className="text-[#002b57] font-label text-sm font-semibold flex items-center gap-1">
+              記事一覧へ <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </span>
-            <button
-              onClick={() => onStartQuiz('daily-q1')}
-              className="bg-[#006b5c] hover:bg-[#005145] text-white font-label text-sm px-5 py-2.5 rounded-lg transition-colors active:scale-95 cursor-pointer shadow-xs"
-            >
-              Answer Now
-            </button>
           </div>
         </div>
 
-        {/* Learning Progress Widget */}
-        <div className="bg-white rounded-xl border border-[#c3c6d0]/60 p-6 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+        {/* App Promotion Card */}
+        <div
+          onClick={() => onStartQuiz()}
+          className="bg-white rounded-xl border border-[#c3c6d0]/60 p-6 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all cursor-pointer"
+        >
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-[#00BFA5]" />
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <h2 className="text-xl font-bold text-[#111c2c]">My Progress</h2>
-              <button
-                onClick={onOpenStatsModal}
-                className="text-[#002b57] hover:bg-[#f0f3ff] p-1.5 rounded-full transition-colors cursor-pointer"
-                title="詳細統計"
-              >
-                <span className="material-symbols-outlined text-xl">more_vert</span>
-              </button>
+            <div className="flex justify-between items-start mb-3">
+              <div>
+                <span className="inline-block px-2.5 py-1 bg-[#68fadd]/40 text-[#007261] font-bold text-[11px] uppercase tracking-wider rounded-md mb-2">
+                  問題演習アプリ
+                </span>
+                <h2 className="text-xl font-bold text-[#111c2c]">アプリで問題演習に挑戦</h2>
+              </div>
+              <span className="material-symbols-outlined text-[#00BFA5] text-3xl opacity-30 group-hover:opacity-100 transition-opacity">
+                smartphone
+              </span>
             </div>
-
-            <div className="flex flex-col gap-4 mt-2">
-              <div>
-                <div className="flex justify-between text-xs text-[#43474f] mb-1.5">
-                  <span className="font-semibold">Strategy (ストラテジ系)</span>
-                  <span className="font-bold text-[#002b57]">
-                    {userProgress.categoryProgress.strategy}%
-                  </span>
-                </div>
-                <div className="w-full bg-[#d8e3fa] rounded-full h-2 overflow-hidden">
-                  <div
-                    className="bg-[#002b57] h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${userProgress.categoryProgress.strategy}%` }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs text-[#43474f] mb-1.5">
-                  <span className="font-semibold">Management (マネジメント系)</span>
-                  <span className="font-bold text-[#006b5c]">
-                    {userProgress.categoryProgress.management}%
-                  </span>
-                </div>
-                <div className="w-full bg-[#d8e3fa] rounded-full h-2 overflow-hidden">
-                  <div
-                    className="bg-[#006b5c] h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${userProgress.categoryProgress.management}%` }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs text-[#43474f] mb-1.5">
-                  <span className="font-semibold">Technology (テクノロジ系)</span>
-                  <span className="font-bold text-blue-600">
-                    {userProgress.categoryProgress.technology}%
-                  </span>
-                </div>
-                <div className="w-full bg-[#d8e3fa] rounded-full h-2 overflow-hidden">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${userProgress.categoryProgress.technology}%` }}
-                  />
-                </div>
-              </div>
-            </div>
+            <p className="text-sm text-[#43474f] leading-relaxed">
+              解説記事で基礎を固めたら、専用アプリで実践的な問題演習と模擬テストに挑戦しましょう。
+            </p>
           </div>
-
-          <div className="pt-4 border-t border-[#c3c6d0]/30 text-center mt-4">
-            <button
-              onClick={onOpenStatsModal}
-              className="text-[#002b57] font-label text-sm hover:underline inline-flex items-center gap-1 font-semibold cursor-pointer"
-            >
-              View Detailed Stats
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+          <div className="pt-4 mt-2 flex justify-end border-t border-[#c3c6d0]/30">
+            <span className="text-[#00BFA5] font-label text-sm font-semibold flex items-center gap-1">
+              アプリを見る <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </span>
           </div>
         </div>
       </section>
@@ -190,12 +135,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Study by Category Section */}
       <section className="flex flex-col gap-4">
         <div className="flex justify-between items-end border-b border-[#c3c6d0] pb-2">
-          <h2 className="text-2xl font-bold text-[#111c2c]">Study by Category</h2>
+          <h2 className="text-2xl font-bold text-[#111c2c]">カテゴリ別解説記事</h2>
           <button
-            onClick={() => setActiveTab('study-guide')}
+            onClick={() => setActiveTab('table-of-contents')}
             className="text-xs text-[#43474f] hover:text-[#002b57] transition-colors flex items-center gap-0.5 cursor-pointer"
           >
-            See all <span className="material-symbols-outlined text-sm">chevron_right</span>
+            すべて見る <span className="material-symbols-outlined text-sm">chevron_right</span>
           </button>
         </div>
 
@@ -209,10 +154,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="bg-[#002b57]/10 text-[#002b57] w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10 group-hover:bg-[#002b57] group-hover:text-white transition-colors">
               <span className="material-symbols-outlined text-2xl">account_tree</span>
             </div>
-            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">Strategy</h3>
+            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">ストラテジ系</h3>
             <p className="text-xs text-[#43474f] leading-relaxed relative z-10">
-              Corporate activities, legal affairs, business strategy, and system strategy.
+              企業活動、法務、経営戦略、システム戦略について学びます。
             </p>
+            <span className="mt-3 inline-block text-xs font-bold text-[#002b57] relative z-10">
+              解説記事へ →
+            </span>
           </div>
 
           {/* Category 2: Management */}
@@ -224,10 +172,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="bg-[#006b5c]/10 text-[#006b5c] w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10 group-hover:bg-[#006b5c] group-hover:text-white transition-colors">
               <span className="material-symbols-outlined text-2xl">manage_accounts</span>
             </div>
-            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">Management</h3>
+            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">マネジメント系</h3>
             <p className="text-xs text-[#43474f] leading-relaxed relative z-10">
-              Development methods, project management, and service management.
+              開発手法、プロジェクトマネジメント、サービスマネジメントについて学びます。
             </p>
+            <span className="mt-3 inline-block text-xs font-bold text-[#006b5c] relative z-10">
+              解説記事へ →
+            </span>
           </div>
 
           {/* Category 3: Technology */}
@@ -239,10 +190,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="bg-blue-500/10 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10 group-hover:bg-blue-600 group-hover:text-white transition-colors">
               <span className="material-symbols-outlined text-2xl">memory</span>
             </div>
-            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">Technology</h3>
+            <h3 className="text-lg font-bold text-[#111c2c] mb-2 relative z-10">テクノロジ系</h3>
             <p className="text-xs text-[#43474f] leading-relaxed relative z-10">
-              Basic theory, computer systems, network, and security.
+              基礎理論、コンピュータシステム、ネットワーク、セキュリティについて学びます。
             </p>
+            <span className="mt-3 inline-block text-xs font-bold text-blue-600 relative z-10">
+              解説記事へ →
+            </span>
           </div>
         </div>
       </section>

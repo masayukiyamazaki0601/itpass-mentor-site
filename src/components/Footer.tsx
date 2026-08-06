@@ -16,34 +16,40 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
               alt="IT Passport Mentor Logo"
               className="w-6 h-6 rounded-md opacity-80"
             />
-            <span>IT Passport Mentor</span>
+            <span>ITパスポート メンター</span>
           </div>
           <p className="text-sm text-[#43474f]">
-            © 2024 IT Passport Mentor. Empowering IT Professionals.
+            © 2024 ITパスポート メンター. ITプロフェッショナルを支援します。
           </p>
         </div>
 
         <div className="flex flex-wrap gap-4 md:justify-end items-center text-sm text-[#43474f]">
           <button
+            onClick={() => setActiveTab('table-of-contents')}
+            className="hover:text-[#002b57] underline transition-colors"
+          >
+            目次
+          </button>
+          <button
             onClick={() => setActiveTab('glossary')}
             className="hover:text-[#002b57] underline transition-colors"
           >
-            Glossary
+            用語集
           </button>
           <button
             onClick={() => setActiveTab('study-guide')}
             className="hover:text-[#002b57] underline transition-colors"
           >
-            Study Guide
+            学習ガイド
           </button>
           <button
             onClick={() => setActiveTab('exam-overview')}
             className="hover:text-[#002b57] underline transition-colors"
           >
-            Exam Overview
+            試験概要
           </button>
           <span className="hover:text-[#002b57] cursor-pointer underline transition-colors">
-            Privacy Policy
+            プライバシーポリシー
           </span>
         </div>
       </div>

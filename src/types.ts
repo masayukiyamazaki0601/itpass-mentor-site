@@ -1,4 +1,16 @@
-export type MainNavTab = 'home' | 'glossary' | 'study-guide' | 'exam-overview';
+export type MainNavTab = 'home' | 'table-of-contents' | 'glossary' | 'study-guide' | 'exam-overview';
+
+export interface ChapterTopic {
+  id: string;
+  title: string;
+}
+
+export interface Chapter {
+  id: string;
+  number: number;
+  title: string;
+  topics: ChapterTopic[];
+}
 
 export type CategoryKey = 'strategy' | 'management' | 'technology';
 
@@ -30,6 +42,17 @@ export interface ArticleSection {
     items: string[];
     note?: string;
   };
+  callout2?: {
+    title: string;
+    items: string[];
+    note?: string;
+  };
+  comparisonTable?: {
+    title: string;
+    headers: string[];
+    rows: string[][];
+  };
+  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart';
 }
 
 export interface Article {

@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="w-8 h-8 rounded-md object-contain"
             />
             <span className="font-extrabold text-xl md:text-2xl text-[#002b57] tracking-tight group-hover:opacity-90 transition-opacity">
-              IT Passport Mentor
+              ITパスポート メンター
             </span>
           </button>
         </div>
@@ -59,7 +59,17 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
             }`}
           >
-            Home
+            ホーム
+          </button>
+          <button
+            onClick={() => setActiveTab('table-of-contents')}
+            className={`font-label text-sm py-2 px-4 rounded-full transition-all ${
+              activeTab === 'table-of-contents'
+                ? 'bg-[#68fadd] text-[#007261] font-bold shadow-xs'
+                : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
+            }`}
+          >
+            目次
           </button>
           <button
             onClick={() => setActiveTab('glossary')}
@@ -69,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
             }`}
           >
-            Glossary
+            用語集
           </button>
           <button
             onClick={() => setActiveTab('study-guide')}
@@ -79,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
             }`}
           >
-            Study Guide
+            学習ガイド
           </button>
           <button
             onClick={() => setActiveTab('exam-overview')}
@@ -89,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#43474f] hover:text-[#002b57] hover:bg-[#e7eeff]'
             }`}
           >
-            Exam Overview
+            試験概要
           </button>
         </nav>
 

@@ -91,7 +91,7 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
         <main className="flex-1 w-full max-w-3xl">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#43474f] mb-4">
-            <span className="hover:text-[#002b57] cursor-pointer">Study Guide</span>
+            <span className="hover:text-[#002b57] cursor-pointer">学習ガイド</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
             <span className="hover:text-[#002b57] cursor-pointer">{article.breadcrumbPath[1]}</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
@@ -129,6 +129,132 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
                   <p className="mb-4 text-base leading-relaxed whitespace-pre-line text-[#43474f]">
                     {sec.content}
                   </p>
+
+                  {/* Comparison Table */}
+                  {sec.comparisonTable && (
+                    <div className="my-6 overflow-x-auto bg-white rounded-lg border border-[#c3c6d0]/50 shadow-xs">
+                      <p className="text-xs font-bold text-[#002b57] px-4 py-2.5 bg-[#f0f3ff] border-b border-[#c3c6d0]/40">
+                        {sec.comparisonTable.title}
+                      </p>
+                      <table className="w-full text-left text-xs text-[#111c2c]">
+                        <thead className="bg-[#dee8ff]">
+                          <tr>
+                            {sec.comparisonTable.headers.map((h, hi) => (
+                              <th key={hi} className="p-3 font-bold text-[#002b57] whitespace-nowrap">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#c3c6d0]/30">
+                          {sec.comparisonTable.rows.map((row, ri) => (
+                            <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-[#f9f9ff]'}>
+                              {row.map((cell, ci) => (
+                                <td
+                                  key={ci}
+                                  className={`p-3 whitespace-nowrap ${ci === 0 ? 'font-bold text-[#006b5c]' : 'text-[#43474f]'}`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+
+                  {/* Visual Diagram based on type */}
+                  {sec.diagram && (
+                    <div className="my-6">
+                      {sec.diagram === 'bs-pl' && (
+                        <div className="bg-[#f9f9ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            財務諸表の全体像（B/S と P/L の関係）
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-white rounded-lg border-2 border-[#3182CE] p-4">
+                              <p className="text-xs font-extrabold text-[#3182CE] mb-3 text-center">貸借対照表（B/S）</p>
+                              <p className="text-[10px] text-[#737780] text-center mb-2">「ある一時点」の状態</p>
+                              <div className="space-y-1.5">
+                                <div className="bg-[#3182CE]/10 rounded px-3 py-2 text-xs font-bold text-[#3182CE] flex justify-between">
+                                  <span>資産（財産）</span><span>= 40</span>
+                                </div>
+                                <div className="bg-[#38A169]/10 rounded px-3 py-2 text-xs font-bold text-[#38A169] flex justify-between">
+                                  <span>負債（借金）</span><span>= 15</span>
+                                </div>
+                                <div className="bg-[#D69E2E]/10 rounded px-3 py-2 text-xs font-bold text-[#D69E2E] flex justify-between">
+                                  <span>純資産（資本）</span><span>= 25</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="bg-white rounded-lg border-2 border-[#38A169] p-4">
+                              <p className="text-xs font-extrabold text-[#38A169] mb-3 text-center">損益計算書（P/L）</p>
+                              <p className="text-[10px] text-[#737780] text-center mb-2">「一定期間」の流れ</p>
+                              <div className="space-y-1.5">
+                                <div className="bg-[#38A169]/10 rounded px-3 py-2 text-xs font-bold text-[#38A169]">収益（売上）= 100</div>
+                                <div className="bg-rose-50 rounded px-3 py-2 text-xs font-bold text-rose-600">費用（コスト）= 80</div>
+                                <div className="bg-emerald-50 rounded px-3 py-2 text-xs font-bold text-emerald-700">利益 = 20</div>
+                              </div>
+                            </div>
+                          </div>
+                          <p className="text-[10px] text-[#737780] mt-3 text-center">
+                            ※ 資産 = 負債 + 純資産 というバランス（貸借）を表すのが B/S です
+                          </p>
+                        </div>
+                      )}
+
+                      {sec.diagram === 'five-profits' && (
+                        <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            5つの利益の段階計算フロー
+                          </p>
+                          <div className="flex flex-col items-center gap-1.5">
+                            <div className="bg-white border border-[#3182CE] rounded-lg px-4 py-2.5 text-xs font-bold text-[#3182CE] text-center w-full max-w-xs">
+                              売上総利益 = 売上高 − 売上原価
+                            </div>
+                            <span className="material-symbols-outlined text-[#737780] text-sm">arrow_downward</span>
+                            <div className="bg-white border border-[#38A169] rounded-lg px-4 py-2.5 text-xs font-bold text-[#38A169] text-center w-full max-w-xs">
+                              営業利益 = 売上総利益 − 販売費・一般管理費
+                            </div>
+                            <span className="material-symbols-outlined text-[#737780] text-sm">arrow_downward</span>
+                            <div className="bg-white border border-[#D69E2E] rounded-lg px-4 py-2.5 text-xs font-bold text-[#D69E2E] text-center w-full max-w-xs">
+                              経常利益 = 営業利益 ± 営業外損益
+                            </div>
+                            <span className="material-symbols-outlined text-[#737780] text-sm">arrow_downward</span>
+                            <div className="bg-[#002b57] text-white rounded-lg px-4 py-2.5 text-xs font-extrabold text-center w-full max-w-xs shadow-xs">
+                              当期純利益 = 税引前当期純利益 − 法人税等
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {sec.diagram === 'organization-chart' && (
+                        <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            組織形態の比較
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div className="bg-white border-2 border-[#3182CE] rounded-lg p-3 text-center">
+                              <span className="material-symbols-outlined text-[#3182CE] text-lg block mb-1">precision_manufacturing</span>
+                              <p className="text-[10px] font-extrabold text-[#3182CE]">機能別組織</p>
+                              <p className="text-[9px] text-[#737780] mt-1">専門分野ごとに部門分割</p>
+                            </div>
+                            <div className="bg-white border-2 border-[#38A169] rounded-lg p-3 text-center">
+                              <span className="material-symbols-outlined text-[#38A169] text-lg block mb-1">business</span>
+                              <p className="text-[10px] font-extrabold text-[#38A169]">事業部制組織</p>
+                              <p className="text-[9px] text-[#737780] mt-1">製品・地域で独立採算</p>
+                            </div>
+                            <div className="bg-white border-2 border-[#D69E2E] rounded-lg p-3 text-center">
+                              <span className="material-symbols-outlined text-[#D69E2E] text-lg block mb-1">grid_view</span>
+                              <p className="text-[10px] font-extrabold text-[#D69E2E]">マトリックス組織</p>
+                              <p className="text-[9px] text-[#737780] mt-1">機能×事業の複合型</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Bento Grid Presentation if available */}
                   {sec.bentoCards && sec.bentoCards.length > 0 && (
@@ -179,6 +305,25 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
                       </div>
                     </div>
                   )}
+
+                  {/* Callout2 Box if available */}
+                  {sec.callout2 && (
+                    <div className="bg-[#68fadd]/30 rounded-xl p-5 my-6 flex gap-4 items-start shadow-xs border border-[#00BFA5]/40">
+                      <div className="bg-[#007261] text-[#68fadd] p-2 rounded-full flex-shrink-0">
+                        <span className="material-symbols-outlined">tips_and_updates</span>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-base text-[#007261] mb-2">
+                          {sec.callout2.title}
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1 text-sm text-[#43474f] marker:text-[#007261]">
+                          {sec.callout2.items.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </section>
               ))}
             </div>
@@ -189,8 +334,8 @@ export const StudyGuideView: React.FC<StudyGuideViewProps> = ({
                 onClick={() => onStartQuiz(article.id)}
                 className="bg-[#00BFA5] hover:bg-[#009a85] text-white font-label text-sm py-3.5 px-8 rounded-lg shadow-sm hover:shadow-md transition-all flex items-center gap-2 active:scale-95 w-full sm:w-auto justify-center cursor-pointer font-bold"
               >
-                <span className="material-symbols-outlined">quiz</span>
-                理解度確認テストに挑戦
+                <span className="material-symbols-outlined">smartphone</span>
+                アプリで問題演習に挑戦
               </button>
             </div>
           </article>

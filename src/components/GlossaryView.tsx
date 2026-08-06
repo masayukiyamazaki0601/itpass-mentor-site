@@ -65,7 +65,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
     <div className="flex-1 w-full max-w-full">
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#111c2c] mb-3">
-          用語集 (Glossary)
+          用語集
         </h1>
         <p className="text-sm text-[#43474f] max-w-3xl leading-relaxed">
           ITパスポート試験の頻出用語をA-Z順に整理しています。試験前の最終確認や、わからない用語の検索に活用してください。
