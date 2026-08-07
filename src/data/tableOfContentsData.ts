@@ -37,7 +37,8 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
       { id: 'ch3-t1', title: '経営戦略とSWOT分析', articleId: 'management-strategy-swot' },
       { id: 'ch3-t2', title: 'PPM (Product Portfolio Management)', articleId: 'ppm-portfolio' },
       { id: 'ch3-t3', title: '経営戦略に関する重要用語', articleId: 'strategy-key-terms' },
-      { id: 'ch3-t4', title: '事業戦略と経営管理システム', articleId: 'business-strategy-systems' }
+      { id: 'ch3-t4', title: '事業戦略と経営管理システム', articleId: 'business-strategy-systems' },
+      { id: 'ch3-t5', title: 'IT投資評価と財務指標', articleId: 'investment-evaluation-financial-metrics' }
     ]
   },
   {
@@ -73,13 +74,13 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 6,
     title: '開発技術',
     topics: [
-      { id: 'ch6-t1', title: 'システム開発技術' },
-      { id: 'ch6-t2', title: 'システム要件定義' },
-      { id: 'ch6-t3', title: 'システム設計' },
-      { id: 'ch6-t4', title: 'プログラミング' },
-      { id: 'ch6-t5', title: 'テストとソフトウェア受入れ' },
-      { id: 'ch6-t6', title: '運用プロセスと保守プロセス' },
-      { id: 'ch6-t7', title: 'ソフトウェアの開発モデル' }
+      { id: 'ch6-t1', title: 'システム開発技術', articleId: 'system-development-technology' },
+      { id: 'ch6-t2', title: 'システム要件定義', articleId: 'system-requirements-definition' },
+      { id: 'ch6-t3', title: 'システム設計', articleId: 'system-design' },
+      { id: 'ch6-t4', title: 'プログラミング', articleId: 'programming' },
+      { id: 'ch6-t5', title: 'テストとソフトウェア受入れ', articleId: 'testing-acceptance' },
+      { id: 'ch6-t6', title: '運用プロセスと保守プロセス', articleId: 'operation-maintenance' },
+      { id: 'ch6-t7', title: 'ソフトウェアの開発モデル', articleId: 'development-models' }
     ]
   },
   {
@@ -87,11 +88,11 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 7,
     title: 'プロジェクトマネジメント',
     topics: [
-      { id: 'ch7-t1', title: 'プロジェクトマネジメントと3つの制約' },
-      { id: 'ch7-t2', title: 'PMBOKとは' },
-      { id: 'ch7-t3', title: 'プロジェクトスケジュールマネジメント' },
-      { id: 'ch7-t4', title: 'プロジェクト資源マネジメント' },
-      { id: 'ch7-t5', title: 'プロジェクトリスクマネジメント' }
+      { id: 'ch7-t1', title: 'プロジェクトマネジメントと3つの制約', articleId: 'pm-three-constraints' },
+      { id: 'ch7-t2', title: 'PMBOKとは', articleId: 'pmbok' },
+      { id: 'ch7-t3', title: 'プロジェクトスケジュールマネジメント', articleId: 'schedule-management' },
+      { id: 'ch7-t4', title: 'プロジェクト資源マネジメント', articleId: 'resource-management' },
+      { id: 'ch7-t5', title: 'プロジェクトリスクマネジメント', articleId: 'risk-management' }
     ]
   },
   {
@@ -99,12 +100,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 8,
     title: 'サービスマネジメントとシステム監査',
     topics: [
-      { id: 'ch8-t1', title: 'サービスマネジメントとITIL' },
-      { id: 'ch8-t2', title: 'SLMと可用性管理' },
-      { id: 'ch8-t3', title: 'サービスサポート' },
-      { id: 'ch8-t4', title: 'ファシリティマネジメント' },
-      { id: 'ch8-t5', title: 'システム監査' },
-      { id: 'ch8-t6', title: '内部統制' }
+      { id: 'ch8-t1', title: 'サービスマネジメントとITIL', articleId: 'service-management-itil' },
+      { id: 'ch8-t2', title: 'SLMと可用性管理', articleId: 'slm-availability' },
+      { id: 'ch8-t3', title: 'サービスサポート', articleId: 'service-support' },
+      { id: 'ch8-t4', title: 'ファシリティマネジメント', articleId: 'facility-management' },
+      { id: 'ch8-t5', title: 'システム監査', articleId: 'system-audit' },
+      { id: 'ch8-t6', title: '内部統制', articleId: 'internal-control' }
     ]
   },
   {
@@ -112,15 +113,15 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 9,
     title: '基礎理論とアルゴリズム',
     topics: [
-      { id: 'ch9-t1', title: '数値の数え方' },
-      { id: 'ch9-t2', title: '集合と論理演算' },
-      { id: 'ch9-t3', title: 'データの単位' },
-      { id: 'ch9-t4', title: 'データ構造' },
-      { id: 'ch9-t5', title: 'アルゴリズムとフローチャート' },
-      { id: 'ch9-t6', title: 'コンピュータ言語' },
-      { id: 'ch9-t7', title: 'プログラミング① 基礎知識' },
-      { id: 'ch9-t8', title: 'プログラミング② 選択処理と繰り返し処理' },
-      { id: 'ch9-t9', title: 'プログラミング③ 関数' }
+      { id: 'ch9-t1', title: '数値の数え方', articleId: 'number-systems' },
+      { id: 'ch9-t2', title: '集合と論理演算', articleId: 'sets-logic' },
+      { id: 'ch9-t3', title: 'データの単位', articleId: 'data-units' },
+      { id: 'ch9-t4', title: 'データ構造', articleId: 'data-structures' },
+      { id: 'ch9-t5', title: 'アルゴリズムとフローチャート', articleId: 'algorithms-flowcharts' },
+      { id: 'ch9-t6', title: 'コンピュータ言語', articleId: 'computer-languages' },
+      { id: 'ch9-t7', title: 'プログラミング① 基礎知識', articleId: 'programming-basics' },
+      { id: 'ch9-t8', title: 'プログラミング② 選択処理と繰り返し処理', articleId: 'programming-conditionals-loops' },
+      { id: 'ch9-t9', title: 'プログラミング③ 関数', articleId: 'programming-functions' }
     ]
   },
   {
@@ -128,12 +129,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 10,
     title: 'コンピュータシステム',
     topics: [
-      { id: 'ch10-t1', title: '処理形態によるシステムの分類' },
-      { id: 'ch10-t2', title: '利用形態やシステム構成による分類' },
-      { id: 'ch10-t3', title: 'ハードディスクの多重化（RAID）' },
-      { id: 'ch10-t4', title: 'システムの評価指標' },
-      { id: 'ch10-t5', title: 'システムの信頼性' },
-      { id: 'ch10-t6', title: '直列システムと並列システム' }
+      { id: 'ch10-t1', title: '処理形態によるシステムの分類', articleId: 'processing-types' },
+      { id: 'ch10-t2', title: '利用形態やシステム構成による分類', articleId: 'usage-system-types' },
+      { id: 'ch10-t3', title: 'ハードディスクの多重化（RAID）', articleId: 'raid' },
+      { id: 'ch10-t4', title: 'システムの評価指標', articleId: 'evaluation-metrics' },
+      { id: 'ch10-t5', title: 'システムの信頼性', articleId: 'reliability' },
+      { id: 'ch10-t6', title: '直列システムと並列システム', articleId: 'series-parallel-systems' }
     ]
   },
   {
@@ -141,12 +142,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 11,
     title: 'ハードウェア',
     topics: [
-      { id: 'ch11-t1', title: 'コンピュータの種類' },
-      { id: 'ch11-t2', title: 'コンピュータの5つの役割' },
-      { id: 'ch11-t3', title: '演算と制御' },
-      { id: 'ch11-t4', title: '記憶' },
-      { id: 'ch11-t5', title: '入力と出力' },
-      { id: 'ch11-t6', title: '入出力インタフェース' }
+      { id: 'ch11-t1', title: 'コンピュータの種類', articleId: 'computer-types' },
+      { id: 'ch11-t2', title: 'コンピュータの5つの役割', articleId: 'computer-five-roles' },
+      { id: 'ch11-t3', title: '演算と制御', articleId: 'arithmetic-control' },
+      { id: 'ch11-t4', title: '記憶', articleId: 'memory' },
+      { id: 'ch11-t5', title: '入力と出力', articleId: 'input-output' },
+      { id: 'ch11-t6', title: '入出力インタフェース', articleId: 'io-interface' }
     ]
   },
   {
@@ -154,11 +155,11 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 12,
     title: 'ソフトウェア',
     topics: [
-      { id: 'ch12-t1', title: 'OSの機能' },
-      { id: 'ch12-t2', title: 'データ管理とファイルシステム' },
-      { id: 'ch12-t3', title: 'バックアップ' },
-      { id: 'ch12-t4', title: 'アプリケーションソフトウェア' },
-      { id: 'ch12-t5', title: '情報デザインとソフトウェアの権利' }
+      { id: 'ch12-t1', title: 'OSの機能', articleId: 'os-functions' },
+      { id: 'ch12-t2', title: 'データ管理とファイルシステム', articleId: 'file-system' },
+      { id: 'ch12-t3', title: 'バックアップ', articleId: 'backup' },
+      { id: 'ch12-t4', title: 'アプリケーションソフトウェア', articleId: 'application-software' },
+      { id: 'ch12-t5', title: '情報デザインとソフトウェアの権利', articleId: 'information-design-software-rights' }
     ]
   },
   {
@@ -166,10 +167,10 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 13,
     title: 'データベース',
     topics: [
-      { id: 'ch13-t1', title: 'データベースの基本' },
-      { id: 'ch13-t2', title: '関係データベース' },
-      { id: 'ch13-t3', title: 'データベース設計' },
-      { id: 'ch13-t4', title: 'データベース管理システムとSQL' }
+      { id: 'ch13-t1', title: 'データベースの基本', articleId: 'database-basics' },
+      { id: 'ch13-t2', title: '関係データベース', articleId: 'relational-database' },
+      { id: 'ch13-t3', title: 'データベース設計', articleId: 'database-design' },
+      { id: 'ch13-t4', title: 'データベース管理システムとSQL', articleId: 'dbms-sql' }
     ]
   },
   {
@@ -177,11 +178,11 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 14,
     title: 'ネットワーク',
     topics: [
-      { id: 'ch14-t1', title: 'LANとWAN' },
-      { id: 'ch14-t2', title: 'ネットワーク機器' },
-      { id: 'ch14-t3', title: '通信プロトコル' },
-      { id: 'ch14-t4', title: 'インターネットの仕組み' },
-      { id: 'ch14-t5', title: 'インターネットサービス' }
+      { id: 'ch14-t1', title: 'LANとWAN', articleId: 'lan-wan' },
+      { id: 'ch14-t2', title: 'ネットワーク機器', articleId: 'network-devices' },
+      { id: 'ch14-t3', title: '通信プロトコル', articleId: 'communication-protocols' },
+      { id: 'ch14-t4', title: 'インターネットの仕組み', articleId: 'internet-mechanism' },
+      { id: 'ch14-t5', title: 'インターネットサービス', articleId: 'internet-services' }
     ]
   },
   {
@@ -189,12 +190,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 15,
     title: '情報セキュリティ',
     topics: [
-      { id: 'ch15-t1', title: '情報セキュリティの脅威' },
-      { id: 'ch15-t2', title: 'リスクマネジメント' },
-      { id: 'ch15-t3', title: '情報セキュリティマネジメント' },
-      { id: 'ch15-t4', title: '暗号技術の基本' },
-      { id: 'ch15-t5', title: 'デジタル署名と認証局' },
-      { id: 'ch15-t6', title: '脅威への対策' }
+      { id: 'ch15-t1', title: '情報セキュリティの脅威', articleId: 'security-threats' },
+      { id: 'ch15-t2', title: 'リスクマネジメント', articleId: 'security-risk-management' },
+      { id: 'ch15-t3', title: '情報セキュリティマネジメント', articleId: 'security-management' },
+      { id: 'ch15-t4', title: '暗号技術の基本', articleId: 'cryptography-basics' },
+      { id: 'ch15-t5', title: 'デジタル署名と認証局', articleId: 'digital-signature-ca' },
+      { id: 'ch15-t6', title: '脅威への対策', articleId: 'threat-countermeasures' }
     ]
   }
 ];
