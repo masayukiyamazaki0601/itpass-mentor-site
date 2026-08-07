@@ -34,10 +34,10 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 3,
     title: '経営戦略マネジメント',
     topics: [
-      { id: 'ch3-t1', title: '経営戦略とSWOT分析' },
-      { id: 'ch3-t2', title: 'PPM (Product Portfolio Management)' },
-      { id: 'ch3-t3', title: '経営戦略に関する重要用語' },
-      { id: 'ch3-t4', title: '事業戦略と経営管理システム' }
+      { id: 'ch3-t1', title: '経営戦略とSWOT分析', articleId: 'management-strategy-swot' },
+      { id: 'ch3-t2', title: 'PPM (Product Portfolio Management)', articleId: 'ppm-portfolio' },
+      { id: 'ch3-t3', title: '経営戦略に関する重要用語', articleId: 'strategy-key-terms' },
+      { id: 'ch3-t4', title: '事業戦略と経営管理システム', articleId: 'business-strategy-systems' }
     ]
   },
   {
@@ -45,12 +45,12 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 4,
     title: '技術戦略マネジメント',
     topics: [
-      { id: 'ch4-t1', title: '技術開発戦略の立案・技術開発計画' },
-      { id: 'ch4-t2', title: 'ビジネスシステム' },
-      { id: 'ch4-t3', title: 'エンジニアリングシステム' },
-      { id: 'ch4-t4', title: '生産管理の計算問題' },
-      { id: 'ch4-t5', title: 'e-ビジネス' },
-      { id: 'ch4-t6', title: 'IoTシステム・組込みシステム' }
+      { id: 'ch4-t1', title: '技術開発戦略の立案・技術開発計画', articleId: 'technology-development-strategy' },
+      { id: 'ch4-t2', title: 'ビジネスシステム', articleId: 'business-systems' },
+      { id: 'ch4-t3', title: 'エンジニアリングシステム', articleId: 'engineering-systems' },
+      { id: 'ch4-t4', title: '生産管理の計算問題', articleId: 'production-management-calculations' },
+      { id: 'ch4-t5', title: 'e-ビジネス', articleId: 'e-business' },
+      { id: 'ch4-t6', title: 'IoTシステム・組込みシステム', articleId: 'iot-embedded-systems' }
     ]
   },
   {
@@ -58,14 +58,14 @@ export const TABLE_OF_CONTENTS: Chapter[] = [
     number: 5,
     title: 'システム戦略',
     topics: [
-      { id: 'ch5-t1', title: '情報システム戦略' },
-      { id: 'ch5-t2', title: '業務プロセス' },
-      { id: 'ch5-t3', title: '業務プロセスを改善する方法' },
-      { id: 'ch5-t4', title: 'ソリューションビジネス' },
-      { id: 'ch5-t5', title: 'システムの活用促進と評価' },
-      { id: 'ch5-t6', title: 'システム企画' },
-      { id: 'ch5-t7', title: '企画プロセスと要件定義プロセス' },
-      { id: 'ch5-t8', title: '調達計画・実施' }
+      { id: 'ch5-t1', title: '情報システム戦略', articleId: 'information-systems-strategy' },
+      { id: 'ch5-t2', title: '業務プロセス', articleId: 'business-process' },
+      { id: 'ch5-t3', title: '業務プロセスを改善する方法', articleId: 'business-process-improvement' },
+      { id: 'ch5-t4', title: 'ソリューションビジネス', articleId: 'solution-business' },
+      { id: 'ch5-t5', title: 'システムの活用促進と評価', articleId: 'system-promotion-evaluation' },
+      { id: 'ch5-t6', title: 'システム企画', articleId: 'system-planning' },
+      { id: 'ch5-t7', title: '企画プロセスと要件定義プロセス', articleId: 'planning-requirements' },
+      { id: 'ch5-t8', title: '調達計画・実施', articleId: 'procurement-planning' }
     ]
   },
   {

@@ -300,6 +300,133 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                           </p>
                         </div>
                       )}
+
+                      {sec.diagram === 'process-visualization' && (
+                        <div className="space-y-6">
+                          {/* 業務フロー図（スイムレーン） */}
+                          <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5 overflow-x-auto">
+                            <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                              業務フロー図（スイムレーン）：ネット通販の注文処理
+                            </p>
+                            <div className="min-w-[560px]">
+                              {/* ヘッダー行 */}
+                              <div className="grid grid-cols-[90px_1fr] gap-1 mb-1">
+                                <div className="bg-[#002b57] text-white text-[10px] font-bold rounded px-2 py-1.5 text-center">担当</div>
+                                <div className="grid grid-cols-6 gap-1">
+                                  {['注文', '受付', '在庫確認', '梱包', '発送', '完了'].map((s) => (
+                                    <div key={s} className="bg-[#002b57]/10 text-[#002b57] text-[10px] font-bold rounded px-1 py-1.5 text-center">{s}</div>
+                                  ))}
+                                </div>
+                              </div>
+                              {/* お客様レーン */}
+                              <div className="grid grid-cols-[90px_1fr] gap-1 mb-1">
+                                <div className="bg-[#3182CE]/10 text-[#3182CE] text-[10px] font-extrabold rounded px-2 py-3 flex items-center justify-center border border-[#3182CE]/30">お客様</div>
+                                <div className="grid grid-cols-6 gap-1">
+                                  <div className="bg-white border-2 border-[#3182CE] rounded px-1 py-3 text-[10px] font-bold text-[#3182CE] text-center flex items-center justify-center">商品を注文</div>
+                                  <div className="bg-[#dee8ff] rounded text-[10px] text-[#43474f] text-center flex items-center justify-center">▼</div>
+                                  <div className="bg-[#dee8ff] rounded text-[10px] text-[#43474f] text-center flex items-center justify-center">▼</div>
+                                  <div className="bg-[#dee8ff] rounded text-[10px] text-[#43474f] text-center flex items-center justify-center">▼</div>
+                                  <div className="bg-white border-2 border-[#38A169] rounded px-1 py-3 text-[10px] font-bold text-[#38A169] text-center flex items-center justify-center">商品を受け取る</div>
+                                  <div />
+                                </div>
+                              </div>
+                              {/* 受注・在庫レーン */}
+                              <div className="grid grid-cols-[90px_1fr] gap-1 mb-1">
+                                <div className="bg-[#38A169]/10 text-[#38A169] text-[10px] font-extrabold rounded px-2 py-3 flex items-center justify-center border border-[#38A169]/30">受注・在庫</div>
+                                <div className="grid grid-cols-6 gap-1">
+                                  <div />
+                                  <div className="bg-white border-2 border-[#38A169] rounded px-1 py-3 text-[10px] font-bold text-[#38A169] text-center flex items-center justify-center">注文を受付</div>
+                                  <div className="bg-white border-2 border-[#D69E2E] rounded px-1 py-3 text-[10px] font-bold text-[#D69E2E] text-center flex items-center justify-center">在庫を確認</div>
+                                  <div className="bg-white border-2 border-[#38A169] rounded px-1 py-3 text-[10px] font-bold text-[#38A169] text-center flex items-center justify-center">梱包・出荷手配</div>
+                                  <div />
+                                  <div />
+                                </div>
+                              </div>
+                              {/* 発送レーン */}
+                              <div className="grid grid-cols-[90px_1fr] gap-1">
+                                <div className="bg-[#D69E2E]/10 text-[#D69E2E] text-[10px] font-extrabold rounded px-2 py-3 flex items-center justify-center border border-[#D69E2E]/30">発送</div>
+                                <div className="grid grid-cols-6 gap-1">
+                                  <div />
+                                  <div />
+                                  <div />
+                                  <div />
+                                  <div className="bg-white border-2 border-[#D69E2E] rounded px-1 py-3 text-[10px] font-bold text-[#D69E2E] text-center flex items-center justify-center">商品を発送</div>
+                                  <div className="bg-white border-2 border-[#006b5c] rounded px-1 py-3 text-[10px] font-bold text-[#006b5c] text-center flex items-center justify-center">受取確認・完了</div>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-[10px] text-[#737780] mt-3 text-center">
+                              ※ 担当者ごとのレーンに沿って、業務の手順を時系列で表す
+                            </p>
+                          </div>
+
+                          {/* DFD */}
+                          <div className="bg-[#f9f9ff] border border-[#c3c6d0]/40 rounded-xl p-5 overflow-x-auto">
+                            <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                              DFD（データフロー図）：データの流れに着目
+                            </p>
+                            <div className="min-w-[520px] flex items-center justify-center gap-2">
+                              <div className="bg-white border-2 border-[#3182CE] rounded-lg px-4 py-3 text-center">
+                                <span className="material-symbols-outlined text-[#3182CE] text-lg block mb-1">person</span>
+                                <p className="text-[10px] font-extrabold text-[#3182CE]">顧客</p>
+                              </div>
+                              <span className="material-symbols-outlined text-[#737780] text-sm">arrow_forward</span>
+                              <div className="bg-[#dee8ff] border border-[#c3c6d0]/50 rounded-lg px-3 py-2 text-[10px] font-bold text-[#002b57] text-center">
+                                注文データ
+                              </div>
+                              <span className="material-symbols-outlined text-[#737780] text-sm">arrow_forward</span>
+                              <div className="bg-white border-2 border-[#38A169] rounded-lg px-4 py-3 text-center">
+                                <span className="material-symbols-outlined text-[#38A169] text-lg block mb-1">sync_alt</span>
+                                <p className="text-[10px] font-extrabold text-[#38A169]">受注処理</p>
+                              </div>
+                              <span className="material-symbols-outlined text-[#737780] text-sm">arrow_forward</span>
+                              <div className="bg-white border-2 border-[#D69E2E] rounded-lg px-3 py-2 text-center">
+                                <span className="material-symbols-outlined text-[#D69E2E] text-lg block mb-1">database</span>
+                                <p className="text-[10px] font-extrabold text-[#D69E2E]">在庫DB</p>
+                              </div>
+                            </div>
+                            <p className="text-[10px] text-[#737780] mt-3 text-center">
+                              ※ 楕円＝処理、四角＝外部、開いた四角＝データベース、矢印＝データの流れ
+                            </p>
+                          </div>
+
+                          {/* E-R図 */}
+                          <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5 overflow-x-auto">
+                            <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                              E-R図：データ同士の関係
+                            </p>
+                            <div className="min-w-[520px] flex items-center justify-center gap-3">
+                              <div className="bg-white border-2 border-[#3182CE] rounded-lg px-4 py-3 text-center">
+                                <p className="text-[10px] font-extrabold text-[#3182CE]">顧客</p>
+                                <p className="text-[9px] text-[#737780]">顧客ID（主キー）</p>
+                              </div>
+                              <div className="text-center">
+                                <p className="text-[11px] font-bold text-[#737780]">1</p>
+                                <span className="material-symbols-outlined text-[#737780] text-sm block">link</span>
+                                <p className="text-[11px] font-bold text-[#737780]">＊</p>
+                                <p className="text-[9px] text-[#737780]">注文</p>
+                              </div>
+                              <div className="bg-white border-2 border-[#38A169] rounded-lg px-4 py-3 text-center">
+                                <p className="text-[10px] font-extrabold text-[#38A169]">注文</p>
+                                <p className="text-[9px] text-[#737780]">注文ID（主キー）</p>
+                              </div>
+                              <div className="text-center">
+                                <p className="text-[11px] font-bold text-[#737780]">1</p>
+                                <span className="material-symbols-outlined text-[#737780] text-sm block">link</span>
+                                <p className="text-[11px] font-bold text-[#737780]">＊</p>
+                                <p className="text-[9px] text-[#737780]">注文商品</p>
+                              </div>
+                              <div className="bg-white border-2 border-[#D69E2E] rounded-lg px-4 py-3 text-center">
+                                <p className="text-[10px] font-extrabold text-[#D69E2E]">注文商品</p>
+                                <p className="text-[9px] text-[#737780]">注文ID＋商品ID</p>
+                              </div>
+                            </div>
+                            <p className="text-[10px] text-[#737780] mt-3 text-center">
+                              ※ 「1対多」の関係（1人の顧客が複数の注文をする）を表す
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
 
