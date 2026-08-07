@@ -19,7 +19,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
   const [selectedIndexGroup, setSelectedIndexGroup] = useState<string>('ALL');
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
 
-  const indexGroups = ['ALL', 'A', 'B', 'C', 'D', 'I', 'P', 'R', 'S', 'あ行', 'か行', 'さ行'];
+  const indexGroups = ['ALL', 'A', 'B', 'C', 'D', 'I', 'M', 'N', 'P', 'R', 'S', 'T', 'あ行', 'か行', 'さ行', 'た行', 'な行', 'は行', 'ま行', 'ら行'];
 
   const filteredTerms = useMemo(() => {
     return GLOSSARY_TERMS.filter((term) => {

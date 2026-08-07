@@ -9,8 +9,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'A',
-    description: 'ソフトウェアやプログラム、Webサービスの間を繋ぐインターフェースのこと。自分のソフトウェアに他のソフトウェアの機能を埋め込むことができるようになる。',
-    examTip: '外部サービスとの連携やマイナンバー連携など、現代のWebサービス構築に欠かせない技術として頻出。'
+    description: 'アプリ同士をつなぐ「窓口」。例：レストランの注文口をAPIにすると、どの店でも「メニューを頼める」。天気アプリが気象庁のデータを取ってくるのもAPIのおかげ。',
+    examTip: '「外部の機能を自社サービスに組み込む」場面で出る。マイナンバー連携もAPIの活用例。'
   },
   {
     id: 'agile',
@@ -20,8 +20,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'management',
     categoryLabel: 'マネジメント系',
     indexGroup: 'A',
-    description: 'ソフトウェア開発手法の一つ。短い開発期間（スプリント）を反復し、要件変更に柔軟に対応しながら少しずつシステムを作り上げていく手法。',
-    examTip: '対比される「ウォーターフォールモデル」との特徴の違い（ドキュメント重視 vs 動くソフトウェア重視）を押さえましょう。'
+    description: '短い期間で「作る→見せる→直す」を繰り返す開発手法。例：ラーメン屋が小さい丼を出して反応を見てから改良する感じ。要件が変わっても柔軟に対応できる。',
+    examTip: '対比される「ウォーターフォール」と違い、動くソフトを早く届けることを重視する。'
   },
   {
     id: 'bandwidth',
@@ -31,8 +31,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'B',
-    description: '通信回線のデータ伝送容量を示す指標。一定時間内にどれだけのデータを送受信できるかを表し、一般に「回線の太さ」と表現される。',
-    examTip: 'bps（bits per second）という単位とともに、スループットやレイテンシとの用語整理が重要です。'
+    description: '通信回線の「太さ」。太いほど一度にたくさんのデータを送れる。例：道路の車線数。4車線より8車線の方が一度に多くの車が通れる。',
+    examTip: '単位はbps（1秒間に送れるビット数）。スループット（実際の速度）との違いも問われる。'
   },
   {
     id: 'bcp',
@@ -42,19 +42,19 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
     indexGroup: 'B',
-    description: '自然災害やシステム障害などの緊急事態が発生した際、事業を中断させない、または早期復旧させるための計画。',
-    examTip: 'BCM（事業継続マネジメント）やRTO（目標復旧時間）などの関連指標と合わせて出題されます。'
+    description: '地震や大規模障害が起きても「仕事を止めず、早く復旧する」ための事前の計画書。例：避難訓練と同じで、火事が起きる前に「どこから逃げるか」を決めておく。',
+    examTip: 'RTO（何時間で復旧するか）やRPO（どこまでデータを戻すか）とセットで出る。'
   },
   {
-    id: 'crm',
-    term: 'CRM',
-    english: 'Customer Relationship Management',
-    reading: '顧客関係管理（こきゃくかんけいかんり）',
-    category: 'strategy',
-    categoryLabel: 'ストラテジ系',
-    indexGroup: 'C',
-    description: '顧客との関係性を構築・管理し、顧客満足度やLTV（顧客生涯価値）を向上させる手法またはITシステム。',
-    examTip: 'SFA（営業支援システム）やERP（企業資源計画）との違いを明確にしておきましょう。'
+    id: 'bpr',
+    term: 'BPR',
+    english: 'Business Process Re-engineering',
+    reading: 'ビーピーアール',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'B',
+    description: '今のやり方を捨てて、業務をゼロから「作り直す」こと。例：書類のハンコ回しをやめて、一括でネット承認に変える。ただシステム化するのではなく「業務自体を変える」。',
+    examTip: '「根本から見直して再設計」という言葉が出たらBPR。単なる自動化ではない。'
   },
   {
     id: 'cookie',
@@ -64,8 +64,30 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'C',
-    description: 'WebブラウザとWebサーバー間で状態情報（ログイン状態やカート情報など）を保持するための小さなデータファイル。',
-    examTip: 'プライバシー保護の観点（サードパーティCookieの規制）やセッション管理でよく問われます。'
+    description: 'Webサイトが「あなたを覚えておく」ための小さなデータ。例：通販サイトの買い物カゴの中身や、ログイン状態を保持してくれる。',
+    examTip: 'ログイン状態の保持が主目的。第三者Cookieの扱い（プライバシー）も近年のポイント。'
+  },
+  {
+    id: 'crm',
+    term: 'CRM',
+    english: 'Customer Relationship Management',
+    reading: '顧客関係管理（こきゃくかんけいかんり）',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'C',
+    description: 'お客様の情報をまとめて管理し、仲良くなってリピートしてもらう仕組み。例：美容院が「前回の髪型と誕生日」を覚えていて「○○さん、お久しぶりです」と声をかける。',
+    examTip: '「顧客」の管理がCRM。「モノの流れ」の最適化がSCMとセットでよく出る。'
+  },
+  {
+    id: 'csr',
+    term: 'CSR',
+    english: 'Corporate Social Responsibility',
+    reading: '企業の社会的責任（きぎょうのしゃかいてきせきにん）',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'C',
+    description: '企業が社会の一員として「社会を良くする」ために自発的に行う活動。例：環境を守るため工場の排出を減らす、地域のボランティアに参加する。',
+    examTip: '「社会への貢献＝CSR」と結びつける問題が頻出。コンプライアンス（法令遵守）との違いも確認。'
   },
   {
     id: 'dns',
@@ -75,8 +97,19 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'D',
-    description: '「example.com」のようなドメイン名と、ネットワーク上の「192.0.2.1」のようなIPアドレスを相互に変換（名前解決）するシステム。',
-    examTip: '電話帳に例えられるシステムで、DNSキャッシュポイズニングなどの攻撃手法も併せて出題されます。'
+    description: '「example.com」のような名前を、コンピュータの住所（IPアドレス）に変換してくれる「電話帳」。例：電話帳で「○○さん」を引いて電話番号を知るのと同じ。',
+    examTip: 'ブラウザに名前を打ち込むと、DNSが住所（IPアドレス）を調べてくれる。'
+  },
+  {
+    id: 'dfd',
+    term: 'DFD',
+    english: 'Data Flow Diagram',
+    reading: 'データフロー図',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'D',
+    description: '業務の中で「データがどう流れて処理されるか」を表す図。例：注文データ→受注処理→在庫DB、という「情報の流れ」に着目する。',
+    examTip: '「時間の流れではなくデータの流れ」という言葉が出たらDFD。業務フロー図と区別。'
   },
   {
     id: 'ip-address',
@@ -86,8 +119,63 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'I',
-    description: 'ネットワークに接続されたコンピューターや機器を識別するために割り振られる重複しない番号（インターネット上の住所）。',
-    examTip: 'IPv4（32ビット）とIPv6（128ビット）の違いや、プライベートIPとグローバルIPの変換（NAT/NAPT）がポイント。'
+    description: 'ネットワーク上のコンピュータに割り当てられた「住所」の番号。例：192.168.1.1。手紙を届けるとき宛先（住所）が必要なのと同じで、データにも宛先が必要。',
+    examTip: 'IPv4（約43億個）とIPv6（ほぼ無限）の違い、プライベートIPとグローバルIPも頻出。'
+  },
+  {
+    id: 'itil',
+    term: 'ITIL',
+    english: 'Information Technology Infrastructure Library',
+    reading: 'アイティル',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'I',
+    description: 'ITサービスをうまく運用・管理するための「世界中のお手本集」。例：レストランの「優良店のマニュアル集」で、どの店も同じ品質でサービスできるようになる。',
+    examTip: 'PMBOKが「プロジェクト管理の教科書」なら、ITILは「サービス運用の教科書」。'
+  },
+  {
+    id: 'mtbf',
+    term: 'MTBF',
+    english: 'Mean Time Between Failures',
+    reading: '平均故障間隔（へいきんこしょうかんかく）',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'M',
+    description: '「故障と故障のあいだの平均時間」。長いほどなかなか壊れない良い機器。例：MTBFが1,000時間なら、平均して1,000時間は壊れずに動く。',
+    examTip: '公式「稼働率＝MTBF÷(MTBF＋MTTR)」。MTBFは長いほど良い、MTTRは短いほど良い。'
+  },
+  {
+    id: 'mttr',
+    term: 'MTTR',
+    english: 'Mean Time To Repair',
+    reading: '平均修理時間（へいきんしゅうりじかん）',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'M',
+    description: '故障してから復旧するまでの「平均の修理時間」。短いほど早く直って安心。例：MTTRが2時間なら、壊れても平均2時間で直る。',
+    examTip: 'MTBF（故障間隔）とMTTR（修理時間）の「長い⇔短い」の向きを間違えやすいので注意。'
+  },
+  {
+    id: 'ma',
+    term: 'M&A',
+    english: 'Merger and Acquisition',
+    reading: 'エムアンドエー',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'M',
+    description: '会社同士が合体（合併）したり、一方が相手の会社を買ったり（買収）すること。例：大きな会社が、技術のある小さな会社を買って、その技術を自社のものにする。',
+    examTip: '資本関係を持たずに協力する「業務提携（アライアンス）」との違いが問われる。'
+  },
+  {
+    id: 'npv',
+    term: 'NPV',
+    english: 'Net Present Value',
+    reading: '正味現在価値（しょうみげんざいかち）',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'N',
+    description: '将来もらえるお金を「今のお金の価値」に直して、投資が得かどうかを判断する方法。例：1年後の100万円は、今の100万円より少し価値が低い、と考える。',
+    examTip: '「将来のお金を今の価値に換算する」という言葉が出たらNPV。ROIや回収期間とセットで確認。'
   },
   {
     id: 'phishing',
@@ -97,8 +185,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'P',
-    description: '実在する銀行やWebサービスを装った偽メールや偽Webサイトに誘導し、パスワードやクレジットカード情報を盗み取る詐欺手法。',
-    examTip: 'ソーシャルエンジニアリングの一種であり、多要素認証（MFA）やワンタイムパスワードが対策として有効。'
+    description: '本物そっくりの偽メールや偽サイトで、パスワードやカード番号をだまし取る詐欺。例：銀行を装ったメールに書かれた偽サイトで「お客様情報を確認してください」と入力させる。',
+    examTip: '人をだます「ソーシャルエンジニアリング」の一種。対策は多要素認証。'
   },
   {
     id: 'pki',
@@ -108,8 +196,30 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'technology',
     categoryLabel: 'テクノロジ系',
     indexGroup: 'P',
-    description: '公開鍵暗号技術とデジタル証明書（CA）を用いて、インターネット上でのなりすましや改ざんを防ぐセキュリティ基盤。',
-    examTip: '秘密鍵と公開鍵のペア、認証局（CA）の役割を正しく理解することが合格の鍵です。'
+    description: '「この人（サイト）は本当に本人か」を、第三者（認証局）が証明する仕組み。例：郵便局で身分証を出して本人確認してもらうイメージ。Webの鍵マーク（HTTPS）を支えている。',
+    examTip: '公開鍵と秘密鍵のペア、認証局（CA）の役割がセットで問われる。'
+  },
+  {
+    id: 'pdca',
+    term: 'PDCA',
+    english: 'Plan, Do, Check, Act',
+    reading: 'ピーディーシーエー',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'P',
+    description: '「計画→実行→評価→改善」を繰り返して、仕事の質を上げていく方法。例：テスト勉強の計画を立て（Plan）、勉強し（Do）、結果を見て（Check）、やり方を直す（Act）。',
+    examTip: '「継続的に改善する」という言葉が出たらPDCA。4つの順番も問われる。'
+  },
+  {
+    id: 'ppm',
+    term: 'PPM',
+    english: 'Product Portfolio Management',
+    reading: 'ピーピーエム',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'P',
+    description: '自社の商品を「市場の伸び」と「自社のシェア」の2軸で4つに分けて、どこに投資するか決める方法。例：花形・金のなる木・問題児・負け犬の4分類。',
+    examTip: '4分類の名前と特徴（特に「金のなる木」と「問題児」）の組み合わせが頻出。'
   },
   {
     id: 'roi',
@@ -119,19 +229,63 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
     indexGroup: 'R',
-    description: '投資額に対してどれだけの利益（効果）が得られたかを示す指標。（利益 ÷ 投資額 × 100）で算出される。',
-    examTip: '計算問題として出題されることがあるため、公式をしっかり暗記しておきましょう。'
+    description: '投資したお金で「どれだけ得をしたか」の割合。例：100万円の投資で20万円儲けたら、ROIは20%。「利益 ÷ 投資額」で計算する。',
+    examTip: '計算問題が頻出。「利益÷投資額×100」の公式を暗記。'
+  },
+  {
+    id: 'roe',
+    term: 'ROE',
+    english: 'Return on Equity',
+    reading: '自己資本利益率（じこしほんりえきりつ）',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'R',
+    description: '株主から預かったお金（自己資本）で「どれだけ効率よく儲けたか」。例：株主から100万円預かって、15万円儲けたらROEは15%。高いほど効率が良い。',
+    examTip: 'ROA（資産全体での効率）との違いが問われる。「株主の目線」の指標がROE。'
+  },
+  {
+    id: 'raid',
+    term: 'RAID',
+    english: 'Redundant Arrays of Independent Disks',
+    reading: 'レイド',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'R',
+    description: '複数のハードディスクをまとめて、故障に備えたり速度を上げたりする技術。例：RAID1は「同じデータを2枚のディスクにコピー」して、1枚壊れても大丈夫にする。',
+    examTip: 'RAID0（速いが故障に弱い）、RAID1（コピーで安全）、RAID5（パリティで復元）の比較が頻出。'
+  },
+  {
+    id: 'ram',
+    term: 'RAM',
+    english: 'Random Access Memory',
+    reading: 'ラム',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'R',
+    description: '作業中のデータを一時的に置いておく「机の上」のような記憶。例：今開いているアプリや編集中のファイル。電源を切ると消えてしまう。',
+    examTip: '「電源を切ると消える＝RAM（揮発性）」「残る＝ROM（不揮発性）」の区別が基本。'
+  },
+  {
+    id: 'rom',
+    term: 'ROM',
+    english: 'Read Only Memory',
+    reading: 'ロム',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'R',
+    description: '主に読み出し専用で、電源を切っても消えない記憶。例：パソコンを起動するためのプログラムを最初に読み込む場所。',
+    examTip: 'RAMとセットで出題。「消えるRAM、残るROM」。'
   },
   {
     id: 'sla',
     term: 'SLA',
     english: 'Service Level Agreement',
-    reading: 'サービスレベル合意書',
+    reading: 'サービスレベル合意',
     category: 'management',
     categoryLabel: 'マネジメント系',
     indexGroup: 'S',
-    description: 'ITサービスの提供事業者と利用者の間で、提供されるサービスの品質や範囲（稼働率など）に関して合意した契約文書。',
-    examTip: 'SLM（サービスレベル管理）プロセスで維持・改善活動が行われます。'
+    description: 'サービスの品質の「約束」を書いた契約。例：システム会社と「稼働率99.9%以上を保ちます」と約束する。守れているかを管理するのがSLM。',
+    examTip: '「約束（SLA）を管理（SLM）する」というセットの関係が問われる。'
   },
   {
     id: 'swot',
@@ -141,19 +295,63 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
     indexGroup: 'S',
-    description: '自社の強み（Strengths）、弱み（Weaknesses）、機会（Opportunities）、脅威（Threats）の4項目で現状を分析するフレームワーク。',
-    examTip: '内部要因（強み・弱み）と外部要因（機会・脅威）を正確に分類できるかが問われます。'
+    description: '会社の状況を「強み・弱み・機会・脅威」の4つに分けて分析する方法。例：自転車屋なら「技術力が高い（強み）」「資金が少ない（弱み）」「自転車ブーム（機会）」「ネット販売の台頭（脅威）」。',
+    examTip: '「強み・弱み」は内部、「機会・脅威」は外部。どちらに分類されるかの判別が頻出。'
+  },
+  {
+    id: 'sql',
+    term: 'SQL',
+    english: 'Structured Query Language',
+    reading: 'エスキューエル',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'S',
+    description: 'データベースに「データをください」「登録して」と指示する言葉。例：SELECT（取り出す）、INSERT（追加）、UPDATE（更新）、DELETE（削除）。',
+    examTip: '4つの命令（S・I・U・D）と「できること」の対応が問われる。'
+  },
+  {
+    id: 'saas',
+    term: 'SaaS',
+    english: 'Software as a Service',
+    reading: 'サース',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'S',
+    description: 'ソフトウェアを「買う」のではなく「ネットで借りて使う」サービス。例：GmailやGoogleドキュメント。アプリをインストールしなくてもブラウザで使える。',
+    examTip: 'IaaS（サーバを借りる）・PaaS（開発環境を借りる）との違いが頻出。'
+  },
+  {
+    id: 'telos',
+    term: 'TELOS',
+    english: 'Technical, Economic, Operational, Schedule, Legal',
+    reading: 'テロス',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'T',
+    description: '企画したシステムが「本当に実現できるか」を5つの観点で評価すること。例：技術的に作れるか・お金が合うか・運用できるか・間に合うか・法律に違反しないか。',
+    examTip: '5つの頭文字（技術・経済・運用・工程・法務）のどれを聞かれているかの判別がポイント。'
+  },
+  {
+    id: 'tcp-ip',
+    term: 'TCP/IP',
+    english: 'Transmission Control Protocol / Internet Protocol',
+    reading: 'ティーシーピー アイピー',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'T',
+    description: 'インターネットで使われる通信の「共通ルール」のセット。例：世界中のコンピュータが、このルールに合わせるからこそ、どの国のサイトも見られる。',
+    examTip: '「インターネットの標準プロトコル」という言葉が出たらTCP/IP。'
   },
   {
     id: 'copyright',
-    term: '著作権法',
-    english: 'Copyright Act',
-    reading: 'ちょさくけんほう',
+    term: '著作権',
+    english: 'Copyright',
+    reading: 'ちょさくけん',
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
-    indexGroup: 'あ行',
-    description: '文芸、学術、美術、音楽などの著作物を保護する法律。創作した時点で手続きなしに権利が発生する（無方式主義）。',
-    examTip: 'プログラムのソースコードは保護されるが、プログラム言語、規約、アルゴリズムは保護されない点が出題率最高レベルです。'
+    indexGroup: 'た行',
+    description: '作った作品（文章・音楽・プログラムなど）を守る権利。例：作った瞬間に自動的に権利が発生する（登録不要）。',
+    examTip: 'プログラムのソースコードは保護されるが、アルゴリズムや言語は保護されない。'
   },
   {
     id: 'industrial-property',
@@ -162,9 +360,9 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     reading: 'さんぎょうざいさんけん',
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
-    indexGroup: 'か行',
-    description: '特許権、実用新案権、意匠権、商標権の4つの総称。特許庁への出願・登録が必要（方式主義）。',
-    examTip: '著作権（無方式主義）との対比で「登録が必要かどうか」が問われます。'
+    indexGroup: 'さ行',
+    description: '特許・実用新案・意匠・商標の4つの権利の総称。例：新しい発明（特許）や商品名（商標）を、特許庁に申請して登録することで守られる。',
+    examTip: '著作権（登録不要）と違い、産業財産権は「登録が必要」という対比が頻出。'
   },
   {
     id: 'job-creation',
@@ -174,7 +372,337 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'strategy',
     categoryLabel: 'ストラテジ系',
     indexGroup: 'さ行',
-    description: '会社の従業員が業務として作成した著作物について、原則として会社（法人等）が著作者となる制度。',
-    examTip: '法人等の発意、業務に従事する者が作成、職務上作成、法人名義で公表、別段の定めがないこと等の要件を満たす必要があります。'
+    description: '会社員が「仕事として」作った作品の著作権は、個人ではなく会社に帰属するというルール。例：会社で作ったシステムのプログラムの権利は会社のもの。',
+    examTip: '「業務で作ったものの権利は会社」というのがポイント。'
+  },
+  {
+    id: 'angkoka',
+    term: '暗号化',
+    english: 'Encryption',
+    reading: 'あんごうか',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'あ行',
+    description: '大切な情報を「読めない形」に変換すること。例：暗号をかけた手紙は、鍵（秘密鍵）を持っている人だけが読める。盗まれても中身は守られる。',
+    examTip: '元に戻すのが「復号」。共通鍵（1つの鍵）と公開鍵（2つの鍵）の違いも確認。'
+  },
+  {
+    id: 'waterfall',
+    term: 'ウォーターフォール',
+    english: 'Waterfall Model',
+    reading: 'ウォーターフォール',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'あ行',
+    description: '要件定義→設計→開発→テストと、滝のように上から下へ順番に進める開発手法。例：設計図を全部描いてから家を建てる。段階がはっきりしている。',
+    examTip: 'アジャイル（短いサイクルを繰り返す）との対比が頻出。'
+  },
+  {
+    id: 'trade-secret',
+    term: '営業秘密',
+    english: 'Trade Secret',
+    reading: 'えいぎょうひみつ',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'あ行',
+    description: '会社の秘密情報（顧客リスト・レシピなど）を守る仕組み。例：コーラのレシピ。守ってもらうには「秘密として管理されている」ことなど3つの条件が必要。',
+    examTip: '「秘密管理性・有用性・非公知性」の3要件と、不正競争防止法をセットで。'
+  },
+  {
+    id: 'kadouritsu',
+    term: '稼働率',
+    english: 'Availability',
+    reading: 'かどうりつ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'か行',
+    description: 'システムが「実際に使える時間」の割合。例：1日24時間のうち2時間止まっていたら稼働率は約91.7%。100%に近いほど止まらない。',
+    examTip: '公式「稼働率＝稼働時間÷総時間」。MTBF÷(MTBF＋MTTR)でも求められる。'
+  },
+  {
+    id: 'kaishukikan',
+    term: '回収期間',
+    english: 'Payback Period',
+    reading: 'かいしゅうきかん',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'か行',
+    description: '投資したお金を「何年で元が取れるか」。例：100万円の投資で年間20万円の利益が出るなら、回収期間は5年。短いほど安心。',
+    examTip: '公式「投資額÷年間の利益」。ROI（利益の割合）とセットでよく出る。'
+  },
+  {
+    id: 'core-competence',
+    term: 'コアコンピタンス',
+    english: 'Core Competence',
+    reading: 'コアコンピタンス',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'か行',
+    description: '他社が真似できない「自社の核となる強み」。例：シャープの液晶技術、トヨタの生産技術。この強みを使って競争に勝つ。',
+    examTip: '「競争力の源泉となる中核能力」という言葉が出たらこれ。'
+  },
+  {
+    id: 'compliance',
+    term: 'コンプライアンス',
+    english: 'Compliance',
+    reading: 'コンプライアンス',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'か行',
+    description: '法律だけでなく、社会のルールや道徳も守って行動すること。例：法律違反をしないのはもちろん、ハラスメントを許さないことも含まれる。',
+    examTip: '「法律だけでなく倫理も守る」＝コンプライアンス、という言い換え問題が頻出。'
+  },
+  {
+    id: 'corporate-governance',
+    term: 'コーポレートガバナンス',
+    english: 'Corporate Governance',
+    reading: 'コーポレートガバナンス',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'か行',
+    description: '経営者が暴走しないように、会社を監視・管理する仕組み。例：取締役会や監査役が、経営が正しく行われているかをチェックする。',
+    examTip: '「経営の監視体制」という言葉が出たらコーポレートガバナンス。'
+  },
+  {
+    id: 'critical-path',
+    term: 'クリティカルパス',
+    english: 'Critical Path',
+    reading: 'クリティカルパス',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'か行',
+    description: 'プロジェクトで「最も時間のかかる道」。例：テスト期間中、数学の宿題が一番時間がかかるなら、それを遅らせると全部遅れる。ここを最優先で管理する。',
+    examTip: 'アローダイアグラムで「最長の経路」を求める計算問題が頻出。'
+  },
+  {
+    id: 'cache-memory',
+    term: 'キャッシュメモリ',
+    english: 'Cache Memory',
+    reading: 'キャッシュメモリ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'か行',
+    description: 'よく使うデータを「すぐ取り出せる場所」に先に置いておく高速な記憶。例：よく使う教科書を机の上に置いておくイメージ。',
+    examTip: 'CPUと主記憶の間にある、という配置が問われる。'
+  },
+  {
+    id: 'son-eki-benki',
+    term: '損益分岐点',
+    english: 'Break-Even Point',
+    reading: 'そんえきぶんきてん',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'さ行',
+    description: '売上と費用がちょうど同じになり、「利益ゼロ」になる売上高。例：1個100円で売って、固定費が1万円なら、100個売ったところが分岐点。ここを超えると黒字。',
+    examTip: '「固定費÷限界利益率」の公式と、固定費・変動費の区別が頻出。'
+  },
+  {
+    id: 'three-constraints',
+    term: '3つの制約',
+    english: 'Triple Constraints',
+    reading: 'さんつのせいやく',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'さ行',
+    description: 'プロジェクトの「品質・コスト・納期」の3つの縛り。例：納期を早めたい→人を増やす→コストが上がる。1つを変えると他に影響する（トレードオフ）。',
+    examTip: 'Q（品質）C（コスト）D（納期）の頭文字と、トレードオフの関係が問われる。'
+  },
+  {
+    id: 'salary-labor',
+    term: '裁量労働制',
+    english: 'Discretionary Working System',
+    reading: 'さいりょうろうどうせい',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'さ行',
+    description: '実際に働いた時間ではなく「あらかじめ決めた時間働いた」とみなす制度。例：SEや研究職など、働き方を自分で決められる職種に適用される。',
+    examTip: '「実際の時間ではなく決めた時間とみなす」という説明が頻出。'
+  },
+  {
+    id: 'saburoku',
+    term: '36協定',
+    english: '36 Agreement',
+    reading: 'サブロクきょうてい',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'さ行',
+    description: '残業をさせるために、会社と労働者が結ぶ協定。例：法定労働時間（1日8時間）を超えて働かせるには、この協定を結んで労働基準監督署に届け出る必要がある。',
+    examTip: '「残業に必要な協定」と聞かれたら36協定。'
+  },
+  {
+    id: 'seikika',
+    term: '正規化',
+    english: 'Normalization',
+    reading: 'せいきか',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'さ行',
+    description: 'データの「重複」や「バラバラ」をなくして、きれいに整理すること。例：買い物メモに毎回同じ商品名を書くのをやめて、商品表と分ける。',
+    examTip: '「データの重複をなくす」という言葉が出たら正規化。'
+  },
+  {
+    id: 'stakeholder',
+    term: 'ステークホルダ',
+    english: 'Stakeholder',
+    reading: 'ステークホルダ',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'さ行',
+    description: '企業と関わりを持つ「すべての人や組織」。例：消費者、従業員、株主、取引先、地域社会。企業はみんなに責任を持っている。',
+    examTip: '「利害関係者」という言い換えが頻出。誰が該当するかも問われる。'
+  },
+  {
+    id: 'switch',
+    term: 'スイッチ',
+    english: 'Network Switch',
+    reading: 'スイッチ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'さ行',
+    description: '届いたデータを「宛先のコンピュータにだけ」送る機器。例：郵便屋さんが配達先を選んで届ける。全員に流すのがハブ、宛先を選ぶのがスイッチ。',
+    examTip: '「宛先にだけ送る＝スイッチ」「全員に送る＝ハブ」の区別が問われる。'
+  },
+  {
+    id: 'chitekishoyuken',
+    term: '知的財産権',
+    english: 'Intellectual Property Rights',
+    reading: 'ちてきざいさんけん',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'た行',
+    description: 'アイデアや作品など「形のない財産」を守る権利の総称。例：発明（特許）、作品（著作権）、名前（商標）など。',
+    examTip: '産業財産権・著作権・その他の権利の3分類が問われる。'
+  },
+  {
+    id: 'tokkyo',
+    term: '特許権',
+    english: 'Patent Right',
+    reading: 'とっきょけん',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'た行',
+    description: '新しい「発明」を守る権利。例：新薬の成分や新しい通信技術を、特許庁に申請して登録すれば、20年間独占できる。',
+    examTip: '「高度な発明」「出願から20年」がセットでよく出る。'
+  },
+  {
+    id: 'digital-signature',
+    term: 'デジタル署名',
+    english: 'Digital Signature',
+    reading: 'デジタルしょめい',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'た行',
+    description: 'データに「電子のサイン」を付けて、本人のもので・改ざんされていないことを証明する仕組み。例：手紙に印鑑を押すイメージ。秘密鍵で署名し、公開鍵で確認する。',
+    examTip: '「本人確認・改ざん検知・否認防止」の3つの役割が問われる。'
+  },
+  {
+    id: 'disclosure',
+    term: 'ディスクロージャー',
+    english: 'Information Disclosure',
+    reading: 'ディスクロージャー',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'た行',
+    description: '会社の経営状況や財務状況を、株主や社会に「隠さず公開」すること。例：決算情報を公表する。',
+    examTip: '「情報の公開」＝ディスクロージャー。CSR・コンプライアンスと並んで頻出。'
+  },
+  {
+    id: 'de-facto',
+    term: 'デファクト標準',
+    english: 'De Facto Standard',
+    reading: 'デファクトひょうじゅん',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'た行',
+    description: '正式な機関が決めたわけではないが「市場で広く普及して事実上の標準」になったもの。例：Windows、USB。みんなが使うから標準になる。',
+    examTip: '公式に決められた「デジュール標準」（ISOなど）との対比が頻出。'
+  },
+  {
+    id: 'jitsugetsu',
+    term: '人月',
+    english: 'Person-Month',
+    reading: 'にんげつ',
+    category: 'management',
+    categoryLabel: 'マネジメント系',
+    indexGroup: 'な行',
+    description: '作業量を表す単位で、1人が1か月働いた量が「1人月」。例：5人で3か月かかる作業は「15人月」。',
+    examTip: '「人数×月数＝人月」の計算問題が頻出。'
+  },
+  {
+    id: 'backup',
+    term: 'バックアップ',
+    english: 'Backup',
+    reading: 'バックアップ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'は行',
+    description: '大事なデータの「コピーを別の場所に保存」しておくこと。例：宿題のノートを写し取って家に置いておく。消えても元に戻せる。',
+    examTip: 'フル・差分・増分の3種類の違いと、バックアップの目的が問われる。'
+  },
+  {
+    id: 'firewall',
+    term: 'ファイアウォール',
+    english: 'Firewall',
+    reading: 'ファイアウォール',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'は行',
+    description: '外部からの不正な侵入を防ぐ「防火壁」。例：マンションのオートロック。出入りするデータをチェックして、危ないものは通さない。',
+    examTip: '「外部からの不正アクセスを遮断する」という言葉が出たらこれ。'
+  },
+  {
+    id: 'packet',
+    term: 'パケット',
+    english: 'Packet',
+    reading: 'パケット',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'は行',
+    description: 'データを小さく分けた「荷物」。例：大きな荷物（動画データ）を小さな段ボールに分けて送り、届いたら組み立てる。',
+    examTip: '「データを分割して送る」という言葉が出たらパケット通信。'
+  },
+  {
+    id: 'malware',
+    term: 'マルウェア',
+    english: 'Malware',
+    reading: 'マルウェア',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'ま行',
+    description: 'コンピュータに悪影響を与える「悪意のあるプログラム」の総称。例：ウイルス、ワーム、トロイの木馬、ランサムウェアなど。',
+    examTip: '「悪意のあるソフトの総称」という言葉が出たらマルウェア。'
+  },
+  {
+    id: 'marketing-mix',
+    term: 'マーケティングミックス',
+    english: 'Marketing Mix (4P)',
+    reading: 'マーケティングミックス',
+    category: 'strategy',
+    categoryLabel: 'ストラテジ系',
+    indexGroup: 'ま行',
+    description: '商品を売るための「製品・価格・流通・販促」の4つの組み合わせ。例：新作ジュースを「美味しく作って（製品）」「150円にして（価格）」「コンビニに置いて（流通）」「テレビCMで知らせる（販促）」。',
+    examTip: '4P（Product・Price・Place・Promotion）の内容が問われる。'
+  },
+  {
+    id: 'router',
+    term: 'ルータ',
+    english: 'Router',
+    reading: 'ルータ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'ら行',
+    description: 'ネットワーク同士をつなぐ「玄関番」。例：家の中のWi-Fiルータ。外のインターネットと家の中を橋渡しし、データを宛先まで届ける。',
+    examTip: 'ハブ・スイッチとの役割の違いが問われる。「外と中をつなぐ」がルータ。'
+  },
+  {
+    id: 'register',
+    term: 'レジスタ',
+    english: 'Register',
+    reading: 'レジスタ',
+    category: 'technology',
+    categoryLabel: 'テクノロジ系',
+    indexGroup: 'ら行',
+    description: 'CPUの中にある「超高速の小さな置き場」。例：計算する直前に数字を一時的に置く場所。主記憶よりずっと速い。',
+    examTip: '記憶階層（レジスタ→キャッシュ→主記憶→補助記憶）の最上位がレジスタ。'
   }
 ];

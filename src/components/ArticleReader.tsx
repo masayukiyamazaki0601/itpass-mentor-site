@@ -427,6 +427,98 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                           </div>
                         </div>
                       )}
+
+                      {sec.diagram === 'ppm-matrix' && (
+                        <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            PPMマトリックス：市場成長率 × 市場占有率
+                          </p>
+                          {/* 縦軸ラベル */}
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-28 flex items-center justify-center rotate-180 text-[10px] text-[#737780] font-bold whitespace-nowrap" style={{ writingMode: 'vertical-rl' }}>
+                              市場成長率（縦軸）
+                            </div>
+                            <div className="flex-1">
+                              {/* ヘッダー（横軸） */}
+                              <div className="grid grid-cols-2 gap-2 mb-2">
+                                <div className="text-center text-[10px] font-bold text-[#002b57]">低シェア</div>
+                                <div className="text-center text-[10px] font-bold text-[#002b57]">高シェア</div>
+                              </div>
+                              {/* 上段：市場成長率高 */}
+                              <div className="mb-2">
+                                <p className="text-[9px] text-[#006b5c] font-bold mb-1">市場成長率：高（伸びている）</p>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="bg-white border-2 border-[#D69E2E] rounded-lg p-3 text-center">
+                                    <span className="material-symbols-outlined text-[#D69E2E] text-lg block mb-1">child_care</span>
+                                    <p className="text-[11px] font-extrabold text-[#D69E2E]">問題児</p>
+                                    <p className="text-[9px] text-[#737780] mt-1">電動アシスト<br />育てる？撤退？</p>
+                                  </div>
+                                  <div className="bg-white border-2 border-[#3182CE] rounded-lg p-3 text-center">
+                                    <span className="material-symbols-outlined text-[#3182CE] text-lg block mb-1">star</span>
+                                    <p className="text-[11px] font-extrabold text-[#3182CE]">花形</p>
+                                    <p className="text-[9px] text-[#737780] mt-1">子供用自転車<br />投資して育てる</p>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* 下段：市場成長率低 */}
+                              <div>
+                                <p className="text-[9px] text-[#006b5c] font-bold mb-1">市場成長率：低（落ち着いている）</p>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="bg-white border-2 border-[#38A169] rounded-lg p-3 text-center">
+                                    <span className="material-symbols-outlined text-[#38A169] text-lg block mb-1">close</span>
+                                    <p className="text-[11px] font-extrabold text-[#38A169]">負け犬</p>
+                                    <p className="text-[9px] text-[#737780] mt-1">高級ロードバイク<br />撤退を検討</p>
+                                  </div>
+                                  <div className="bg-white border-2 border-[#00BFA5] rounded-lg p-3 text-center">
+                                    <span className="material-symbols-outlined text-[#00BFA5] text-lg block mb-1">park</span>
+                                    <p className="text-[11px] font-extrabold text-[#00BFA5]">金のなる木</p>
+                                    <p className="text-[9px] text-[#737780] mt-1">ママチャリ<br />安定して稼がせる</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p className="text-[10px] text-[#737780] mt-3 text-center">
+                            ※ 「伸びているか（縦）」×「自分が強いか（横）」で、商品は4つのどれかになる
+                          </p>
+                        </div>
+                      )}
+
+                      {sec.diagram === 'strategy-hierarchy' && (
+                        <div className="bg-[#f0f3ff] border border-[#c3c6d0]/40 rounded-xl p-5">
+                          <p className="text-xs font-bold text-[#002b57] mb-4 text-center">
+                            戦略の大きさ（上から下へ、だんだん細かくなる）
+                          </p>
+                          <div className="flex flex-col items-center gap-1.5">
+                            {/* 全社戦略 */}
+                            <div className="bg-[#002b57] text-white rounded-lg px-4 py-3 text-center w-full max-w-sm shadow-xs">
+                              <span className="material-symbols-outlined text-[#68fadd] text-lg block mb-1">account_balance</span>
+                              <p className="text-[11px] font-extrabold">全社戦略（いちばん大きい）</p>
+                              <p className="text-[9px] text-[#b9c8e6] mt-0.5">会社全体の方向性</p>
+                              <p className="text-[9px] text-[#68fadd] mt-1">例：この町で続けるか、電動自転車に特化するか</p>
+                            </div>
+                            <span className="material-symbols-outlined text-[#737780] text-sm">arrow_downward</span>
+                            {/* 事業戦略 */}
+                            <div className="bg-white border-2 border-[#3182CE] rounded-lg px-4 py-3 text-center w-full max-w-sm">
+                              <span className="material-symbols-outlined text-[#3182CE] text-lg block mb-1">storefront</span>
+                              <p className="text-[11px] font-extrabold text-[#3182CE]">事業戦略（中くらい）</p>
+                              <p className="text-[9px] text-[#737780] mt-0.5">事業ごとにどう勝つか</p>
+                              <p className="text-[9px] text-[#3182CE] mt-1">例：修理で勝負するか、新車販売で勝負するか</p>
+                            </div>
+                            <span className="material-symbols-outlined text-[#737780] text-sm">arrow_downward</span>
+                            {/* 機能戦略 */}
+                            <div className="bg-white border-2 border-[#38A169] rounded-lg px-4 py-3 text-center w-full max-w-sm">
+                              <span className="material-symbols-outlined text-[#38A169] text-lg block mb-1">groups</span>
+                              <p className="text-[11px] font-extrabold text-[#38A169]">機能戦略（いちばん細かい）</p>
+                              <p className="text-[9px] text-[#737780] mt-0.5">部門ごとの作戦</p>
+                              <p className="text-[9px] text-[#38A169] mt-1">例：修理部は「当日修理」、営業部は「学生割引」</p>
+                            </div>
+                          </div>
+                          <p className="text-[10px] text-[#737780] mt-3 text-center">
+                            ※ 上の戦略ほど「大きい」。上の戦略を支えるのが下の戦略
+                          </p>
+                        </div>
+                      )}
                     </div>
                   )}
 
