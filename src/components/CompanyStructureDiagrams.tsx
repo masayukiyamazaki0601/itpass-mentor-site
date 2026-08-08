@@ -29,27 +29,27 @@ export const CompanyStructureDiagrams: React.FC = () => {
         </motion.div>
 
         {/* 矢印群 */}
-        <div className="flex justify-between px-16 -mt-2 -mb-2 relative z-0">
+        <div className="flex justify-between px-20 py-2 relative z-0">
           <motion.div 
-            className="flex flex-col items-center"
+            className="flex flex-col items-center relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <div className="h-10 border-l-2 border-dashed border-indigo-300"></div>
+            <div className="h-12 border-l-2 border-dashed border-indigo-300"></div>
             <ArrowDown className="text-indigo-400 -mt-2" size={16} />
-            <span className="text-[10px] text-indigo-500 font-bold bg-[#f8fafc] px-1 -mt-8 ml-12">選任・監督</span>
+            <span className="text-[10px] text-indigo-500 font-bold bg-[#f8fafc] px-1 absolute top-1/2 -translate-y-1/2 left-4 whitespace-nowrap">選任・監督</span>
           </motion.div>
           
           <motion.div 
-            className="flex flex-col items-center"
+            className="flex flex-col items-center relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <div className="h-10 border-l-2 border-dashed border-emerald-300"></div>
+            <div className="h-12 border-l-2 border-dashed border-emerald-300"></div>
             <ArrowDown className="text-emerald-400 -mt-2" size={16} />
-            <span className="text-[10px] text-emerald-500 font-bold bg-[#f8fafc] px-1 -mt-8 -ml-12">選任</span>
+            <span className="text-[10px] text-emerald-500 font-bold bg-[#f8fafc] px-1 absolute top-1/2 -translate-y-1/2 right-4 whitespace-nowrap">選任</span>
           </motion.div>
         </div>
 
