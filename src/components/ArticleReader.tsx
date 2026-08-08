@@ -7,6 +7,12 @@ import { DatabaseDiagrams } from './DatabaseDiagrams';
 import { CorporateActivitiesDiagrams } from './CorporateActivitiesDiagrams';
 import { CompanyStructureDiagrams } from './CompanyStructureDiagrams';
 import { DepartmentsDiagrams } from './DepartmentsDiagrams';
+import { StakeholderDiagram } from './StakeholderDiagram';
+import { ResourcesDiagram } from './ResourcesDiagram';
+import { BusinessFlowDiagram } from './BusinessFlowDiagram';
+import { SWOTDiagram } from './SWOTDiagram';
+import { BreakEvenVisualDiagram } from './BreakEvenVisualDiagram';
+import { FiveProfitsDiagram } from './FiveProfitsDiagram';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -294,6 +300,12 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'corporate-activities' && <div className="my-8"><CorporateActivitiesDiagrams /></div>}
                   {sec.diagram === 'company-structure' && <div className="my-8"><CompanyStructureDiagrams /></div>}
                   {sec.diagram === 'departments' && <div className="my-8"><DepartmentsDiagrams /></div>}
+                  {sec.diagram === 'stakeholder' && <div className="my-8"><StakeholderDiagram /></div>}
+                  {sec.diagram === 'resources' && <div className="my-8"><ResourcesDiagram /></div>}
+                  {sec.diagram === 'business-flow' && <div className="my-8"><BusinessFlowDiagram /></div>}
+                  {sec.diagram === 'swot' && <div className="my-8"><SWOTDiagram /></div>}
+                  {sec.diagram === 'break-even-visual' && <div className="my-8"><BreakEvenVisualDiagram /></div>}
+                  {sec.diagram === 'five-profits-cascade' && <div className="my-8"><FiveProfitsDiagram /></div>}
                 </section>
               ))}
             </div>

@@ -292,7 +292,8 @@ export const ARTICLES_DATA: Article[] = [
             '「企業と誰が関わっているか」で思い出そう',
             '利益だけではなく、みんなの期待に応えるのが企業の責任'
           ]
-        }
+        },
+        diagram: 'stakeholder'
       },
       {
         id: 'section-3',
@@ -492,7 +493,8 @@ export const ARTICLES_DATA: Article[] = [
             '昔からある「ヒト・モノ・カネ」に「情報」を足したのが4つ',
             '試験では「具体例がどの資源か」を問われることが多い'
           ]
-        }
+        },
+        diagram: 'resources'
       },
       {
         id: 'section-3',
@@ -892,7 +894,8 @@ export const ARTICLES_DATA: Article[] = [
             description:
               '発生している問題とその原因（要因）の関係を「魚の骨」のような形で整理し、根本原因を探る図。カフェの例：「コーヒーが冷たい」原因を機械・人・手順に分けて探る。'
           }
-        ]
+        ],
+        diagram: 'business-flow'
       },
       {
         id: 'section-3',
@@ -1113,7 +1116,8 @@ export const ARTICLES_DATA: Article[] = [
             'PPM＝2軸で4つに分類',
             '「4・3・2」の視点の数で覚えよう'
           ]
-        }
+        },
+        diagram: 'swot'
       },
       {
         id: 'section-3',
@@ -1286,7 +1290,8 @@ export const ARTICLES_DATA: Article[] = [
             '最後に、練習問題で理解を確かめる'
           ],
           note: 'このページのキーワードは「固定費」と「限界利益率」です。'
-        }
+        },
+        diagram: 'break-even-visual'
       },
       {
         id: 'section-2',
@@ -1575,7 +1580,15 @@ export const ARTICLES_DATA: Article[] = [
         title: '損益計算書（P/L）と5つの利益',
         content:
           '損益計算書では、「売上高」から様々な「費用」を順番に差し引いていくことで、性質の異なる5つの利益を段階的に計算します。\n\n図で流れを確認しましょう。',
-        diagram: 'five-profits'
+        diagram: 'five-profits',
+        callout2: {
+          title: '5つの利益の覚え方',
+          items: [
+            '売上高から順番に費用を差し引いていく',
+            '「商品→本業→普段→直前→最終」の順',
+            '各利益の計算式は次のセクションで確認'
+          ]
+        }
       },
       {
         id: 'section-5',
@@ -1629,7 +1642,8 @@ export const ARTICLES_DATA: Article[] = [
             '当期純利益＝「最終的な手取り」',
             '覚え方は「商品 → 本業 → 普段 → 直前 → 最終」'
           ]
-        }
+        },
+        diagram: 'five-profits-cascade'
       },
       {
         id: 'section-6',
