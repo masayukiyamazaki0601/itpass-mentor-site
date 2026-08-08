@@ -329,6 +329,30 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                     </div>
                   )}
 
+                  {/* Callout2 Box */}
+                  {sec.callout2 && (
+                    <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 rounded-2xl p-6 my-8 flex gap-4 items-start border border-emerald-200/80 shadow-xs">
+                      <div className="bg-emerald-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
+                        <span className="material-symbols-outlined">quiz</span>
+                      </div>
+                      <div>
+                        <h3 className="font-extrabold text-base text-slate-900 mb-2">
+                          {sec.callout2.title}
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-emerald-600">
+                          {sec.callout2.items.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                        {sec.callout2.note && (
+                          <p className="text-xs text-emerald-700 font-bold mt-3 pt-2 border-t border-emerald-200/60">
+                            {sec.callout2.note}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Diagrams */}
                   {sec.diagram === 'organization-chart' && <div className="my-8"><OrganizationDiagrams /></div>}
                   {sec.diagram === 'network' && <div className="my-8"><NetworkDiagrams /></div>}
