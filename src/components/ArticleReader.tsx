@@ -18,6 +18,15 @@ import { IndustrialPropertyDiagram } from './IndustrialPropertyDiagram';
 import { SecurityLawsDiagram } from './SecurityLawsDiagram';
 import { ContractTypesDiagram } from './ContractTypesDiagram';
 import { StandardizationDiagram } from './StandardizationDiagram';
+import { StrategyHierarchyDiagram } from './StrategyHierarchyDiagram';
+import { PPMMatrixDiagram } from './PPMMatrixDiagram';
+import { GrowthStrategyDiagram } from './GrowthStrategyDiagram';
+import { PortersStrategyDiagram } from './PortersStrategyDiagram';
+import { STPDiagram } from './STPDiagram';
+import { Marketing4PDiagram } from './Marketing4PDiagram';
+import { ManagementSystemsDiagram } from './ManagementSystemsDiagram';
+import { FinancialMetricsDiagram } from './FinancialMetricsDiagram';
+import { InvestmentEvaluationDiagram } from './InvestmentEvaluationDiagram';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -316,6 +325,15 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'security-laws' && <div className="my-8"><SecurityLawsDiagram /></div>}
                   {sec.diagram === 'contract-types' && <div className="my-8"><ContractTypesDiagram /></div>}
                   {sec.diagram === 'standardization-types' && <div className="my-8"><StandardizationDiagram /></div>}
+                  {sec.diagram === 'strategy-hierarchy' && <div className="my-8"><StrategyHierarchyDiagram /></div>}
+                  {sec.diagram === 'ppm-matrix' && <div className="my-8"><PPMMatrixDiagram /></div>}
+                  {sec.diagram === 'growth-strategy' && <div className="my-8"><GrowthStrategyDiagram /></div>}
+                  {sec.diagram === 'porters-strategy' && <div className="my-8"><PortersStrategyDiagram /></div>}
+                  {sec.diagram === 'stp' && <div className="my-8"><STPDiagram /></div>}
+                  {sec.diagram === 'marketing-4p' && <div className="my-8"><Marketing4PDiagram /></div>}
+                  {sec.diagram === 'management-systems' && <div className="my-8"><ManagementSystemsDiagram /></div>}
+                  {sec.diagram === 'financial-metrics' && <div className="my-8"><FinancialMetricsDiagram /></div>}
+                  {sec.diagram === 'investment-evaluation' && <div className="my-8"><InvestmentEvaluationDiagram /></div>}
                 </section>
               ))}
             </div>
