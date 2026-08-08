@@ -237,7 +237,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
               {article.sections.map((sec) => (
                 <section key={sec.id} id={sec.id} className="scroll-mt-28">
                   <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-5 flex items-center gap-3 tracking-tight">
-                    <span className="w-2 h-7 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full inline-block" />
+                    <span className="w-2 h-7 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full inline-block" />
                     {sec.title}
                   </h2>
 
@@ -307,21 +307,21 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
                   {/* Callout Box */}
                   {sec.callout && (
-                    <div className="bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl p-6 my-8 flex gap-4 items-start border border-indigo-200/80 shadow-xs">
-                      <div className="bg-indigo-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
+                    <div className="bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 rounded-2xl p-6 my-8 flex gap-4 items-start border border-sky-200/80 shadow-xs">
+                      <div className="bg-blue-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
                         <span className="material-symbols-outlined">lightbulb</span>
                       </div>
                       <div>
                         <h3 className="font-extrabold text-base text-slate-900 mb-2">
                           {sec.callout.title}
                         </h3>
-                        <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-indigo-600">
+                        <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-blue-600">
                           {sec.callout.items.map((item, i) => (
                             <li key={i}>{item}</li>
                           ))}
                         </ul>
                         {sec.callout.note && (
-                          <p className="text-xs text-indigo-700 font-bold mt-3 pt-2 border-t border-indigo-200/60">
+                          <p className="text-xs text-blue-700 font-bold mt-3 pt-2 border-t border-blue-200/60">
                             {sec.callout.note}
                           </p>
                         )}
