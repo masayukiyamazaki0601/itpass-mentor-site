@@ -7,42 +7,44 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
   return (
-    <footer className="bg-[#d8e3fa] border-t border-[#c3c6d0] mt-12 py-8">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+    <footer className="bg-slate-100/80 border-t border-slate-200/80 mt-16 py-12 relative z-10 backdrop-blur-md">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
-          <div className="font-bold text-lg text-[#002b57] mb-2 flex items-center gap-2">
-            <img
-              src="https://lh3.googleusercontent.com/aida/AP1WRLtS7dvXPpaP9BeH0BlKgG87EOrJI3T6tgY3piQfc-Pt5HYS-xBzsVp57dNoSTSiHZnTnux1bKR43DOwClQAqMaWDizQRkCw4fWhqPs0RHcNfUImMfHyo3yUswdsanShgHJ5rzzejm1AG-MaEKy7we3XjEDs0U7WRA31yqPTYrnzEdLh1UzDnrs6ueIC-y-Ofutn_F32KsoAXmmlCKwEIrv454Ss1bkfvECU3tHV2E1cVEWE1rT0FcmgcV7Z"
-              alt="IT Passport Mentor Logo"
-              className="w-6 h-6 rounded-md opacity-80"
-            />
-            <span>ITパスポート メンター</span>
+          <div className="font-extrabold text-xl text-slate-900 mb-2 flex items-center gap-2.5">
+            <div className="p-1.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-sm">
+              <img
+                src="https://lh3.googleusercontent.com/aida/AP1WRLtS7dvXPpaP9BeH0BlKgG87EOrJI3T6tgY3piQfc-Pt5HYS-xBzsVp57dNoSTSiHZnTnux1bKR43DOwClQAqMaWDizQRkCw4fWhqPs0RHcNfUImMfHyo3yUswdsanShgHJ5rzzejm1AG-MaEKy7we3XjEDs0U7WRA31yqPTYrnzEdLh1UzDnrs6ueIC-y-Ofutn_F32KsoAXmmlCKwEIrv454Ss1bkfvECU3tHV2E1cVEWE1rT0FcmgcV7Z"
+                alt="IT Passport Mentor Logo"
+                className="w-5 h-5 rounded-md object-cover bg-white"
+              />
+            </div>
+            <span>ITパスポート <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">LAB</span></span>
           </div>
-          <p className="text-sm text-[#43474f]">
-            © 2024 ITパスポート メンター. ITプロフェッショナルを支援します。
+          <p className="text-xs text-slate-500 font-medium">
+            © 2026 ITパスポート LAB. ITパスポート全範囲の効率的学習をサポートします。
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4 md:justify-end items-center text-sm text-[#43474f]">
+        <div className="flex flex-wrap gap-6 items-center text-xs font-bold text-slate-600">
           <button
             onClick={() => setActiveTab('table-of-contents')}
-            className="hover:text-[#002b57] underline transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             目次
           </button>
           <button
             onClick={() => setActiveTab('glossary')}
-            className="hover:text-[#002b57] underline transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             用語集
           </button>
           <button
             onClick={() => setActiveTab('exam-overview')}
-            className="hover:text-[#002b57] underline transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             試験概要
           </button>
-          <span className="hover:text-[#002b57] cursor-pointer underline transition-colors">
+          <span className="hover:text-indigo-600 cursor-pointer transition-colors">
             プライバシーポリシー
           </span>
         </div>
