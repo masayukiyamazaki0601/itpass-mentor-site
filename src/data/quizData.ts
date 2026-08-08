@@ -15,10 +15,10 @@ export const DAILY_QUESTION: QuizQuestion = {
 };
 
 export const ARTICLE_QUIZZES: { [articleId: string]: QuizQuestion[] } = {
-  'copyright-law-basics': [
+  'intellectual-property-basics': [
     {
       id: 'q-copy-1',
-      articleId: 'copyright-law-basics',
+      articleId: 'intellectual-property-basics',
       question: '日本の著作権法において、著作物として保護されない（対象外）とされるものはどれですか？',
       category: 'strategy',
       options: [
@@ -32,7 +32,7 @@ export const ARTICLE_QUIZZES: { [articleId: string]: QuizQuestion[] } = {
     },
     {
       id: 'q-copy-2',
-      articleId: 'copyright-law-basics',
+      articleId: 'intellectual-property-basics',
       question: '著作権と産業財産権（特許権・商標権など）の違いに関する記述として、適切なものはどれですか？',
       category: 'strategy',
       options: [
@@ -46,7 +46,7 @@ export const ARTICLE_QUIZZES: { [articleId: string]: QuizQuestion[] } = {
     },
     {
       id: 'q-copy-3',
-      articleId: 'copyright-law-basics',
+      articleId: 'intellectual-property-basics',
       question: '会社の従業員が業務としてプログラムを作成した際、職務著作（法人著作）として会社が著作者となるための条件として不適切なものはどれですか？',
       category: 'strategy',
       options: [
@@ -59,10 +59,10 @@ export const ARTICLE_QUIZZES: { [articleId: string]: QuizQuestion[] } = {
       explanation: '職務著作において特許庁への登録は不要です。法人等の発意、職務上の作成、法人名義での公表（プログラムは非公表も可）、別段の定めがないこと等の要件を満たせば法人に権利が帰属します。'
     }
   ],
-  'agile-waterfall-dev': [
+  'development-models': [
     {
       id: 'q-agile-1',
-      articleId: 'agile-waterfall-dev',
+      articleId: 'development-models',
       question: 'アジャイル開発の特徴として、最も適切なものはどれですか？',
       category: 'management',
       options: [
@@ -75,10 +75,10 @@ export const ARTICLE_QUIZZES: { [articleId: string]: QuizQuestion[] } = {
       explanation: 'アジャイル開発は短期間のイテレーションを繰り返すことで、優先度の高い機能から動くソフトウェアを提供し、仕様変更に迅速に対応する開発手法です。'
     }
   ],
-  'dns-network-basics': [
+  'communication-protocols': [
     {
       id: 'q-dns-1',
-      articleId: 'dns-network-basics',
+      articleId: 'communication-protocols',
       question: 'Web閲覧等で用いられる「IPv4」と「IPv6」の説明として適切なものはどれですか？',
       category: 'technology',
       options: [
