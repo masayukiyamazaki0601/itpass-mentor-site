@@ -32,6 +32,7 @@ import { CrossSWOTDiagram } from './CrossSWOTDiagram';
 import { RNDStagesDiagram } from './RNDStagesDiagram';
 import { TechDevToolsDiagram } from './TechDevToolsDiagram';
 import { OSFunctionsDiagram } from './OSFunctionsDiagram';
+import { OSInteractiveDiagram } from './OSInteractiveDiagram';
 import { NetworkDevicesDiagram } from './NetworkDevicesDiagram';
 import { SecurityCIADiagram } from './SecurityCIADiagram';
 import { SecurityThreatsDiagram } from './SecurityThreatsDiagram';
@@ -360,6 +361,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'rnd-stages' && <div className="my-8"><RNDStagesDiagram /></div>}
                   {sec.diagram === 'tech-dev-tools' && <div className="my-8"><TechDevToolsDiagram /></div>}
                   {sec.diagram === 'os-functions' && <div className="my-8"><OSFunctionsDiagram /></div>}
+                  {sec.diagram === 'os-interactive' && <div className="my-8"><OSInteractiveDiagram /></div>}
                   {sec.diagram === 'network-devices' && <div className="my-8"><NetworkDevicesDiagram /></div>}
                   {sec.diagram === 'security-cia' && <div className="my-8"><SecurityCIADiagram /></div>}
                   {sec.diagram === 'security-threats' && <div className="my-8"><SecurityThreatsDiagram /></div>}

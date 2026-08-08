@@ -15666,8 +15666,8 @@ export const ARTICLES_DATA: Article[] = [
         id: 'section-4',
         title: 'OSの5つの仕事',
         content:
-          'OSは、コンピュータを動かすためにいくつかの大切な仕事をしています。\n\nよく試験に出るものを覚えましょう。\n\n下の図で、5つの仕事をまとめてイメージしましょう。',
-        diagram: 'os-functions',
+          'OSは、コンピュータを動かすためにいくつかの大切な仕事をしています。\n\nよく試験に出るものを覚えましょう。\n\n下の図で、5つの仕事をクリックして確認しましょう。',
+        diagram: 'os-interactive',
         bentoCards: [
           {
             title: '① アプリの起動・管理',
