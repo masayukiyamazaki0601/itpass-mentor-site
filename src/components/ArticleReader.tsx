@@ -316,7 +316,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                     </div>
                   )}
 
-                  {/* Callout / Callout2 Box (問Nの番号順で表示) */}
+                  {/* Callout / Callout2 Box (問Nの番号順で表示) SORT_TEST_MARKER */}
                   {(() => {
                     const boxes: { data: { title: string; items: string[]; note?: string }; kind: number }[] = [];
                     if (sec.callout) boxes.push({ data: sec.callout, kind: 0 });
