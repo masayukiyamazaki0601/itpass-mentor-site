@@ -8,7 +8,7 @@ export const CrossSWOTDiagram: React.FC = () => {
       en: 'S × O',
       action: '攻める',
       color: 'bg-emerald-50 border-emerald-300',
-      icon: 'attack',
+      icon: 'bolt',
       iconColor: 'text-emerald-500',
       badge: 'bg-emerald-600',
       example: '修理が得意 × 自転車ブーム → 修理キャンペーンを打つ',
