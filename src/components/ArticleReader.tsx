@@ -307,7 +307,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
                   {/* Callout Box */}
                   {sec.callout && (
-                    <div className="bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 rounded-2xl p-6 my-8 flex gap-4 items-start border border-sky-200/80 shadow-xs">
+                    <div className="bg-gradient-to-r from-sky-50 via-blue-50 to-blue-100/60 rounded-2xl p-6 my-8 flex gap-4 items-start border border-sky-200/80 shadow-xs">
                       <div className="bg-blue-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
                         <span className="material-symbols-outlined">lightbulb</span>
                       </div>
