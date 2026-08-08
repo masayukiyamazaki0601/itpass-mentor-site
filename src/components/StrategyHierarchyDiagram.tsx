@@ -8,13 +8,13 @@ export const StrategyHierarchyDiagram: React.FC = () => {
       en: 'Corporate Strategy',
       desc: '会社全体の方向性を決める',
       example: '自転車屋を続けるか、電動自転車に特化するか',
-      color: 'from-indigo-600 to-blue-600',
-      soft: 'bg-indigo-50 border-indigo-300',
-      badge: 'bg-indigo-600',
-      ring: 'ring-indigo-100',
+      color: 'from-sky-600 to-blue-600',
+      soft: 'bg-sky-50 border-sky-300',
+      badge: 'bg-sky-600',
+      ring: 'ring-sky-600',
       icon: 'account_balance',
       label: '上（大きく・抽象的）',
-      labelColor: 'text-indigo-600',
+      labelColor: 'text-sky-600',
       delay: 0
     },
     {
@@ -48,10 +48,10 @@ export const StrategyHierarchyDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-indigo-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
+    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-blue-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shadow-md shadow-indigo-200">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-600 to-blue-600 text-white flex items-center justify-center shadow-md shadow-sky-600">
           <span className="material-symbols-outlined text-xl">account_tree</span>
         </div>
         <div>
@@ -112,14 +112,14 @@ export const StrategyHierarchyDiagram: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-6 rounded-xl bg-gradient-to-r from-indigo-50 to-cyan-50 border border-indigo-100 px-4 py-3 flex items-center gap-2"
+        className="mt-6 rounded-xl bg-gradient-to-r from-sky-50 to-cyan-50 border border-sky-100 px-4 py-3 flex items-center gap-2"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <span className="material-symbols-outlined text-indigo-400 text-lg">tips_and_updates</span>
+        <span className="material-symbols-outlined text-sky-400 text-lg">tips_and_updates</span>
         <p className="text-xs text-[#43474f]">
-          覚え方：<span className="font-bold text-indigo-600">全社（大きく）</span> → <span className="font-bold text-blue-600">事業（中）</span> → <span className="font-bold text-cyan-600">機能（細かく）</span>
+          覚え方：<span className="font-bold text-sky-600">全社（大きく）</span> → <span className="font-bold text-blue-600">事業（中）</span> → <span className="font-bold text-cyan-600">機能（細かく）</span>
         </p>
       </motion.div>
     </div>

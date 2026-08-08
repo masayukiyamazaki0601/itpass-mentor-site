@@ -36,7 +36,7 @@ export function OrganizationDiagrams() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 relative ${
-                isActive ? 'text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                isActive ? 'text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'
               }`}
             >
               {isActive && (
@@ -56,7 +56,7 @@ export function OrganizationDiagrams() {
 
       {/* コンテンツエリア */}
       <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden min-h-[500px]">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500" />
         
         <div className="p-8">
           <AnimatePresence mode="wait">
@@ -92,9 +92,9 @@ function FunctionalDiagram() {
       {/* 図解 */}
       <div className="relative flex flex-col items-center pt-4">
         {/* 社長 */}
-        <div className="glass-card-light w-40 py-4 px-6 rounded-2xl flex flex-col items-center gap-2 border-indigo-200 bg-indigo-50/50 shadow-lg relative z-10">
-          <UserCog className="w-8 h-8 text-indigo-600" />
-          <span className="font-black text-indigo-900">社長 (CEO)</span>
+        <div className="glass-card-light w-40 py-4 px-6 rounded-2xl flex flex-col items-center gap-2 border-sky-200 bg-sky-50/50 shadow-lg relative z-10">
+          <UserCog className="w-8 h-8 text-sky-600" />
+          <span className="font-black text-sky-900">社長 (CEO)</span>
         </div>
 
         {/* 縦線 */}
@@ -156,18 +156,18 @@ function DivisionalDiagram() {
         {/* 事業部 */}
         <div className="flex justify-between w-3/4 mt-6 gap-8">
           {/* 事業部A */}
-          <div className="flex-1 glass-card-light rounded-2xl p-4 border-indigo-200 bg-indigo-50/30 flex flex-col items-center relative">
-            <div className="absolute -top-3 bg-indigo-100 text-indigo-700 text-xs font-black px-3 py-1 rounded-full border border-indigo-200">
+          <div className="flex-1 glass-card-light rounded-2xl p-4 border-sky-200 bg-sky-50/30 flex flex-col items-center relative">
+            <div className="absolute -top-3 bg-sky-100 text-sky-700 text-xs font-black px-3 py-1 rounded-full border border-sky-200">
               製品A 事業部
             </div>
-            <Monitor className="w-8 h-8 text-indigo-500 mt-4 mb-2" />
+            <Monitor className="w-8 h-8 text-sky-500 mt-4 mb-2" />
             
-            <div className="flex w-full justify-around mt-4 pt-4 border-t border-indigo-100">
+            <div className="flex w-full justify-around mt-4 pt-4 border-t border-sky-100">
               <div className="text-[10px] font-bold text-slate-600 flex flex-col items-center gap-1">
-                <Briefcase className="w-4 h-4 text-indigo-400" /> 営業
+                <Briefcase className="w-4 h-4 text-sky-400" /> 営業
               </div>
               <div className="text-[10px] font-bold text-slate-600 flex flex-col items-center gap-1">
-                <Factory className="w-4 h-4 text-indigo-400" /> 製造
+                <Factory className="w-4 h-4 text-sky-400" /> 製造
               </div>
             </div>
           </div>
@@ -221,9 +221,9 @@ function MatrixDiagram() {
         <div className="grid grid-cols-4 gap-2">
           {/* Header Row */}
           <div className="col-span-1"></div>
-          <div className="col-span-1 bg-indigo-50 text-indigo-700 font-black text-xs py-2 text-center rounded-lg border border-indigo-100">営業部</div>
-          <div className="col-span-1 bg-indigo-50 text-indigo-700 font-black text-xs py-2 text-center rounded-lg border border-indigo-100">製造部</div>
-          <div className="col-span-1 bg-indigo-50 text-indigo-700 font-black text-xs py-2 text-center rounded-lg border border-indigo-100">総務部</div>
+          <div className="col-span-1 bg-sky-50 text-sky-700 font-black text-xs py-2 text-center rounded-lg border border-sky-100">営業部</div>
+          <div className="col-span-1 bg-sky-50 text-sky-700 font-black text-xs py-2 text-center rounded-lg border border-sky-100">製造部</div>
+          <div className="col-span-1 bg-sky-50 text-sky-700 font-black text-xs py-2 text-center rounded-lg border border-sky-100">総務部</div>
 
           {/* Project A */}
           <div className="col-span-1 bg-rose-50 text-rose-700 font-black text-xs flex items-center justify-center rounded-lg border border-rose-100">
@@ -244,7 +244,7 @@ function MatrixDiagram() {
 
         {/* 指示系統のアニメーション */}
         <motion.div 
-          className="absolute left-[37.5%] top-16 w-0.5 h-16 bg-indigo-400"
+          className="absolute left-[37.5%] top-16 w-0.5 h-16 bg-sky-400"
           animate={{ opacity: [0, 1, 0], scaleY: [0, 1, 1], transformOrigin: 'top' }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />

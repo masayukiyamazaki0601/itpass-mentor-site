@@ -30,7 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <div className="glass-panel-light h-full w-full rounded-3xl p-5 flex flex-col gap-6 shadow-sm">
       <div className="px-2 pt-1 pb-3 border-b border-slate-200/80 flex items-center justify-between">
         <div>
-          <span className="text-[10px] font-extrabold tracking-widest text-indigo-600 uppercase">Navigation</span>
+          <span className="text-[10px] font-extrabold tracking-widest text-sky-600 uppercase">Navigation</span>
           <h2 className="font-black text-xl text-slate-900 tracking-tight">学習メニュー</h2>
         </div>
         <span className="material-symbols-outlined text-slate-400">explore</span>
@@ -52,7 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className={`flex items-center justify-between px-4 py-3 text-sm font-bold rounded-2xl transition-all text-left cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/20'
+                  ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/20'
                   : 'text-slate-700 hover:bg-slate-100/80 hover:text-slate-900'
               }`}
             >
@@ -76,15 +76,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
             onOpenAppModal?.();
             onCloseMobile?.();
           }}
-          className="flex items-center justify-between px-4 py-3 mt-1 text-sm font-bold text-slate-700 hover:bg-purple-50 hover:text-purple-700 rounded-2xl transition-all cursor-pointer border border-dashed border-purple-200 group"
+          className="flex items-center justify-between px-4 py-3 mt-1 text-sm font-bold text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-2xl transition-all cursor-pointer border border-dashed border-sky-200 group"
         >
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-xl text-purple-500 group-hover:scale-110 transition-transform">
+            <span className="material-symbols-outlined text-xl text-sky-500 group-hover:scale-110 transition-transform">
               smartphone
             </span>
             演習アプリ
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-md font-bold bg-purple-100 text-purple-700">
+          <span className="text-[10px] px-2 py-0.5 rounded-md font-bold bg-sky-100 text-sky-700">
             App
           </span>
         </button>
@@ -112,7 +112,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   />
                   <div className={`w-5 h-5 rounded-lg border flex items-center justify-center transition-all ${
                     isChecked
-                      ? 'bg-indigo-600 border-indigo-600 text-white shadow-xs'
+                      ? 'bg-sky-600 border-sky-600 text-white shadow-xs'
                       : 'border-slate-300 bg-white group-hover:border-slate-400'
                   }`}>
                     {isChecked && <span className="material-symbols-outlined text-sm font-bold">check</span>}

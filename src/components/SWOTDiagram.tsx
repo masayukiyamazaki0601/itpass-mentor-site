@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const SWOTDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">SWOT分析の4つの視点</h3>
         <p className="text-xs text-[#43474f] mt-1">内部環境と外部環境を掛け合わせて考える</p>

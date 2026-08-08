@@ -10,7 +10,7 @@ export const NetworkDevicesDiagram: React.FC = () => {
       role: '外と中をつなぐ玄関番',
       desc: 'LANと外のネットワーク（WAN）を接続し、データを届け先まで送り届ける',
       example: '店とインターネットをつなぐ',
-      color: 'from-blue-600 to-indigo-600',
+      color: 'from-blue-600 to-blue-600',
       soft: 'bg-blue-50 border-blue-300',
       badge: 'bg-blue-100 text-blue-600',
       delay: 0
@@ -57,7 +57,7 @@ export const NetworkDevicesDiagram: React.FC = () => {
     <div className="w-full bg-gradient-to-b from-slate-50 via-white to-blue-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-md shadow-blue-200">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-200">
           <span className="material-symbols-outlined text-xl">router</span>
         </div>
         <div>

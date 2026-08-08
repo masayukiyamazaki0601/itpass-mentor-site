@@ -44,12 +44,12 @@ export const ManagementSystemsDiagram: React.FC = () => {
       ja: 'データ分析',
       en: 'Business Intelligence',
       icon: 'insights',
-      color: 'bg-purple-50 border-purple-300',
-      iconColor: 'text-purple-500',
+      color: 'bg-blue-50 border-blue-300',
+      iconColor: 'text-blue-500',
       desc: 'データを分析して、経営の判断に役立てる',
       example: '「どの味が一番売れているか」を調べる',
       key: '分析・判断',
-      keyColor: 'text-purple-600'
+      keyColor: 'text-blue-600'
     }
   ];
 
@@ -89,7 +89,7 @@ export const ManagementSystemsDiagram: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        1行で覚える：<span className="font-bold text-blue-600">SCM＝モノ</span>・<span className="font-bold text-emerald-600">CRM＝お客様</span>・<span className="font-bold text-amber-600">ERP＝全部まとめ</span>・<span className="font-bold text-purple-600">BI＝分析</span>
+        1行で覚える：<span className="font-bold text-blue-600">SCM＝モノ</span>・<span className="font-bold text-emerald-600">CRM＝お客様</span>・<span className="font-bold text-amber-600">ERP＝全部まとめ</span>・<span className="font-bold text-blue-600">BI＝分析</span>
       </motion.p>
     </div>
   );

@@ -66,7 +66,7 @@ export const STPDiagram: React.FC = () => {
             </motion.div>
             {idx < steps.length - 1 && (
               <div className="flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl text-indigo-300 rotate-90 md:rotate-0">
+                <span className="material-symbols-outlined text-2xl text-sky-300 rotate-90 md:rotate-0">
                   arrow_forward
                 </span>
               </div>

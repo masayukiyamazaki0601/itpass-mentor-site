@@ -18,12 +18,12 @@ export const PortersStrategyDiagram: React.FC = () => {
       name: '差別化戦略',
       en: 'Differentiation',
       icon: 'auto_awesome',
-      color: 'bg-purple-50 border-purple-300',
-      iconColor: 'text-purple-500',
+      color: 'bg-blue-50 border-blue-300',
+      iconColor: 'text-blue-500',
       win: '他と違う価値で勝つ',
       example: '独自のこだわりスープで「ここでしか味わえない」にする',
       key: '他にない価値',
-      keyColor: 'text-purple-600'
+      keyColor: 'text-blue-600'
     },
     {
       name: '集中戦略',
@@ -39,7 +39,7 @@ export const PortersStrategyDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-violet-50 via-white to-purple-50 p-6 rounded-2xl border border-violet-200 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-blue-50 via-white to-cyan-50 p-6 rounded-2xl border border-blue-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">ポーターの3つの基本戦略</h3>
         <p className="text-xs text-[#43474f] mt-1">ライバルに勝つための「3つの道」のどれかを選ぶ</p>
@@ -74,7 +74,7 @@ export const PortersStrategyDiagram: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        覚え方：<span className="font-bold text-blue-600">安さ（コスト）</span>・<span className="font-bold text-purple-600">違い（差別化）</span>・<span className="font-bold text-amber-600">絞り（集中）</span>のどれかで勝つ
+        覚え方：<span className="font-bold text-blue-600">安さ（コスト）</span>・<span className="font-bold text-blue-600">違い（差別化）</span>・<span className="font-bold text-amber-600">絞り（集中）</span>のどれかで勝つ
       </motion.p>
     </div>
   );

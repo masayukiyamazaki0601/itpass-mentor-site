@@ -129,9 +129,9 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-500 selection:text-white relative overflow-hidden font-sans">
       {/* Light Ambient Gradient Accents */}
-      <div className="fixed top-[-10%] left-[-5%] w-[550px] h-[550px] rounded-full bg-indigo-200/40 blur-[130px] pointer-events-none animate-pulse-glow" />
-      <div className="fixed bottom-[-10%] right-[-5%] w-[550px] h-[550px] rounded-full bg-sky-200/40 blur-[130px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
-      <div className="fixed top-[40%] right-[15%] w-[350px] h-[350px] rounded-full bg-purple-200/30 blur-[110px] pointer-events-none" />
+      <div className="fixed top-[-10%] left-[-5%] w-[550px] h-[550px] rounded-full bg-sky-200/40 blur-[130px] pointer-events-none animate-pulse-glow" />
+      <div className="fixed bottom-[-10%] right-[-5%] w-[550px] h-[550px] rounded-full bg-cyan-200/40 blur-[130px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
+      <div className="fixed top-[40%] right-[15%] w-[350px] h-[350px] rounded-full bg-blue-200/30 blur-[110px] pointer-events-none" />
 
       {/* Top Header */}
       <Header

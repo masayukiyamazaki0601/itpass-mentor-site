@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const BreakEvenVisualDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">損益分岐点のイメージ</h3>
         <p className="text-xs text-[#43474f] mt-1">売上が増えるにつれて赤字から黒字へ</p>
@@ -69,8 +69,8 @@ export const BreakEvenVisualDiagram: React.FC = () => {
               <p className="text-[10px] text-amber-600">売れた分だけ増加<br/>例：材料費</p>
             </div>
           </div>
-          <div className="col-span-2 bg-indigo-50 rounded-lg p-3 text-center">
-            <span className="text-xs font-bold text-indigo-800">損益分岐点売上高 ＝ 固定費 ÷ 限界利益率</span>
+          <div className="col-span-2 bg-sky-50 rounded-lg p-3 text-center">
+            <span className="text-xs font-bold text-sky-800">損益分岐点売上高 ＝ 固定費 ÷ 限界利益率</span>
           </div>
         </motion.div>
       </div>

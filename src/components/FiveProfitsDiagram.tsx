@@ -2,17 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const profits = [
-  { label: '売上高', sub: '商品・サービスの販売収入', color: 'bg-indigo-100 border-indigo-300 text-indigo-800', width: '100%', minus: null },
+  { label: '売上高', sub: '商品・サービスの販売収入', color: 'bg-sky-100 border-sky-300 text-sky-800', width: '100%', minus: null },
   { label: '① 売上総利益', sub: '売上高 − 売上原価', color: 'bg-blue-100 border-blue-300 text-blue-800', width: '85%', minus: '− 売上原価' },
-  { label: '② 営業利益', sub: '売上総利益 − 販管費', color: 'bg-violet-100 border-violet-300 text-violet-800', width: '70%', minus: '− 販売費・一般管理費' },
-  { label: '③ 経常利益', sub: '営業利益 ± 営業外損益', color: 'bg-purple-100 border-purple-300 text-purple-800', width: '58%', minus: '± 営業外損益（利息等）' },
+  { label: '② 営業利益', sub: '売上総利益 − 販管費', color: 'bg-blue-100 border-blue-300 text-blue-800', width: '70%', minus: '− 販売費・一般管理費' },
+  { label: '③ 経常利益', sub: '営業利益 ± 営業外損益', color: 'bg-blue-100 border-blue-300 text-blue-800', width: '58%', minus: '± 営業外損益（利息等）' },
   { label: '④ 税引前当期純利益', sub: '経常利益 ± 特別損益', color: 'bg-pink-100 border-pink-300 text-pink-800', width: '48%', minus: '± 特別損益（土地売却等）' },
   { label: '⑤ 当期純利益', sub: '税引前 − 法人税等', color: 'bg-emerald-100 border-emerald-300 text-emerald-800', width: '40%', minus: '− 法人税等' },
 ];
 
 export const FiveProfitsDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">5つの利益の段階的な計算</h3>
         <p className="text-xs text-[#43474f] mt-1">売上高から費用を引くたびに、利益の種類が変わります</p>

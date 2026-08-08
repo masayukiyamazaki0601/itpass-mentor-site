@@ -40,12 +40,12 @@ export const GrowthStrategyDiagram: React.FC = () => {
       name: 'アウトソーシング',
       en: 'Outsourcing',
       icon: 'handyman',
-      color: 'bg-purple-50 border-purple-300',
-      iconColor: 'text-purple-500',
+      color: 'bg-blue-50 border-blue-300',
+      iconColor: 'text-blue-500',
       desc: '「外に任せる」仕事の一部を専門会社に頼む',
       example: '食器洗いや会計を外の専門会社に任せる',
       direction: '⇄ 外注',
-      directionColor: 'text-purple-600'
+      directionColor: 'text-blue-600'
     }
   ];
 
@@ -87,7 +87,7 @@ export const GrowthStrategyDiagram: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        覚え方：<span className="font-bold text-blue-600">多角化＝横</span>・<span className="font-bold text-emerald-600">垂直統合＝縦</span>・<span className="font-bold text-amber-600">M&A＝合体</span>・<span className="font-bold text-purple-600">アウトソーシング＝外注</span>
+        覚え方：<span className="font-bold text-blue-600">多角化＝横</span>・<span className="font-bold text-emerald-600">垂直統合＝縦</span>・<span className="font-bold text-amber-600">M&A＝合体</span>・<span className="font-bold text-blue-600">アウトソーシング＝外注</span>
       </motion.p>
     </div>
   );

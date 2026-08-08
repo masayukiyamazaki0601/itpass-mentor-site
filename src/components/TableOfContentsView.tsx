@@ -18,7 +18,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
   return (
     <div className="flex-1 w-full max-w-full">
       <div className="mb-10">
-        <span className="text-xs font-extrabold tracking-widest text-indigo-600 uppercase">Syllabus Overview</span>
+        <span className="text-xs font-extrabold tracking-widest text-sky-600 uppercase">Syllabus Overview</span>
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-3 tracking-tight">
           学習コンテンツ目次
         </h1>
@@ -38,7 +38,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
               className={`glass-card-light rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden group border transition-all shadow-xs ${
                 isCompleted
                   ? 'border-emerald-300 bg-emerald-50/20'
-                  : 'border-slate-200/80 hover:border-indigo-400/60'
+                  : 'border-slate-200/80 hover:border-sky-400/60'
               }`}
             >
               <div>
@@ -47,7 +47,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
                     <span className={`w-11 h-11 rounded-2xl flex items-center justify-center font-black text-lg shadow-md flex-shrink-0 ${
                       isCompleted
                         ? 'bg-emerald-500 text-white shadow-emerald-500/25'
-                        : 'bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-indigo-500/25'
+                        : 'bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-sky-500/25'
                     }`}>
                       {isCompleted ? <span className="material-symbols-outlined font-bold">check</span> : chapter.number}
                     </span>
@@ -92,13 +92,13 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
                           disabled={!hasArticle}
                           className={`text-sm px-3.5 py-2.5 rounded-2xl w-full text-left flex items-center gap-3 transition-all ${
                             hasArticle
-                              ? 'text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/80 cursor-pointer font-semibold'
+                              ? 'text-slate-700 hover:text-sky-600 hover:bg-sky-50/80 cursor-pointer font-semibold'
                               : 'text-slate-400 cursor-not-allowed'
                           }`}
                         >
                           <span
                             className={`material-symbols-outlined text-lg flex-shrink-0 ${
-                              hasArticle ? (isCompleted ? 'text-emerald-500' : 'text-indigo-500') : 'text-slate-300'
+                              hasArticle ? (isCompleted ? 'text-emerald-500' : 'text-sky-500') : 'text-slate-300'
                             }`}
                           >
                             {hasArticle ? (isCompleted ? 'task_alt' : 'arrow_right') : 'lock'}
@@ -108,7 +108,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
                             <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-lg flex items-center gap-0.5 ${
                               isCompleted
                                 ? 'text-emerald-700 bg-emerald-100/80'
-                                : 'text-indigo-600 bg-indigo-100/70'
+                                : 'text-sky-600 bg-sky-100/70'
                             }`}>
                               {isCompleted ? '復習する' : '記事を読む'}
                             </span>
@@ -127,7 +127,7 @@ export const TableOfContentsView: React.FC<TableOfContentsViewProps> = ({
       <div className="mt-12 text-center">
         <button
           onClick={() => setActiveTab('home')}
-          className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-sm py-3.5 px-8 rounded-2xl shadow-lg shadow-indigo-500/25 transition-all inline-flex items-center gap-2 active:scale-95 cursor-pointer"
+          className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-600 text-white font-bold text-sm py-3.5 px-8 rounded-2xl shadow-lg shadow-sky-500/25 transition-all inline-flex items-center gap-2 active:scale-95 cursor-pointer"
         >
           <span className="material-symbols-outlined">home</span>
           ホームに戻る

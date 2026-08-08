@@ -22,7 +22,7 @@ const resources = [
 
 export const ResourcesDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">4つの経営資源</h3>
         <p className="text-xs text-[#43474f] mt-1">企業活動を支える4つの基盤</p>
@@ -56,12 +56,12 @@ export const ResourcesDiagram: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-4 text-center text-xs text-[#43474f] bg-indigo-50 border border-indigo-100 rounded-xl px-4 py-2"
+        className="mt-4 text-center text-xs text-[#43474f] bg-sky-50 border border-sky-100 rounded-xl px-4 py-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
       >
-        <span className="font-bold text-indigo-700">最重要は「ヒト」</span>。モノ・カネ・情報は、ヒトがいなければ活用できません。
+        <span className="font-bold text-sky-700">最重要は「ヒト」</span>。モノ・カネ・情報は、ヒトがいなければ活用できません。
       </motion.div>
     </div>
   );

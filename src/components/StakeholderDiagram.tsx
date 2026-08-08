@@ -6,12 +6,12 @@ const stakeholders = [
   { label: '従業員', icon: 'badge', color: 'bg-blue-50 border-blue-200 text-blue-700', dot: 'bg-blue-400', duty: '働きやすい環境' },
   { label: '株主', icon: 'payments', color: 'bg-amber-50 border-amber-200 text-amber-700', dot: 'bg-amber-400', duty: '利益を報告・配当' },
   { label: '取引先', icon: 'handshake', color: 'bg-emerald-50 border-emerald-200 text-emerald-700', dot: 'bg-emerald-400', duty: '代金をきちんと払う' },
-  { label: '地域社会', icon: 'location_city', color: 'bg-purple-50 border-purple-200 text-purple-700', dot: 'bg-purple-400', duty: '地域に貢献する' },
+  { label: '地域社会', icon: 'location_city', color: 'bg-blue-50 border-blue-200 text-blue-700', dot: 'bg-blue-400', duty: '地域に貢献する' },
 ];
 
 export const StakeholderDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">ステークホルダの関係図</h3>
         <p className="text-xs text-[#43474f] mt-1">企業は多くの相手に責任を持っています</p>
@@ -51,7 +51,7 @@ export const StakeholderDiagram: React.FC = () => {
 
           {/* Center: company */}
           <motion.div
-            className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg"
+            className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.5, type: 'spring' }}

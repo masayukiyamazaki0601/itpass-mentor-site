@@ -39,8 +39,8 @@ export const Marketing4PDiagram: React.FC = () => {
       en: 'どう知らせるか',
       example: 'SNSで投稿、新商品の看板を出す',
       icon: 'campaign',
-      color: 'bg-purple-50 border-purple-300',
-      iconColor: 'text-purple-500',
+      color: 'bg-blue-50 border-blue-300',
+      iconColor: 'text-blue-500',
       delay: 0.3
     }
   ];
@@ -82,7 +82,7 @@ export const Marketing4PDiagram: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        覚え方：<span className="font-bold text-blue-600">Product</span>・<span className="font-bold text-emerald-600">Price</span>・<span className="font-bold text-amber-600">Place</span>・<span className="font-bold text-purple-600">Promotion</span> の頭文字「4P」
+        覚え方：<span className="font-bold text-blue-600">Product</span>・<span className="font-bold text-emerald-600">Price</span>・<span className="font-bold text-amber-600">Place</span>・<span className="font-bold text-blue-600">Promotion</span> の頭文字「4P」
       </motion.p>
     </div>
   );

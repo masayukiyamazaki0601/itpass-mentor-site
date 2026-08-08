@@ -4,7 +4,7 @@ import { Users, Briefcase, FileSearch, ArrowDown } from 'lucide-react';
 
 export const CompanyStructureDiagrams: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm overflow-hidden">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm overflow-hidden">
       <div className="text-center mb-8">
         <h3 className="text-lg font-bold text-[#111c2c]">株式会社の3つの機関</h3>
         <p className="text-xs text-[#43474f] mt-1">「所有」と「経営」の分離が基本です</p>
@@ -13,16 +13,16 @@ export const CompanyStructureDiagrams: React.FC = () => {
       <div className="relative max-w-lg mx-auto">
         {/* 株主総会 (最高意思決定機関) */}
         <motion.div 
-          className="bg-white rounded-xl p-4 border-2 border-indigo-200 shadow-sm relative z-10 flex flex-col items-center"
+          className="bg-white rounded-xl p-4 border-2 border-sky-200 shadow-sm relative z-10 flex flex-col items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="bg-indigo-50 w-12 h-12 rounded-full flex items-center justify-center text-indigo-600 mb-2">
+          <div className="bg-sky-50 w-12 h-12 rounded-full flex items-center justify-center text-sky-600 mb-2">
             <Users size={24} />
           </div>
-          <h4 className="font-bold text-indigo-900 mb-1">株主総会</h4>
-          <span className="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full mb-2 font-bold tracking-wider">最高意思決定機関</span>
+          <h4 className="font-bold text-sky-900 mb-1">株主総会</h4>
+          <span className="text-[10px] bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full mb-2 font-bold tracking-wider">最高意思決定機関</span>
           <p className="text-xs text-center text-[#43474f]">
             会社の出資者（所有者）の集まり。<br/>重要な方針や、取締役・監査役を選びます。
           </p>
@@ -36,9 +36,9 @@ export const CompanyStructureDiagrams: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <div className="h-12 border-l-2 border-dashed border-indigo-300"></div>
-            <ArrowDown className="text-indigo-400 -mt-2" size={16} />
-            <span className="text-[10px] text-indigo-500 font-bold bg-[#f8fafc] px-1 absolute top-1/2 -translate-y-1/2 left-4 whitespace-nowrap">選任・監督</span>
+            <div className="h-12 border-l-2 border-dashed border-sky-300"></div>
+            <ArrowDown className="text-sky-400 -mt-2" size={16} />
+            <span className="text-[10px] text-sky-500 font-bold bg-[#f8fafc] px-1 absolute top-1/2 -translate-y-1/2 left-4 whitespace-nowrap">選任・監督</span>
           </motion.div>
           
           <motion.div 

@@ -18,7 +18,7 @@ const standards = [
 
 export const StandardizationDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">3つの標準の種類</h3>
         <p className="text-xs text-[#43474f] mt-1">「誰が・どうやって決めたか」で区別しよう</p>

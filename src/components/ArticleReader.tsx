@@ -157,7 +157,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   e.stopPropagation();
                   setActiveTermModal({ term, english, reading, description, examTip });
                 }}
-                className="inline-flex items-center gap-0.5 px-2 py-0.5 mx-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200/80 font-bold text-xs transition-all cursor-pointer shadow-xs"
+                className="inline-flex items-center gap-0.5 px-2 py-0.5 mx-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200/80 font-bold text-xs transition-all cursor-pointer shadow-xs"
               >
                 <span className="material-symbols-outlined text-xs">info</span>
                 {term}
@@ -182,7 +182,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
           <p className="text-base text-slate-700 font-medium">該当する記事が見つかりませんでした。</p>
           <button
             onClick={onBackToToc}
-            className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 px-4 py-2 rounded-2xl hover:bg-indigo-700 transition-colors"
+            className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-white bg-sky-600 px-4 py-2 rounded-2xl hover:bg-sky-700 transition-colors"
           >
             目次に戻る
           </button>
@@ -196,7 +196,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
       {/* Reading Progress Indicator */}
       <div className="fixed top-20 left-0 w-full h-1 bg-slate-200 z-50">
         <div
-          className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 shadow-sm"
+          className="h-full bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 transition-all duration-150 shadow-sm"
           style={{ width: `${readingProgress}%` }}
         />
       </div>
@@ -206,7 +206,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
         <main className="flex-1 w-full max-w-3xl">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 mb-4 font-semibold">
-            <span onClick={onBackToToc} className="hover:text-indigo-600 cursor-pointer">目次</span>
+            <span onClick={onBackToToc} className="hover:text-sky-600 cursor-pointer">目次</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
             <span>{article.breadcrumbPath[1]}</span>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
@@ -216,7 +216,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
           <article className="glass-card-light border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
             <header className="mb-8 border-b border-slate-200/80 pb-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="bg-indigo-100 text-indigo-700 px-3.5 py-1 rounded-xl text-xs font-extrabold inline-block border border-indigo-200/60">
+                <span className="bg-sky-100 text-sky-700 px-3.5 py-1 rounded-xl text-xs font-extrabold inline-block border border-sky-200/60">
                   {article.categoryLabel}
                 </span>
                 <div className="flex items-center text-slate-400 text-xs font-semibold gap-1">
@@ -248,7 +248,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {/* Comparison Table */}
                   {sec.comparisonTable && (
                     <div className="my-8 overflow-hidden rounded-2xl border border-slate-200/80 shadow-xs">
-                      <p className="text-xs font-extrabold text-indigo-700 px-5 py-3 bg-indigo-50/80 border-b border-indigo-100 uppercase tracking-wider">
+                      <p className="text-xs font-extrabold text-sky-700 px-5 py-3 bg-sky-50/80 border-b border-sky-100 uppercase tracking-wider">
                         {sec.comparisonTable.title}
                       </p>
                       <table className="w-full text-left text-xs text-slate-800">
@@ -267,7 +267,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                               {row.map((cell, ci) => (
                                 <td
                                   key={ci}
-                                  className={`p-3.5 whitespace-nowrap ${ci === 0 ? 'font-bold text-indigo-600' : 'text-slate-600 font-medium'}`}
+                                  className={`p-3.5 whitespace-nowrap ${ci === 0 ? 'font-bold text-sky-600' : 'text-slate-600 font-medium'}`}
                                 >
                                   {cell}
                                 </td>
@@ -451,7 +451,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
               <button
                 onClick={() => onStartQuiz(article.id)}
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-sm py-3.5 px-8 rounded-2xl shadow-lg shadow-indigo-500/25 transition-all flex items-center gap-2 active:scale-95 w-full sm:w-auto justify-center cursor-pointer"
+                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold text-sm py-3.5 px-8 rounded-2xl shadow-lg shadow-sky-500/25 transition-all flex items-center gap-2 active:scale-95 w-full sm:w-auto justify-center cursor-pointer"
               >
                 <span className="material-symbols-outlined">smartphone</span>
                 アプリで問題演習に挑戦
@@ -466,9 +466,9 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                 onClick={() => {
                   if (article.prevArticleId) onSelectArticle(article.prevArticleId);
                 }}
-                className="group border border-slate-200/80 hover:border-indigo-400 bg-white p-5 rounded-2xl flex flex-col justify-center items-start transition-all cursor-pointer shadow-xs"
+                className="group border border-slate-200/80 hover:border-sky-400 bg-white p-5 rounded-2xl flex flex-col justify-center items-start transition-all cursor-pointer shadow-xs"
               >
-                <span className="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1 group-hover:text-indigo-600">
+                <span className="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1 group-hover:text-sky-600">
                   <span className="material-symbols-outlined text-[16px]">arrow_back</span> 前の項目
                 </span>
                 <span className="font-extrabold text-sm text-slate-900 line-clamp-2">
@@ -482,9 +482,9 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                 onClick={() => {
                   if (article.nextArticleId) onSelectArticle(article.nextArticleId);
                 }}
-                className="group border border-slate-200/80 hover:border-indigo-400 bg-white p-5 rounded-2xl flex flex-col justify-center items-end text-right transition-all cursor-pointer shadow-xs"
+                className="group border border-slate-200/80 hover:border-sky-400 bg-white p-5 rounded-2xl flex flex-col justify-center items-end text-right transition-all cursor-pointer shadow-xs"
               >
-                <span className="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1 group-hover:text-indigo-600">
+                <span className="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1 group-hover:text-sky-600">
                   次の項目 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </span>
                 <span className="font-extrabold text-sm text-slate-900 line-clamp-2">
@@ -508,13 +508,13 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   <li key={sec.id}>
                     <button
                       onClick={() => scrollToSection(sec.id)}
-                      className={`hover:text-indigo-600 transition-colors flex items-start gap-2 text-left w-full cursor-pointer ${
-                        isActive ? 'text-indigo-600 font-extrabold' : ''
+                      className={`hover:text-sky-600 transition-colors flex items-start gap-2 text-left w-full cursor-pointer ${
+                        isActive ? 'text-sky-600 font-extrabold' : ''
                       }`}
                     >
                       <span
                         className={`material-symbols-outlined text-[18px] mt-0.5 ${
-                          isActive ? 'text-indigo-600' : 'text-slate-300'
+                          isActive ? 'text-sky-600' : 'text-slate-300'
                         }`}
                       >
                         {isActive ? 'adjust' : 'radio_button_unchecked'}
@@ -561,7 +561,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-extrabold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2.5 py-0.5 rounded-lg uppercase tracking-wider">
+              <span className="text-[10px] font-extrabold text-sky-600 bg-sky-50 border border-sky-100 px-2.5 py-0.5 rounded-lg uppercase tracking-wider">
                 IT Term Card
               </span>
             </div>
@@ -580,8 +580,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
             </p>
 
             {activeTermModal.examTip && (
-              <div className="text-xs text-indigo-900 bg-indigo-50/80 border border-indigo-100 p-4 rounded-2xl flex items-start gap-2.5">
-                <span className="material-symbols-outlined text-lg text-indigo-600 flex-shrink-0">
+              <div className="text-xs text-sky-900 bg-sky-50/80 border border-sky-100 p-4 rounded-2xl flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-lg text-sky-600 flex-shrink-0">
                   tips_and_updates
                 </span>
                 <span className="leading-relaxed"><strong>試験ポイント:</strong> {activeTermModal.examTip}</span>

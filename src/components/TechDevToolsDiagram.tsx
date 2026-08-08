@@ -10,7 +10,7 @@ export const TechDevToolsDiagram: React.FC = () => {
       role: '計画を立てる',
       desc: '技術開発を「いつ・どこまで」進めるかの予定表',
       example: '1年目は研究、2年目は試作、3年目に発売',
-      color: 'from-blue-600 to-indigo-600',
+      color: 'from-blue-600 to-blue-600',
       soft: 'bg-blue-50 border-blue-300',
       badge: 'bg-blue-100 text-blue-600',
       delay: 0

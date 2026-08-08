@@ -76,8 +76,8 @@ export const BicycleSWOTDiagram: React.FC = () => {
       <div className="flex gap-2">
         {/* Row labels */}
         <div className="w-16 flex flex-col gap-2">
-          <div className="flex-1 flex items-center justify-center rounded-lg bg-gradient-to-b from-indigo-50 to-blue-50 border border-indigo-100">
-            <span className="text-[10px] font-bold text-indigo-600 text-center leading-tight">
+          <div className="flex-1 flex items-center justify-center rounded-lg bg-gradient-to-b from-sky-50 to-blue-50 border border-sky-100">
+            <span className="text-[10px] font-bold text-sky-600 text-center leading-tight">
               自分の中
             </span>
           </div>
@@ -122,14 +122,14 @@ export const BicycleSWOTDiagram: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-5 rounded-xl bg-gradient-to-r from-indigo-50 to-teal-50 border border-indigo-100 px-4 py-3 flex items-center gap-2"
+        className="mt-5 rounded-xl bg-gradient-to-r from-sky-50 to-teal-50 border border-sky-100 px-4 py-3 flex items-center gap-2"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <span className="material-symbols-outlined text-indigo-400 text-lg">tips_and_updates</span>
+        <span className="material-symbols-outlined text-sky-400 text-lg">tips_and_updates</span>
         <p className="text-xs text-[#43474f]">
-          <span className="font-bold text-indigo-600">S・W＝自分の中</span> ／ <span className="font-bold text-teal-600">O・T＝外の世界</span>。この区別が試験の一番のポイント！
+          <span className="font-bold text-sky-600">S・W＝自分の中</span> ／ <span className="font-bold text-teal-600">O・T＝外の世界</span>。この区別が試験の一番のポイント！
         </p>
       </motion.div>
     </div>

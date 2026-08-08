@@ -11,8 +11,8 @@ export const CorporateActivitiesDiagrams = () => {
       title: '商品やサービスを作る',
       desc: '価値を生み出す源泉です',
       icon: Coffee,
-      color: 'from-pink-500 to-rose-500',
-      shadow: 'shadow-pink-500/20'
+      color: 'from-sky-500 to-cyan-500',
+      shadow: 'shadow-sky-500/20'
     },
     {
       id: 'deliver',
@@ -51,13 +51,13 @@ export const CorporateActivitiesDiagrams = () => {
   return (
     <div className="w-full bg-slate-900/5 rounded-3xl p-6 sm:p-10 border border-slate-200/50 shadow-inner relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="text-center mb-10">
           <h3 className="text-2xl font-black text-slate-900 tracking-tight flex items-center justify-center gap-2 mb-2">
-            <RefreshCcw className="w-6 h-6 text-indigo-600" />
+            <RefreshCcw className="w-6 h-6 text-sky-600" />
             企業活動のサイクル
           </h3>
           <p className="text-sm font-semibold text-slate-500">
@@ -70,13 +70,13 @@ export const CorporateActivitiesDiagrams = () => {
           
           {/* Central Enterprise Node */}
           <motion.div 
-            className="absolute z-20 flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-full shadow-2xl border-4 border-indigo-100"
+            className="absolute z-20 flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-full shadow-2xl border-4 border-sky-100"
             animate={{ 
               boxShadow: ['0px 10px 25px -5px rgba(99, 102, 241, 0.2)', '0px 15px 35px -5px rgba(99, 102, 241, 0.4)', '0px 10px 25px -5px rgba(99, 102, 241, 0.2)']
             }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-600 mb-1" />
+            <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-sky-600 mb-1" />
             <span className="text-xs sm:text-sm font-black text-slate-800">企業</span>
           </motion.div>
 

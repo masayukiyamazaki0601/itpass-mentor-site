@@ -10,7 +10,7 @@ export const SecurityThreatsDiagram: React.FC = () => {
       type: '壊す',
       desc: 'コンピュータに悪影響を与える悪意のあるプログラムの総称',
       example: 'レジのパソコンを壊すプログラム',
-      color: 'from-blue-600 to-indigo-600',
+      color: 'from-blue-600 to-blue-600',
       soft: 'bg-blue-50 border-blue-300',
       badge: 'bg-blue-100 text-blue-600',
       delay: 0

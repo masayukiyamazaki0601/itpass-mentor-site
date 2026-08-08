@@ -21,7 +21,7 @@ export const OSInteractiveDiagram: React.FC = () => {
       desc: 'アプリ（ソフトウェア）を起動したり、複数のアプリを同時に動かしたりする。',
       example: '各店舗の営業を管理する（売上管理・在庫管理アプリを同時起動）',
       tip: '「複数のアプリを同時に動かす」＝OSの仕事',
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-sky-600',
       border: 'border-blue-500',
       glow: 'shadow-blue-500/20'
     },

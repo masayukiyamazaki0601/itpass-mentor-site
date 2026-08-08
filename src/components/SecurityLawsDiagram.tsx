@@ -22,7 +22,7 @@ const laws = [
 
 export const SecurityLawsDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">セキュリティ関連4法律の比較</h3>
         <p className="text-xs text-[#43474f] mt-1">それぞれの「守り方」と「キーワード」を覚えよう</p>

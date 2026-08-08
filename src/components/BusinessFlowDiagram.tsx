@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 const steps = [
   { num: 1, label: '現状分析', icon: 'search', color: 'bg-blue-50 border-blue-200 text-blue-700', desc: '今の業務の流れ\n（As-Is）を把握' },
   { num: 2, label: '課題の発見', icon: 'flag', color: 'bg-amber-50 border-amber-200 text-amber-700', desc: '問題点・ムダを\nリストアップ' },
-  { num: 3, label: '改善案の検討', icon: 'lightbulb', color: 'bg-purple-50 border-purple-200 text-purple-700', desc: '解決策を\n複数考える' },
+  { num: 3, label: '改善案の検討', icon: 'lightbulb', color: 'bg-blue-50 border-blue-200 text-blue-700', desc: '解決策を\n複数考える' },
   { num: 4, label: '計画の策定', icon: 'assignment', color: 'bg-pink-50 border-pink-200 text-pink-700', desc: 'KGI・KPI・\nCSFを設定' },
   { num: 5, label: '実行・評価', icon: 'sync_alt', color: 'bg-emerald-50 border-emerald-200 text-emerald-700', desc: 'PDCAで\n継続改善' },
 ];
 
 export const BusinessFlowDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">業務改善の流れ（As-Is → To-Be）</h3>
         <p className="text-xs text-[#43474f] mt-1">現状分析から計画・実行まで5ステップ</p>

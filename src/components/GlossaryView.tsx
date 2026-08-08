@@ -64,7 +64,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
   return (
     <div className="flex-1 w-full max-w-full">
       <div className="mb-10">
-        <span className="text-xs font-extrabold tracking-widest text-indigo-600 uppercase">IT Dictionary</span>
+        <span className="text-xs font-extrabold tracking-widest text-sky-600 uppercase">IT Dictionary</span>
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-3 tracking-tight">
           IT用語集
         </h1>
@@ -81,9 +81,9 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="用語・アルファベット・解説を検索..."
-            className="w-full bg-slate-100/80 border border-slate-200 rounded-2xl py-2.5 pl-11 pr-10 text-sm text-slate-800 focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all font-semibold"
+            className="w-full bg-slate-100/80 border border-slate-200 rounded-2xl py-2.5 pl-11 pr-10 text-sm text-slate-800 focus:outline-none focus:bg-white focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all font-semibold"
           />
-          <span className="material-symbols-outlined absolute left-3.5 top-3 text-indigo-500 text-xl select-none">
+          <span className="material-symbols-outlined absolute left-3.5 top-3 text-sky-500 text-xl select-none">
             search
           </span>
           {searchTerm && (
@@ -112,7 +112,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
           </button>
 
           <div className="text-xs text-slate-500 font-bold px-3 py-1 bg-slate-100 rounded-xl">
-            検索結果: <span className="font-extrabold text-indigo-600 text-sm">{filteredTerms.length}</span> 件
+            検索結果: <span className="font-extrabold text-sky-600 text-sm">{filteredTerms.length}</span> 件
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
                 onClick={() => setSelectedIndexGroup(group)}
                 className={`min-w-10 h-10 px-3.5 flex items-center justify-center rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/20 scale-105'
+                    ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/20 scale-105'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
                 }`}
               >
@@ -154,7 +154,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
               setSelectedIndexGroup('ALL');
               setOnlyBookmarks(false);
             }}
-            className="mt-6 text-xs bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md shadow-indigo-500/20 transition-all cursor-pointer"
+            className="mt-6 text-xs bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md shadow-sky-500/20 transition-all cursor-pointer"
           >
             条件をリセット
           </button>
@@ -168,12 +168,12 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
             return (
               <div
                 key={term.id}
-                className="glass-card-light rounded-3xl p-7 hover:border-indigo-300 transition-all relative overflow-hidden group flex flex-col justify-between border border-slate-200/80 shadow-xs"
+                className="glass-card-light rounded-3xl p-7 hover:border-sky-300 transition-all relative overflow-hidden group flex flex-col justify-between border border-slate-200/80 shadow-xs"
               >
                 <div>
                   <div className="flex justify-between items-start mb-3 gap-3">
                     <div>
-                      <h3 className="text-xl font-black text-slate-900 group-hover:text-indigo-600 transition-colors">
+                      <h3 className="text-xl font-black text-slate-900 group-hover:text-sky-600 transition-colors">
                         {term.term}
                         {term.english && (
                           <span className="text-xs font-semibold text-slate-400 block sm:inline sm:ml-2">
@@ -214,8 +214,8 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
                 </div>
 
                 {term.examTip && (
-                  <div className="mt-4 pt-4 border-t border-slate-200/80 text-xs text-slate-800 bg-indigo-50/60 p-3.5 rounded-2xl flex items-start gap-2 border border-indigo-100">
-                    <span className="material-symbols-outlined text-lg text-indigo-600 flex-shrink-0">
+                  <div className="mt-4 pt-4 border-t border-slate-200/80 text-xs text-slate-800 bg-sky-50/60 p-3.5 rounded-2xl flex items-start gap-2 border border-sky-100">
+                    <span className="material-symbols-outlined text-lg text-sky-600 flex-shrink-0">
                       tips_and_updates
                     </span>
                     <span className="leading-relaxed"><strong>試験ポイント:</strong> {term.examTip}</span>
