@@ -9,6 +9,8 @@ import { GlossaryView } from './components/GlossaryView';
 import { ExamOverviewView } from './components/ExamOverviewView';
 import { QuizModal } from './components/QuizModal';
 import { TableOfContentsView } from './components/TableOfContentsView';
+import { MatryoshkaPopup } from './components/MatryoshkaPopup';
+import { ReverseDrillModal } from './components/ReverseDrillModal';
 import { ARTICLES_DATA } from './data/articlesData';
 
 export default function App() {
@@ -24,6 +26,57 @@ export default function App() {
 
   // App Promotion Modal State
   const [isAppModalOpen, setIsAppModalOpen] = useState<boolean>(false);
+  const [isReverseDrillOpen, setIsReverseDrillOpen] = useState<boolean>(false);
+  const [matryoshkaTermId, setMatryoshkaTermId] = useState<string | null>(null);
+
+  // LocalStorage User Progress State
+  const [completedArticles, setCompletedArticles] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('itp_completed_articles');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('itp_bookmarked_ids');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Persist completed articles
+  const handleToggleArticleComplete = (articleId: string) => {
+    setCompletedArticles((prev) => {
+      const next = prev.includes(articleId)
+        ? prev.filter((id) => id !== articleId)
+        : [...prev, articleId];
+      try {
+        localStorage.setItem('itp_completed_articles', JSON.stringify(next));
+      } catch (e) {
+        console.error(e);
+      }
+      return next;
+    });
+  };
+
+  // Persist bookmarks
+  const handleToggleBookmark = (termId: string) => {
+    setBookmarkedIds((prev) => {
+      const next = prev.includes(termId)
+        ? prev.filter((id) => id !== termId)
+        : [...prev, termId];
+      try {
+        localStorage.setItem('itp_bookmarked_ids', JSON.stringify(next));
+      } catch (e) {
+        console.error(e);
+      }
+      return next;
+    });
+  };
 
   // Toggle Category Checkboxes
   const handleToggleCategory = (category: CategoryKey) => {
@@ -63,10 +116,23 @@ export default function App() {
     setIsAppModalOpen(true);
   };
 
+  const handleOpenReverseDrill = () => {
+    setIsReverseDrillOpen(true);
+  };
+
+  const handleOpenMatryoshka = (termId: string = 'bcp') => {
+    setMatryoshkaTermId(termId);
+  };
+
   const isReadingArticle = currentArticleId !== null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f9f9ff] text-[#111c2c] font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-500 selection:text-white relative overflow-hidden font-sans">
+      {/* Light Ambient Gradient Accents */}
+      <div className="fixed top-[-10%] left-[-5%] w-[550px] h-[550px] rounded-full bg-indigo-200/40 blur-[130px] pointer-events-none animate-pulse-glow" />
+      <div className="fixed bottom-[-10%] right-[-5%] w-[550px] h-[550px] rounded-full bg-sky-200/40 blur-[130px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
+      <div className="fixed top-[40%] right-[15%] w-[350px] h-[350px] rounded-full bg-purple-200/30 blur-[110px] pointer-events-none" />
+
       {/* Top Header */}
       <Header
         activeTab={activeTab}
@@ -76,7 +142,7 @@ export default function App() {
       />
 
       {/* Main Body Container */}
-      <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-6 py-6 flex gap-6">
+      <div className="flex-1 w-full max-w-[1280px] mx-auto px-4 md:px-8 py-8 flex gap-8 z-10 relative">
         {/* Navigation Drawer / Sidebar */}
         {!isReadingArticle && (
           <Sidebar
@@ -98,6 +164,8 @@ export default function App() {
               onSelectArticle={(id) => setCurrentArticleId(id)}
               onStartQuiz={handleOpenAppModal}
               onBackToToc={() => handleNavigate('table-of-contents')}
+              completedArticles={completedArticles}
+              onToggleComplete={handleToggleArticleComplete}
             />
           ) : (
             <>
@@ -107,6 +175,7 @@ export default function App() {
                   onSearch={handleGlobalSearch}
                   onStartQuiz={handleOpenAppModal}
                   onSelectCategoryArticle={handleSelectCategoryArticle}
+                  completedArticles={completedArticles}
                 />
               )}
 
@@ -114,6 +183,8 @@ export default function App() {
                 <TableOfContentsView
                   setActiveTab={handleNavigate}
                   onSelectArticle={(id) => setCurrentArticleId(id)}
+                  completedArticles={completedArticles}
+                  onToggleComplete={handleToggleArticleComplete}
                 />
               )}
 
@@ -121,8 +192,8 @@ export default function App() {
                 <GlossaryView
                   selectedCategories={selectedCategories}
                   searchQuery={searchQuery}
-                  bookmarkedIds={[]}
-                  onToggleBookmark={() => {}}
+                  bookmarkedIds={bookmarkedIds}
+                  onToggleBookmark={handleToggleBookmark}
                 />
               )}
 

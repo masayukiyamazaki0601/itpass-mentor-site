@@ -53,7 +53,7 @@ export interface ArticleSection {
     headers: string[];
     rows: string[][];
   };
-  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy';
+  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy' | 'network' | 'database' | 'corporate-activities';
 }
 
 export interface Article {
@@ -85,6 +85,31 @@ export interface QuizQuestion {
   correctOptionId: string;
   explanation: string;
   category: CategoryKey;
+}
+
+export interface ReverseDrillQuestion {
+  id: string;
+  targetTerm: string;
+  category: CategoryKey;
+  questionText: string;
+  options: {
+    id: string;
+    scenarioText: string;
+    isCorrect: boolean;
+    reason: string;
+  }[];
+  explanation: string;
+}
+
+export interface MatryoshkaTerm {
+  id: string;
+  term: string;
+  english?: string;
+  reading?: string;
+  shortDesc: string;
+  deepDive: string;
+  relatedTermIds?: string[];
+  examPoint: string;
 }
 
 export interface UserProgress {
