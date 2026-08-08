@@ -78,27 +78,29 @@ export const SecurityThreatsDiagram: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {threats.map((t) => (
           <motion.div
             key={t.name}
-            className={`rounded-xl border-2 p-3 flex flex-col gap-1 shadow-sm hover:shadow-md transition-shadow ${t.soft}`}
+            className={`rounded-xl border-2 p-4 flex flex-col gap-1.5 shadow-sm hover:shadow-md transition-shadow ${t.soft}`}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: t.delay, duration: 0.4 }}
           >
-            <div className="flex items-center gap-1.5">
-              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${t.color} text-white flex items-center justify-center shadow-sm`}>
-                <span className="material-symbols-outlined text-base">{t.icon}</span>
+            <div className="flex items-center gap-2.5">
+              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${t.color} text-white flex items-center justify-center shadow-sm flex-shrink-0`}>
+                <span className="material-symbols-outlined text-lg">{t.icon}</span>
               </div>
-              <span className="font-black text-[11px] text-slate-800 leading-tight">{t.name}</span>
+              <div className="min-w-0">
+                <span className="font-black text-[13px] text-slate-800 leading-tight block">{t.name}</span>
+                <span className="text-[9px] text-slate-400 font-medium block">{t.en}</span>
+              </div>
             </div>
-            <span className="text-[9px] text-slate-400 font-medium">{t.en}</span>
-            <span className={`inline-block self-start mt-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full ${t.badge}`}>
+            <span className={`inline-block self-start mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${t.badge}`}>
               {t.type}
             </span>
-            <p className="text-[9px] text-slate-600 mt-0.5 leading-relaxed">{t.desc}</p>
-            <p className="text-[8px] text-slate-500 mt-auto pt-1.5 border-t border-slate-200/70">
+            <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{t.desc}</p>
+            <p className="text-[10px] text-slate-500 mt-auto pt-2 border-t border-slate-200/70">
               例：{t.example}
             </p>
           </motion.div>

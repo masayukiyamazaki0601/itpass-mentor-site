@@ -45,6 +45,8 @@ import { EncryptionInteractiveDiagram } from './EncryptionInteractiveDiagram';
 import { DigitalSignatureDiagram } from './DigitalSignatureDiagram';
 import { RiskManagementDiagram } from './RiskManagementDiagram';
 import { ThreatCountermeasuresDiagram } from './ThreatCountermeasuresDiagram';
+import { AppSoftwareDiagram } from './AppSoftwareDiagram';
+import { InfoDesignDiagram } from './InfoDesignDiagram';
 import { RndStepsDiagram, TechRoadmapDiagram } from './TechnologyDiagrams';
 import { PaymentFlowDiagram, POSFlowDiagram } from './BusinessSystemDiagrams';
 import { CADCAMFlowDiagram, ProductionCalcDiagram, EBusinessTypesDiagram, IoTCycleDiagram } from './Chapter4RemainingDiagrams';
@@ -407,6 +409,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'digital-signature' && <div className="my-8"><DigitalSignatureDiagram /></div>}
                   {sec.diagram === 'risk-management' && <div className="my-8"><RiskManagementDiagram /></div>}
                   {sec.diagram === 'threat-countermeasures' && <div className="my-8"><ThreatCountermeasuresDiagram /></div>}
+                  {sec.diagram === 'app-software' && <div className="my-8"><AppSoftwareDiagram /></div>}
+                  {sec.diagram === 'info-design' && <div className="my-8"><InfoDesignDiagram /></div>}
                   {sec.diagram === 'rnd-steps' && <div className="my-8"><RndStepsDiagram /></div>}
                   {sec.diagram === 'tech-roadmap' && <div className="my-8"><TechRoadmapDiagram /></div>}
                   {sec.diagram === 'payment-flow' && <div className="my-8"><PaymentFlowDiagram /></div>}
