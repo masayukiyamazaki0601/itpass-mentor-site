@@ -118,6 +118,9 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
     let parts: (string | React.ReactNode)[] = [text];
 
     keyTerms.forEach(({ term, english, reading, description, examTip }) => {
+      if (article.title.includes(term)) {
+        return;
+      }
       const nextParts: (string | React.ReactNode)[] = [];
       parts.forEach((part) => {
         if (typeof part !== 'string') {
