@@ -5,6 +5,8 @@ import { OrganizationDiagrams } from './OrganizationDiagrams';
 import { NetworkDiagrams } from './NetworkDiagrams';
 import { DatabaseDiagrams } from './DatabaseDiagrams';
 import { CorporateActivitiesDiagrams } from './CorporateActivitiesDiagrams';
+import { CompanyStructureDiagrams } from './CompanyStructureDiagrams';
+import { DepartmentsDiagrams } from './DepartmentsDiagrams';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -290,6 +292,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'network' && <div className="my-8"><NetworkDiagrams /></div>}
                   {sec.diagram === 'database' && <div className="my-8"><DatabaseDiagrams /></div>}
                   {sec.diagram === 'corporate-activities' && <div className="my-8"><CorporateActivitiesDiagrams /></div>}
+                  {sec.diagram === 'company-structure' && <div className="my-8"><CompanyStructureDiagrams /></div>}
+                  {sec.diagram === 'departments' && <div className="my-8"><DepartmentsDiagrams /></div>}
                 </section>
               ))}
             </div>

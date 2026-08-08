@@ -53,7 +53,7 @@ export interface ArticleSection {
     headers: string[];
     rows: string[][];
   };
-  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy' | 'network' | 'database' | 'corporate-activities';
+  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy' | 'network' | 'database' | 'corporate-activities' | 'company-structure' | 'departments';
 }
 
 export interface Article {

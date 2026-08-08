@@ -101,7 +101,8 @@ export const ARTICLES_DATA: Article[] = [
             '監査役：取締役の職務の実行を監査し、会社の健全な運営を守る',
             '「株主が出資者」「取締役が経営者」という役割分担を押さえましょう'
           ]
-        }
+        },
+        diagram: 'company-structure'
       },
       {
         id: 'section-4',
@@ -137,7 +138,8 @@ export const ARTICLES_DATA: Article[] = [
             description:
               'お金の管理や資金の調達・運用など、「カネ」を管理する仕事。毎日の帳簿づけや決算もここ。カフェの例：売上金の管理・決算。'
           }
-        ]
+        ],
+        diagram: 'departments'
       },
       {
         id: 'section-5',
