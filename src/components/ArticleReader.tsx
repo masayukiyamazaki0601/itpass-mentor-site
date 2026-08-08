@@ -27,6 +27,8 @@ import { Marketing4PDiagram } from './Marketing4PDiagram';
 import { ManagementSystemsDiagram } from './ManagementSystemsDiagram';
 import { FinancialMetricsDiagram } from './FinancialMetricsDiagram';
 import { InvestmentEvaluationDiagram } from './InvestmentEvaluationDiagram';
+import { BicycleSWOTDiagram } from './BicycleSWOTDiagram';
+import { CrossSWOTDiagram } from './CrossSWOTDiagram';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -334,6 +336,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'management-systems' && <div className="my-8"><ManagementSystemsDiagram /></div>}
                   {sec.diagram === 'financial-metrics' && <div className="my-8"><FinancialMetricsDiagram /></div>}
                   {sec.diagram === 'investment-evaluation' && <div className="my-8"><InvestmentEvaluationDiagram /></div>}
+                  {sec.diagram === 'bicycle-swot' && <div className="my-8"><BicycleSWOTDiagram /></div>}
+                  {sec.diagram === 'cross-swot' && <div className="my-8"><CrossSWOTDiagram /></div>}
                 </section>
               ))}
             </div>
