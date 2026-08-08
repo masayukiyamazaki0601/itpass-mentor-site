@@ -1768,7 +1768,8 @@ export const ARTICLES_DATA: Article[] = [
             'どちらにも入らない重要情報 → その他の権利（営業秘密）',
             '「登録が要るか・要らないか」でまず区別しよう'
           ]
-        }
+        },
+        diagram: 'ip-rights'
       },
       {
         id: 'section-3',
@@ -1985,7 +1986,8 @@ export const ARTICLES_DATA: Article[] = [
             '商標だけが「更新で半永久的」に維持できる',
             '前のページで学んだ4つの権利を、深掘りポイントと合わせて覚えよう'
           ]
-        }
+        },
+        diagram: 'industrial-property'
       },
       {
         id: 'section-3',
@@ -2174,7 +2176,8 @@ export const ARTICLES_DATA: Article[] = [
             'ネットワークに繋がっていないパソコンの直接操作は対象外',
             '「ネットワーク経由」が合否を分けるキーワード'
           ]
-        }
+        },
+        diagram: 'security-laws'
       },
       {
         id: 'section-3',
@@ -2413,7 +2416,8 @@ export const ARTICLES_DATA: Article[] = [
               'データ分析などの専門業務を任せる。完成責任はない'
             ]
           ]
-        }
+        },
+        diagram: 'contract-types'
       },
       {
         id: 'section-4',
@@ -2782,7 +2786,8 @@ export const ARTICLES_DATA: Article[] = [
             description:
               '関連する企業や団体が集まる「フォーラム・コンソーシアム」が定める標準。IT分野では特に多く、実質的な業界標準となることも多い。お菓子の例：メーカー連合が決めた共通規格。'
           }
-        ]
+        ],
+        diagram: 'standardization-types'
       },
       {
         id: 'section-3',

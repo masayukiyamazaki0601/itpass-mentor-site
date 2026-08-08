@@ -13,6 +13,11 @@ import { BusinessFlowDiagram } from './BusinessFlowDiagram';
 import { SWOTDiagram } from './SWOTDiagram';
 import { BreakEvenVisualDiagram } from './BreakEvenVisualDiagram';
 import { FiveProfitsDiagram } from './FiveProfitsDiagram';
+import { IPRightsDiagram } from './IPRightsDiagram';
+import { IndustrialPropertyDiagram } from './IndustrialPropertyDiagram';
+import { SecurityLawsDiagram } from './SecurityLawsDiagram';
+import { ContractTypesDiagram } from './ContractTypesDiagram';
+import { StandardizationDiagram } from './StandardizationDiagram';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -306,6 +311,11 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'swot' && <div className="my-8"><SWOTDiagram /></div>}
                   {sec.diagram === 'break-even-visual' && <div className="my-8"><BreakEvenVisualDiagram /></div>}
                   {sec.diagram === 'five-profits-cascade' && <div className="my-8"><FiveProfitsDiagram /></div>}
+                  {sec.diagram === 'ip-rights' && <div className="my-8"><IPRightsDiagram /></div>}
+                  {sec.diagram === 'industrial-property' && <div className="my-8"><IndustrialPropertyDiagram /></div>}
+                  {sec.diagram === 'security-laws' && <div className="my-8"><SecurityLawsDiagram /></div>}
+                  {sec.diagram === 'contract-types' && <div className="my-8"><ContractTypesDiagram /></div>}
+                  {sec.diagram === 'standardization-types' && <div className="my-8"><StandardizationDiagram /></div>}
                 </section>
               ))}
             </div>
