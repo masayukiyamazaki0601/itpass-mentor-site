@@ -316,53 +316,62 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                     </div>
                   )}
 
-                  {/* Callout Box */}
-                  {sec.callout && (
-                    <div className="bg-gradient-to-r from-sky-50 via-blue-50 to-blue-100/60 rounded-2xl p-6 my-8 flex gap-4 items-start border border-sky-200/80 shadow-xs">
-                      <div className="bg-blue-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
-                        <span className="material-symbols-outlined">lightbulb</span>
-                      </div>
-                      <div>
-                        <h3 className="font-extrabold text-base text-slate-900 mb-2">
-                          {sec.callout.title}
-                        </h3>
-                        <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-blue-600">
-                          {sec.callout.items.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                        {sec.callout.note && (
-                          <p className="text-xs text-blue-700 font-bold mt-3 pt-2 border-t border-blue-200/60">
-                            {sec.callout.note}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Callout2 Box */}
-                  {sec.callout2 && (
-                    <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 rounded-2xl p-6 my-8 flex gap-4 items-start border border-emerald-200/80 shadow-xs">
-                      <div className="bg-emerald-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0">
-                        <span className="material-symbols-outlined">quiz</span>
-                      </div>
-                      <div>
-                        <h3 className="font-extrabold text-base text-slate-900 mb-2">
-                          {sec.callout2.title}
-                        </h3>
-                        <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-emerald-600">
-                          {sec.callout2.items.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                        {sec.callout2.note && (
-                          <p className="text-xs text-emerald-700 font-bold mt-3 pt-2 border-t border-emerald-200/60">
-                            {sec.callout2.note}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  )}
+                  {/* Callout / Callout2 Box (問Nの番号順で表示) */}
+                  {(() => {
+                    const boxes: { data: { title: string; items: string[]; note?: string }; kind: number }[] = [];
+                    if (sec.callout) boxes.push({ data: sec.callout, kind: 0 });
+                    if (sec.callout2) boxes.push({ data: sec.callout2, kind: 1 });
+                    const qn = (title: string) => {
+                      const m = title.match(/問(\d+)/);
+                      return m ? parseInt(m[1], 10) : null;
+                    };
+                    boxes.sort((a, b) => {
+                      const an = qn(a.data.title);
+                      const bn = qn(b.data.title);
+                      if (an != null && bn != null) return an - bn;
+                      if (an != null) return -1;
+                      if (bn != null) return 1;
+                      return a.kind - b.kind;
+                    });
+                    return boxes.map((box, bi) => {
+                      const isCallout2 = box.kind === 1;
+                      return (
+                        <div
+                          key={bi}
+                          className={
+                            isCallout2
+                              ? 'bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 rounded-2xl p-6 my-8 flex gap-4 items-start border border-emerald-200/80 shadow-xs'
+                              : 'bg-gradient-to-r from-sky-50 via-blue-50 to-blue-100/60 rounded-2xl p-6 my-8 flex gap-4 items-start border border-sky-200/80 shadow-xs'
+                          }
+                        >
+                          <div
+                            className={
+                              isCallout2
+                                ? 'bg-emerald-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0'
+                                : 'bg-blue-600 text-white p-2.5 rounded-2xl shadow-md flex-shrink-0'
+                            }
+                          >
+                            <span className="material-symbols-outlined">{isCallout2 ? 'quiz' : 'lightbulb'}</span>
+                          </div>
+                          <div>
+                            <h3 className="font-extrabold text-base text-slate-900 mb-2">
+                              {box.data.title}
+                            </h3>
+                            <ul className="list-disc list-inside space-y-1.5 text-sm text-slate-700 font-medium marker:text-slate-500">
+                              {box.data.items.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
+                            {box.data.note && (
+                              <p className="text-xs text-slate-500 font-bold mt-3 pt-2 border-t border-slate-200/60">
+                                {box.data.note}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    });
+                  })()}
 
                   {/* Diagrams */}
                   {sec.diagram === 'organization-chart' && <div className="my-8"><OrganizationDiagrams /></div>}
