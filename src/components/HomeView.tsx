@@ -73,8 +73,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
         {/* Ambient Glows & Background Image */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/70 to-indigo-950/40 z-10" />
         <img
-          src="/hero_cyber.jpg"
-          alt="サイバーデジタル学習背景"
+          src="hero_cyber.jpg"
+          alt=""
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
 
