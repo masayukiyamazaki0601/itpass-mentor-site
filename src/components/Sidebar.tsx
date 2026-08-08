@@ -140,7 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           />
           <div className="relative w-72 max-w-[80vw] bg-[#f0f3ff] h-full p-2 shadow-xl z-10 overflow-y-auto">
             <div className="flex justify-between items-center px-3 py-2 border-b border-[#c3c6d0]/40 mb-2">
-              <span className="font-bold text-sm text-[#002b57]">ITパスポート メンター</span>
+              <span className="font-bold text-sm text-[#002b57]">ITパスポート・アカデミア</span>
               <button
                 onClick={onCloseMobile}
                 className="p-1 rounded-full text-[#737780] hover:bg-[#dee8ff]"

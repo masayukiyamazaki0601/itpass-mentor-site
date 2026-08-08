@@ -13,13 +13,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <div className="font-bold text-lg text-[#002b57] mb-2 flex items-center gap-2">
             <img
               src="https://lh3.googleusercontent.com/aida/AP1WRLtS7dvXPpaP9BeH0BlKgG87EOrJI3T6tgY3piQfc-Pt5HYS-xBzsVp57dNoSTSiHZnTnux1bKR43DOwClQAqMaWDizQRkCw4fWhqPs0RHcNfUImMfHyo3yUswdsanShgHJ5rzzejm1AG-MaEKy7we3XjEDs0U7WRA31yqPTYrnzEdLh1UzDnrs6ueIC-y-Ofutn_F32KsoAXmmlCKwEIrv454Ss1bkfvECU3tHV2E1cVEWE1rT0FcmgcV7Z"
-              alt="IT Passport Mentor Logo"
+              alt="ITパスポート・アカデミア Logo"
               className="w-6 h-6 rounded-md opacity-80"
             />
-            <span>ITパスポート メンター</span>
+            <span>ITパスポート・アカデミア</span>
           </div>
           <p className="text-sm text-[#43474f]">
-            © 2024 ITパスポート メンター. ITプロフェッショナルを支援します。
+            © 2024 ITパスポート・アカデミア. ITプロフェッショナルを支援します。
           </p>
         </div>
 

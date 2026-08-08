@@ -40,11 +40,11 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <img
               src="https://lh3.googleusercontent.com/aida/AP1WRLtS7dvXPpaP9BeH0BlKgG87EOrJI3T6tgY3piQfc-Pt5HYS-xBzsVp57dNoSTSiHZnTnux1bKR43DOwClQAqMaWDizQRkCw4fWhqPs0RHcNfUImMfHyo3yUswdsanShgHJ5rzzejm1AG-MaEKy7we3XjEDs0U7WRA31yqPTYrnzEdLh1UzDnrs6ueIC-y-Ofutn_F32KsoAXmmlCKwEIrv454Ss1bkfvECU3tHV2E1cVEWE1rT0FcmgcV7Z"
-              alt="IT Passport Mentor Logo"
+              alt="ITパスポート・アカデミア Logo"
               className="w-8 h-8 rounded-md object-contain"
             />
             <span className="font-extrabold text-xl md:text-2xl text-[#002b57] tracking-tight group-hover:opacity-90 transition-opacity">
-              ITパスポート メンター
+              ITパスポート・アカデミア
             </span>
           </button>
         </div>
