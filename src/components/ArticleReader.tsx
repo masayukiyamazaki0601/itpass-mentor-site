@@ -37,10 +37,14 @@ import { NetworkDevicesDiagram } from './NetworkDevicesDiagram';
 import { SecurityCIADiagram } from './SecurityCIADiagram';
 import { SecurityThreatsDiagram } from './SecurityThreatsDiagram';
 import { BackupTypesDiagram } from './BackupTypesDiagram';
+import { BackupInteractiveDiagram } from './BackupInteractiveDiagram';
 import { FileSystemTreeDiagram } from './FileSystemTreeDiagram';
 import { ProtocolDiagram } from './ProtocolDiagram';
 import { EncryptionTypesDiagram } from './EncryptionTypesDiagram';
+import { EncryptionInteractiveDiagram } from './EncryptionInteractiveDiagram';
 import { DigitalSignatureDiagram } from './DigitalSignatureDiagram';
+import { RiskManagementDiagram } from './RiskManagementDiagram';
+import { ThreatCountermeasuresDiagram } from './ThreatCountermeasuresDiagram';
 import { RndStepsDiagram, TechRoadmapDiagram } from './TechnologyDiagrams';
 import { PaymentFlowDiagram, POSFlowDiagram } from './BusinessSystemDiagrams';
 import { CADCAMFlowDiagram, ProductionCalcDiagram, EBusinessTypesDiagram, IoTCycleDiagram } from './Chapter4RemainingDiagrams';
@@ -395,10 +399,14 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'security-cia' && <div className="my-8"><SecurityCIADiagram /></div>}
                   {sec.diagram === 'security-threats' && <div className="my-8"><SecurityThreatsDiagram /></div>}
                   {sec.diagram === 'backup-types' && <div className="my-8"><BackupTypesDiagram /></div>}
+                  {sec.diagram === 'backup-interactive' && <div className="my-8"><BackupInteractiveDiagram /></div>}
                   {sec.diagram === 'file-system-tree' && <div className="my-8"><FileSystemTreeDiagram /></div>}
                   {sec.diagram === 'protocol' && <div className="my-8"><ProtocolDiagram /></div>}
                   {sec.diagram === 'encryption-types' && <div className="my-8"><EncryptionTypesDiagram /></div>}
+                  {sec.diagram === 'encryption-interactive' && <div className="my-8"><EncryptionInteractiveDiagram /></div>}
                   {sec.diagram === 'digital-signature' && <div className="my-8"><DigitalSignatureDiagram /></div>}
+                  {sec.diagram === 'risk-management' && <div className="my-8"><RiskManagementDiagram /></div>}
+                  {sec.diagram === 'threat-countermeasures' && <div className="my-8"><ThreatCountermeasuresDiagram /></div>}
                   {sec.diagram === 'rnd-steps' && <div className="my-8"><RndStepsDiagram /></div>}
                   {sec.diagram === 'tech-roadmap' && <div className="my-8"><TechRoadmapDiagram /></div>}
                   {sec.diagram === 'payment-flow' && <div className="my-8"><PaymentFlowDiagram /></div>}
