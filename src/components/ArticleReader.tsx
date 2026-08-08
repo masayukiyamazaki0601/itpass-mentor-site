@@ -31,6 +31,10 @@ import { BicycleSWOTDiagram } from './BicycleSWOTDiagram';
 import { CrossSWOTDiagram } from './CrossSWOTDiagram';
 import { RNDStagesDiagram } from './RNDStagesDiagram';
 import { TechDevToolsDiagram } from './TechDevToolsDiagram';
+import { OSFunctionsDiagram } from './OSFunctionsDiagram';
+import { NetworkDevicesDiagram } from './NetworkDevicesDiagram';
+import { SecurityCIADiagram } from './SecurityCIADiagram';
+import { SecurityThreatsDiagram } from './SecurityThreatsDiagram';
 import { RndStepsDiagram, TechRoadmapDiagram } from './TechnologyDiagrams';
 import { PaymentFlowDiagram, POSFlowDiagram } from './BusinessSystemDiagrams';
 import { CADCAMFlowDiagram, ProductionCalcDiagram, EBusinessTypesDiagram, IoTCycleDiagram } from './Chapter4RemainingDiagrams';
@@ -355,6 +359,10 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'cross-swot' && <div className="my-8"><CrossSWOTDiagram /></div>}
                   {sec.diagram === 'rnd-stages' && <div className="my-8"><RNDStagesDiagram /></div>}
                   {sec.diagram === 'tech-dev-tools' && <div className="my-8"><TechDevToolsDiagram /></div>}
+                  {sec.diagram === 'os-functions' && <div className="my-8"><OSFunctionsDiagram /></div>}
+                  {sec.diagram === 'network-devices' && <div className="my-8"><NetworkDevicesDiagram /></div>}
+                  {sec.diagram === 'security-cia' && <div className="my-8"><SecurityCIADiagram /></div>}
+                  {sec.diagram === 'security-threats' && <div className="my-8"><SecurityThreatsDiagram /></div>}
                   {sec.diagram === 'rnd-steps' && <div className="my-8"><RndStepsDiagram /></div>}
                   {sec.diagram === 'tech-roadmap' && <div className="my-8"><TechRoadmapDiagram /></div>}
                   {sec.diagram === 'payment-flow' && <div className="my-8"><PaymentFlowDiagram /></div>}
