@@ -18,7 +18,7 @@ export const SecurityThreatsDiagram: React.FC = () => {
     {
       name: 'フィッシング',
       en: 'Phishing',
-      icon: 'fishing',
+      icon: 'phishing',
       type: '盗む',
       desc: '本物そっくりの偽サイトやメールで情報をだまし取る手口',
       example: '偽サイトで情報をだまし取る',
