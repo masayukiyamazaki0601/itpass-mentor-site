@@ -36,6 +36,11 @@ import { OSInteractiveDiagram } from './OSInteractiveDiagram';
 import { NetworkDevicesDiagram } from './NetworkDevicesDiagram';
 import { SecurityCIADiagram } from './SecurityCIADiagram';
 import { SecurityThreatsDiagram } from './SecurityThreatsDiagram';
+import { BackupTypesDiagram } from './BackupTypesDiagram';
+import { FileSystemTreeDiagram } from './FileSystemTreeDiagram';
+import { ProtocolDiagram } from './ProtocolDiagram';
+import { EncryptionTypesDiagram } from './EncryptionTypesDiagram';
+import { DigitalSignatureDiagram } from './DigitalSignatureDiagram';
 import { RndStepsDiagram, TechRoadmapDiagram } from './TechnologyDiagrams';
 import { PaymentFlowDiagram, POSFlowDiagram } from './BusinessSystemDiagrams';
 import { CADCAMFlowDiagram, ProductionCalcDiagram, EBusinessTypesDiagram, IoTCycleDiagram } from './Chapter4RemainingDiagrams';
@@ -389,6 +394,11 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'network-devices' && <div className="my-8"><NetworkDevicesDiagram /></div>}
                   {sec.diagram === 'security-cia' && <div className="my-8"><SecurityCIADiagram /></div>}
                   {sec.diagram === 'security-threats' && <div className="my-8"><SecurityThreatsDiagram /></div>}
+                  {sec.diagram === 'backup-types' && <div className="my-8"><BackupTypesDiagram /></div>}
+                  {sec.diagram === 'file-system-tree' && <div className="my-8"><FileSystemTreeDiagram /></div>}
+                  {sec.diagram === 'protocol' && <div className="my-8"><ProtocolDiagram /></div>}
+                  {sec.diagram === 'encryption-types' && <div className="my-8"><EncryptionTypesDiagram /></div>}
+                  {sec.diagram === 'digital-signature' && <div className="my-8"><DigitalSignatureDiagram /></div>}
                   {sec.diagram === 'rnd-steps' && <div className="my-8"><RndStepsDiagram /></div>}
                   {sec.diagram === 'tech-roadmap' && <div className="my-8"><TechRoadmapDiagram /></div>}
                   {sec.diagram === 'payment-flow' && <div className="my-8"><PaymentFlowDiagram /></div>}
