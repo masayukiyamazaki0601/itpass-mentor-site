@@ -31,6 +31,16 @@ import { BicycleSWOTDiagram } from './BicycleSWOTDiagram';
 import { CrossSWOTDiagram } from './CrossSWOTDiagram';
 import { RNDStagesDiagram } from './RNDStagesDiagram';
 import { TechDevToolsDiagram } from './TechDevToolsDiagram';
+import { RndStepsDiagram, TechRoadmapDiagram } from './TechnologyDiagrams';
+import { PaymentFlowDiagram, POSFlowDiagram } from './BusinessSystemDiagrams';
+import { CADCAMFlowDiagram, ProductionCalcDiagram, EBusinessTypesDiagram, IoTCycleDiagram } from './Chapter4RemainingDiagrams';
+import { EALayersDiagram, DFDFlowDiagram, CloudServicesDiagram, TCOIcebergDiagram, RFIRFPFlowDiagram } from './Chapter5Diagrams';
+import { DevProcessFlowDiagram, CompilerVsInterpreterDiagram, TestingMethodsDiagram, OpMaintFlowDiagram, DevModelsComparisonDiagram } from './Chapter6Diagrams';
+import { PMProcessCycleDiagram, WBSStructureDiagram, ScheduleGanttCpmDiagram, EarnedValueManagementDiagram } from './Chapter7Diagrams';
+import { ITILLifecycleDiagram, SLAAvailabilityDiagram, ServiceSupportFlowDiagram, FacilityManagementDiagram, SystemAuditControlDiagram } from './Chapter8Diagrams';
+import { NumberConversionDiagram, SetsLogicVennDiagram, DataUnitsScaleDiagram, QueueStackVisualDiagram, SearchAlgorithmsDiagram } from './Chapter9Diagrams';
+import { ClientServerVisualDiagram, RaidVisualizationDiagram, ThroughputResponseTimeDiagram, SystemReliabilityCalcDiagram } from './Chapter10Diagrams';
+import { ComputerArchitectureDiagram, CpuExecutionCycleDiagram, MemoryHierarchyDiagram, IoInterfacesPortsDiagram } from './Chapter11Diagrams';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -345,6 +355,46 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'cross-swot' && <div className="my-8"><CrossSWOTDiagram /></div>}
                   {sec.diagram === 'rnd-stages' && <div className="my-8"><RNDStagesDiagram /></div>}
                   {sec.diagram === 'tech-dev-tools' && <div className="my-8"><TechDevToolsDiagram /></div>}
+                  {sec.diagram === 'rnd-steps' && <div className="my-8"><RndStepsDiagram /></div>}
+                  {sec.diagram === 'tech-roadmap' && <div className="my-8"><TechRoadmapDiagram /></div>}
+                  {sec.diagram === 'payment-flow' && <div className="my-8"><PaymentFlowDiagram /></div>}
+                  {sec.diagram === 'pos-flow' && <div className="my-8"><POSFlowDiagram /></div>}
+                  {sec.diagram === 'cad-cam-flow' && <div className="my-8"><CADCAMFlowDiagram /></div>}
+                  {sec.diagram === 'production-calc' && <div className="my-8"><ProductionCalcDiagram /></div>}
+                  {sec.diagram === 'ebusiness-types' && <div className="my-8"><EBusinessTypesDiagram /></div>}
+                  {sec.diagram === 'iot-cycle' && <div className="my-8"><IoTCycleDiagram /></div>}
+                  {sec.diagram === 'ea-layers' && <div className="my-8"><EALayersDiagram /></div>}
+                  {sec.diagram === 'dfd-flow' && <div className="my-8"><DFDFlowDiagram /></div>}
+                  {sec.diagram === 'cloud-services' && <div className="my-8"><CloudServicesDiagram /></div>}
+                  {sec.diagram === 'tco-iceberg' && <div className="my-8"><TCOIcebergDiagram /></div>}
+                  {sec.diagram === 'rfi-rfp-flow' && <div className="my-8"><RFIRFPFlowDiagram /></div>}
+                  {sec.diagram === 'dev-process-flow' && <div className="my-8"><DevProcessFlowDiagram /></div>}
+                  {sec.diagram === 'compiler-vs-interpreter' && <div className="my-8"><CompilerVsInterpreterDiagram /></div>}
+                  {sec.diagram === 'testing-methods' && <div className="my-8"><TestingMethodsDiagram /></div>}
+                  {sec.diagram === 'op-maint-flow' && <div className="my-8"><OpMaintFlowDiagram /></div>}
+                  {sec.diagram === 'dev-models-comparison' && <div className="my-8"><DevModelsComparisonDiagram /></div>}
+                  {sec.diagram === 'pm-process-cycle' && <div className="my-8"><PMProcessCycleDiagram /></div>}
+                  {sec.diagram === 'wbs-structure' && <div className="my-8"><WBSStructureDiagram /></div>}
+                  {sec.diagram === 'schedule-gantt-cpm' && <div className="my-8"><ScheduleGanttCpmDiagram /></div>}
+                  {sec.diagram === 'earned-value-management' && <div className="my-8"><EarnedValueManagementDiagram /></div>}
+                  {sec.diagram === 'itil-lifecycle' && <div className="my-8"><ITILLifecycleDiagram /></div>}
+                  {sec.diagram === 'sla-availability' && <div className="my-8"><SLAAvailabilityDiagram /></div>}
+                  {sec.diagram === 'service-support-flow' && <div className="my-8"><ServiceSupportFlowDiagram /></div>}
+                  {sec.diagram === 'facility-management' && <div className="my-8"><FacilityManagementDiagram /></div>}
+                  {sec.diagram === 'system-audit-control' && <div className="my-8"><SystemAuditControlDiagram /></div>}
+                  {sec.diagram === 'number-conversion' && <div className="my-8"><NumberConversionDiagram /></div>}
+                  {sec.diagram === 'sets-logic-venn' && <div className="my-8"><SetsLogicVennDiagram /></div>}
+                  {sec.diagram === 'data-units-scale' && <div className="my-8"><DataUnitsScaleDiagram /></div>}
+                  {sec.diagram === 'queue-stack-visual' && <div className="my-8"><QueueStackVisualDiagram /></div>}
+                  {sec.diagram === 'search-algorithms' && <div className="my-8"><SearchAlgorithmsDiagram /></div>}
+                  {sec.diagram === 'client-server-visual' && <div className="my-8"><ClientServerVisualDiagram /></div>}
+                  {sec.diagram === 'raid-visualization' && <div className="my-8"><RaidVisualizationDiagram /></div>}
+                  {sec.diagram === 'throughput-response-time' && <div className="my-8"><ThroughputResponseTimeDiagram /></div>}
+                  {sec.diagram === 'system-reliability-calc' && <div className="my-8"><SystemReliabilityCalcDiagram /></div>}
+                  {sec.diagram === 'computer-architecture' && <div className="my-8"><ComputerArchitectureDiagram /></div>}
+                  {sec.diagram === 'cpu-execution-cycle' && <div className="my-8"><CpuExecutionCycleDiagram /></div>}
+                  {sec.diagram === 'memory-hierarchy' && <div className="my-8"><MemoryHierarchyDiagram /></div>}
+                  {sec.diagram === 'io-interfaces-ports' && <div className="my-8"><IoInterfacesPortsDiagram /></div>}
                 </section>
               ))}
             </div>

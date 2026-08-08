@@ -4169,9 +4169,9 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '研究には「3つの段階」がある',
+        diagram: 'rnd-steps',
         content:
           '研究開発は、いきなり商品を作るわけではありません。\n\n次の3つの段階を、順番に進みます。\n\n飲み物メーカーの例で見てみましょう。\n\n「調べて → 考えて → 仕上げる」の流れを、下の図でイメージしましょう。',
-        diagram: 'rnd-stages',
         bentoCards: [
           {
             title: '基礎研究（いちばん最初）',
@@ -4251,9 +4251,9 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: '計画を立てる（技術ロードマップ）',
+        diagram: 'tech-roadmap',
         content:
           '技術開発は、行き当たりばったりでは進みません。\n\n「いつ、どこまで進めるか」の計画が必要です。\n\nこれを「技術ロードマップ」と呼びます。\n\n飲み物メーカーの例で言うと、\n「1年目は成分の研究、2年目は試作、3年目に発売」\n\nという予定表のようなものです。\n\n「計画する・守る・取り入れる」の3つの道具を、下の図で整理しましょう。',
-        diagram: 'tech-dev-tools',
         bentoCards: [
           {
             title: '技術ロードマップ',
@@ -4391,6 +4391,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'お店のシステム（売る側）',
+        diagram: 'pos-flow',
         content:
           'まずは、お店で買い物をするときに動くシステムから見ていきましょう。\n\nコンビニやネット通販では、次のようなシステムが働いています。',
         bentoCards: [
@@ -4456,6 +4457,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: 'お金の払い方（3種類）',
+        diagram: 'payment-flow',
         content:
           '次に、お金の払い方を見てみましょう。\n\nカードやスマホ決済は、「いつお金が動くか」で3種類に分かれます。\n\nここが試験の狙い目です。',
         bentoCards: [
@@ -4647,6 +4649,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '設計を助けるシステム',
+        diagram: 'cad-cam-flow',
         content:
           'まずは、お菓子を「設計する」段階です。\n\n新しいお菓子の形や作り方は、紙の設計図ではなく、パソコンで作られます。\n\nこのとき使うのが「CAD」です。\n\n設計が終わったら、その設計図どおりに作る指示を出します。\n\nここにもコンピュータが登場します。',
         bentoCards: [
@@ -4906,6 +4909,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '完成品の数量を求める',
+        diagram: 'production-calc',
         content:
           'お菓子工場では、材料を投入しても、途中で不良品が出ます。\n\n・焦げてしまったお菓子\n・割れてしまったクッキー\n\n全部が「完成品」になるわけではありません。\n\nそこで、「完成品を○○袋作るには、材料を何袋分投入すればいい？」と計算します。\n\nここで使うのが「良品率」です。',
         callout: {
@@ -5126,6 +5130,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '誰と誰が取引するか（Bto〇）',
+        diagram: 'ebusiness-types',
         content:
           'e-ビジネスでは、「誰と誰が取引するか」で名前が変わります。\n\nこれを「Bto〇」で表します。\n\n「B」はビジネス（企業）、「C」はコンシューマー（消費者）の頭文字です。',
         bentoCards: [
@@ -5355,6 +5360,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '組込みシステムって何？',
+        diagram: 'iot-cycle',
         content:
           '組込みシステムは、特定の機械の「中に入っている」専用システムです。\n\n家の中の機械で言うと、次のようなものがあります。',
         bentoCards: [
@@ -5689,6 +5695,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: '全体最適と部分最適',
+        diagram: 'ea-layers',
         content:
           'システムを作るとき、「会社全体の効率」を考えるのが大事です。\n\nこれを「全体最適」と呼びます。\n\n逆に、1つの部門だけを効率化することを「部分最適」と呼びます。\n\nカフェチェーンの例で考えると、\n\n・部分最適：レジの処理だけを速くする\n・全体最適：注文から在庫まで、店全体の流れをスムーズにする\n\n部分最適ばかりすると、かえって全体が非効率になることがあります。',
         callout: {
@@ -5819,6 +5826,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '業務プロセスって何？',
+        diagram: 'dfd-flow',
         content:
           '業務プロセスとは、仕事が「始まりから終わりまで」どんな手順で進むかを表した流れのことです。\n\nネット通販の注文処理を例にすると、次のようになります。',
         bentoCards: [
@@ -6039,6 +6047,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '業務を「根本から」変える（BPR）',
+        diagram: 'dfd-flow',
         content:
           'BPR（Business Process Re-engineering）とは、今のやり方にとらわれず、業務の流れをゼロから見直して、大胆に作り変えることです。\n\nネット通販会社の例で言うと、\n「紙の伝票をパソコン入力に変える」\n\nだけでは、まだムダが残っています。\n\n「そもそも紙の伝票は必要か？」\n\nと、根本から考え直します。\n\nすると、「お客様がネットで注文したデータを、そのまま使えばいい」という結論になります。\n\nこれがBPRの考え方です。',
         callout: {
@@ -6355,6 +6364,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: 'クラウドで借りる（IaaS・PaaS・SaaS）',
+        diagram: 'cloud-services',
         content:
           '最近は、システムを「買う」のではなく「借りる」方法も増えています。\n\nこれを「クラウドサービス」と呼びます。\n\nクラウドには、借りる範囲によっていくつか種類があります。',
         bentoCards: [
@@ -6573,6 +6583,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: '効果を測る（評価）',
+        diagram: 'tco-iceberg',
         content:
           '次に、導入したシステムが「本当に効果を出しているか」を評価します。\n\n評価には「定量評価」と「定性評価」の2つがあります。',
         bentoCards: [
@@ -6744,6 +6755,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'システム企画って何？',
+        diagram: 'ea-layers',
         content:
           'システム企画とは、システムを作る「最初の段階」で、「どんなシステムを、なぜ、作るのか」を決めることです。\n\n売上管理システムの例で言うと、\n\n・課題：売上がバラバラで分からない\n・目的：全部の売上を1つの画面で見る\n・範囲：売上の入力・集計・表示\n・費用：200万円以内\n\nこんなことを「企画書」にまとめて、社長に承認してもらいます。',
         callout: {
@@ -7001,6 +7013,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '次の一歩：要件定義プロセス',
+        diagram: 'rfi-rfp-flow',
         content:
           '企画が承認されたら、次は「要件定義プロセス」です。\n\nここでは、「どんなシステムを作るか」の細かい条件を決めます。\n\n「要件」とは、システムに求められる条件や機能のことです。\n\nカフェチェーンの例で言うと、\n「店舗ごとの売上が見られる」「レジと連動する」\n\nこんな条件を文書にまとめて、開発会社に伝えます。',
         bentoCards: [
@@ -7188,6 +7201,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '調達の流れ',
+        diagram: 'rfi-rfp-flow',
         content:
           'システムを頼むときは、次の流れで進めます。',
         bentoCards: [
@@ -7399,6 +7413,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '開発の4つの工程',
+        diagram: 'dev-process-flow',
         content:
           'システム開発は、次の4つの工程を順番に進みます。\n\n家を建てる例で見てみましょう。',
         bentoCards: [
@@ -7633,6 +7648,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '要件定義って何？',
+        diagram: 'dev-process-flow',
         content:
           '要件定義とは、システム開発の最初の段階で、「このシステムにどんなことをしてもらいたいか」を整理して文書化する工程です。\n\nアプリの例で言うと、\n\n「注文ができる」「売上が見られる」\n\nこんな条件を「要件定義書」にまとめます。\n\nここで要件をきちんと決めておかないと、後から「こうしたかった」と気づいて、作り直すことになります。\n\n費用と時間が、大きく膨らんでしまうのです。',
         callout: {
@@ -7845,6 +7861,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'システム設計って何？',
+        diagram: 'dev-process-flow',
         content:
           'システム設計とは、要件定義で決めた「何を作るか」をもとに、「どうやって実現するか」の設計図（設計書）を作る工程です。\n\n家の例では、\n\n・要件定義＝「3LDKの家が欲しい」と要望をまとめる\n・システム設計＝その家の「間取り図」を描く\n\n設計書がしっかりしていれば、その後のプログラミング（工事）がスムーズに進みます。',
         callout: {
@@ -8068,6 +8085,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'プログラミングって何？',
+        diagram: 'compiler-vs-interpreter',
         content:
           'プログラミングとは、コンピュータに「何をどうするか」の指示を、プログラムという形で書くことです。\n\nコンピュータは、0と1の「機械語」でしか理解できません。\n\nでも、人間が0と1だけで指示を書くのは大変です。\n\nそこで、人間が読みやすい「プログラミング言語」で書きます。\n\nそれを、コンピュータが理解できる形に変換して実行します。',
         bentoCards: [
@@ -8357,6 +8375,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: 'テストの代表的な手法',
+        diagram: 'testing-methods',
         content:
           'テストには、見方の違う2つの代表的な手法があります。',
         bentoCards: [
@@ -8509,6 +8528,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '運用プロセスとは',
+        diagram: 'op-maint-flow',
         content:
           '開店したラーメン屋は、お客様が来ている間、火を止めるわけにはいきません。\n\n湯が沸いているか、食材が足りているか、いつも「見張って」おく必要があります。\n\nシステムも同じです。\n\n動き続けるために、日々の「見張り」と「準備」が必要です。\n\nこの、システムを止めずに動かし続けるための仕事を「運用プロセス」といいます。',
         bentoCards: [
@@ -8730,6 +8750,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '4つの開発モデル',
+        diagram: 'dev-models-comparison',
         content:
           '開発モデルには、主に4つの代表的なものがあります。\n\n家づくりの進め方にたとえて、まずは全体をつかみましょう。',
         bentoCards: [
@@ -8965,6 +8986,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: 'プロジェクトの3つの制約',
+        diagram: 'pm-process-cycle',
         content:
           'プロジェクトには、必ず守らなければならない「3つの制約」があります。\n\nそれが「品質（Q）」「コスト（C）」「納期（D）」です。\n\n文化祭でいうと、次の3つです。\n\n・クオリティ（Q）：出し物の出来栄え\n・コスト（C）：使えるお金\n・納期（D）：文化祭の当日',
         comparisonTable: {
@@ -9172,6 +9194,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '5つのプロセス群',
+        diagram: 'pm-process-cycle',
         content:
           'プロジェクトは、ただ「やるぞ」と言って進むわけではありません。\n\nPMBOKでは、プロジェクトの進行を「5つのプロセス群」に分けて考えます。\n\n文化祭の出し物を例に見てみましょう。',
         bentoCards: [
@@ -9390,6 +9413,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'スケジュールを表す道具',
+        diagram: 'schedule-gantt-cpm',
         content:
           'スケジュールを表す代表的な方法が3つあります。\n\n文化祭の準備にたとえて、まずは全体をつかみましょう。',
         bentoCards: [
@@ -9597,6 +9621,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '資源マネジメントとは',
+        diagram: 'wbs-structure',
         content:
           '資源（リソース）とは、プロジェクトを進めるために必要なものです。\n\n代表的な資源を、文化祭の例で見てみましょう。',
         bentoCards: [
@@ -9812,6 +9837,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: 'リスクマネジメントの流れ',
+        diagram: 'earned-value-management',
         content:
           'リスクマネジメントは、次の4つのステップで進めます。\n\n文化祭の準備で見てみましょう。',
         bentoCards: [
@@ -10036,6 +10062,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: 'ITILとは',
+        diagram: 'itil-lifecycle',
         content:
           'ITIL（アイティル）とは、サービスマネジメントの「ベストプラクティス（最良の実践方法）」をまとめた標準的なガイドラインです。\n\nイギリス政府がまとめたものが起源で、世界中の企業で「ITサービスの運用・管理のやり方」の参考にされています。\n\nPMBOKが「プロジェクト管理」の教科書なら、ITILは「サービス運用」の教科書です。\n\nITILでは、サービスを次の5つの段階（ライフサイクル）で管理します。',
         bentoCards: [
@@ -10257,6 +10284,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '可用性管理とは',
+        diagram: 'sla-availability',
         content:
           '可用性（かようせい）とは、システムが「必要なときに使える状態」にある割合のことです。\n\nシステムが止まらず、いつでも利用できることを保証するのが可用性管理です。\n\nカフェでいうと、「いつでも注文できる状態」を保つことです。\n\nデリバリー中にシステムが止まっては、注文が受けられません。',
         bentoCards: [
@@ -10509,6 +10537,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: 'インシデント管理と問題管理の違い',
+        diagram: 'service-support-flow',
         content:
           '「起きた障害を早く直す（インシデント管理）」と「繰り返さないように原因を突き止める（問題管理）」は、目的が違います。\n\nこの区別が試験のポイントです。',
         comparisonTable: {
@@ -10648,6 +10677,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '3つの基本の管理',
+        diagram: 'facility-management',
         content:
           '施設を守るための、代表的な管理を見てみましょう。\n\nカフェの例と合わせて覚えます。',
         bentoCards: [
@@ -10861,6 +10891,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '監査の流れ',
+        diagram: 'system-audit-control',
         content:
           'システム監査は、次のような手順で行われます。\n\nカフェの例と合わせて覚えましょう。',
         bentoCards: [
@@ -11048,6 +11079,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '内部統制とは',
+        diagram: 'system-audit-control',
         content:
           '内部統制とは、企業が「自らの業務を正しく、効率的に運営する」ための仕組みです。\n\n「社員が不正をしない」「ミスが起きないようにする」「法令を守る」など、企業が健全に運営されるためのルールや体制を整えることを指します。\n\n内部統制には、4つの目的があります。',
         bentoCards: [
@@ -11291,6 +11323,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '10進数と2進数の変換',
+        diagram: 'number-conversion',
         content:
           '2進数の各桁の重みは「1、2、4、8、16…」と2倍ずつになります。\n\n【例題1】10進数の「13」を2進数に変換する。\n13 ＝ 8＋4＋1 ＝ 2³＋2²＋2⁰\n→ 2進数では「1101」\n\n（8の位が1、4の位が1、2の位が0、1の位が1 なので 1101）\n\n【例題2】2進数の「1101」を10進数に変換する。\n1101 ＝ 8＋4＋0＋1 ＝ 13\n→ 10進数では「13」',
         callout: {
@@ -11521,6 +11554,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: '論理演算とは',
+        diagram: 'sets-logic-venn',
         content:
           '論理演算は、「真（1）」「偽（0）」の2つの値を使って行う計算です。\n\nコンピュータの回路や、プログラムの条件分岐の土台になっています。\n\nカフェの割引条件で考えてみましょう。',
         comparisonTable: {
@@ -11704,6 +11738,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: 'KB・MB・GB・TB',
+        diagram: 'data-units-scale',
         content:
           'データ量が大きくなると、ビットやバイトのままでは桁が多すぎるので、単位をまとめます。\n\nコンピュータの世界では、1024（＝2¹⁰）ごとに単位が上がります。',
         comparisonTable: {
@@ -11891,6 +11926,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '代表的なデータ構造',
+        diagram: 'queue-stack-visual',
         content:
           '特に重要な4つのデータ構造を見ていきましょう。\n\nカフェの例と合わせて覚えます。',
         bentoCards: [
@@ -12140,6 +12176,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: '代表的なアルゴリズム（探索と整列）',
+        diagram: 'search-algorithms',
         content:
           'ITパスポートで特に重要な、探索（さがす）と整列（ならべる）のアルゴリズムを押さえましょう。',
         comparisonTable: {
@@ -13117,6 +13154,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '処理形態とは',
+        diagram: 'client-server-visual',
         content:
           'コンピュータがデータを処理する方法には、いくつかの「処理形態」があります。\n\nデータを「ためてからまとめて処理する」か、「発生した瞬間に処理する」かによって分類されます。\n\n試験では「どの処理形態がどんな場面に向くか」を問う問題がよく出ます。',
         bentoCards: [
@@ -13372,6 +13410,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: '構成による分類',
+        diagram: 'client-server-visual',
         content:
           '複数のコンピュータをどう組み合わせて使うかの分類です。\n\nカフェの例と合わせて覚えましょう。',
         comparisonTable: {
@@ -13540,6 +13579,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '代表的なRAIDレベル',
+        diagram: 'raid-visualization',
         content:
           '試験で特に重要な3つのRAIDレベルを押さえましょう。\n\nカフェの例と合わせて覚えます。',
         bentoCards: [
@@ -13727,6 +13767,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '性能を測る指標',
+        diagram: 'throughput-response-time',
         content:
           'コンピュータの性能を表す代表的な指標です。\n\n「速さ」に関わるものと「量」に関わるものがあります。\n\nカフェの例と合わせて覚えましょう。',
         bentoCards: [
@@ -13957,6 +13998,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '信頼性を高める技術',
+        diagram: 'system-reliability-calc',
         content:
           '代表的な信頼性向上技術を覚えましょう。\n\nカフェの例と合わせて覚えます。',
         bentoCards: [
@@ -14207,6 +14249,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: '直列と並列の比較',
+        diagram: 'system-reliability-calc',
         content:
           '2つの違いをまとめます。\n\n「1台壊れたらどうなるか」で覚えましょう。',
         comparisonTable: {
@@ -14352,6 +14395,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: '大きさ・性能による分類',
+        diagram: 'computer-architecture',
         content:
           'コンピュータは、大きさや性能によって次のように分類されます。\n\n性能が高いものほど、大型で高価です。',
         bentoCards: [
@@ -14553,6 +14597,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'コンピュータの5つの役割',
+        diagram: 'computer-architecture',
         content:
           'コンピュータは、データを処理するために「入力・出力・記憶・演算・制御」の5つの役割を分担して動いています。\n\nこのうち演算と制御は「CPU」という中心部品が担い、それ以外は周辺機器が担当します。',
         bentoCards: [
@@ -14761,6 +14806,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'CPUとは',
+        diagram: 'cpu-execution-cycle',
         content:
           'CPU（Central Processing Unit）は「中央処理装置」とも呼ばれ、コンピュータの頭脳にあたる部分です。\n\nすべての計算や命令の実行を担当します。\n\nCPUの中には、2つの重要な装置があります。\n\nそれが「演算装置」と「制御装置」です。',
         bentoCards: [
@@ -15066,6 +15112,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: 'キャッシュメモリと記憶階層',
+        diagram: 'memory-hierarchy',
         content:
           'キャッシュメモリは、CPUと主記憶の間にある小さな高速な記憶です。\n\nよく使うデータを先に置いておくことで、処理を高速化します。\n\n記憶装置は「速い・小さい・高い」ものから「遅い・大きい・安い」ものまで、階層状に組み合わせて使われます。',
         callout2: {
@@ -15258,6 +15305,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: '入力装置と出力装置の違い',
+        diagram: 'io-interfaces-ports',
         content:
           '入力装置と出力装置の違いを、表で整理しましょう。',
         comparisonTable: {
@@ -15384,6 +15432,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: '代表的なインタフェース',
+        diagram: 'io-interfaces-ports',
         content:
           '試験で問われる代表的なインタフェースを整理しましょう。\n\nカフェの例と合わせて覚えます。',
         bentoCards: [
