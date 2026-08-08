@@ -29,6 +29,8 @@ import { FinancialMetricsDiagram } from './FinancialMetricsDiagram';
 import { InvestmentEvaluationDiagram } from './InvestmentEvaluationDiagram';
 import { BicycleSWOTDiagram } from './BicycleSWOTDiagram';
 import { CrossSWOTDiagram } from './CrossSWOTDiagram';
+import { RNDStagesDiagram } from './RNDStagesDiagram';
+import { TechDevToolsDiagram } from './TechDevToolsDiagram';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -341,6 +343,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'investment-evaluation' && <div className="my-8"><InvestmentEvaluationDiagram /></div>}
                   {sec.diagram === 'bicycle-swot' && <div className="my-8"><BicycleSWOTDiagram /></div>}
                   {sec.diagram === 'cross-swot' && <div className="my-8"><CrossSWOTDiagram /></div>}
+                  {sec.diagram === 'rnd-stages' && <div className="my-8"><RNDStagesDiagram /></div>}
+                  {sec.diagram === 'tech-dev-tools' && <div className="my-8"><TechDevToolsDiagram /></div>}
                 </section>
               ))}
             </div>

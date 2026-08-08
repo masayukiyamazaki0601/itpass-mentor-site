@@ -53,7 +53,7 @@ export interface ArticleSection {
     headers: string[];
     rows: string[][];
   };
-  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy' | 'network' | 'database' | 'corporate-activities' | 'company-structure' | 'departments' | 'stakeholder' | 'resources' | 'business-flow' | 'swot' | 'break-even-visual' | 'five-profits-cascade' | 'ip-rights' | 'industrial-property' | 'security-laws' | 'contract-types' | 'standardization-types' | 'growth-strategy' | 'porters-strategy' | 'stp' | 'marketing-4p' | 'management-systems' | 'financial-metrics' | 'investment-evaluation' | 'bicycle-swot' | 'cross-swot';
+  diagram?: 'bs-pl' | 'five-profits' | 'break-even' | 'organization-chart' | 'process-visualization' | 'ppm-matrix' | 'strategy-hierarchy' | 'network' | 'database' | 'corporate-activities' | 'company-structure' | 'departments' | 'stakeholder' | 'resources' | 'business-flow' | 'swot' | 'break-even-visual' | 'five-profits-cascade' | 'ip-rights' | 'industrial-property' | 'security-laws' | 'contract-types' | 'standardization-types' | 'growth-strategy' | 'porters-strategy' | 'stp' | 'marketing-4p' | 'management-systems' | 'financial-metrics' | 'investment-evaluation' | 'bicycle-swot' | 'cross-swot' | 'rnd-stages' | 'tech-dev-tools';
 }
 
 export interface Article {
