@@ -4,6 +4,7 @@ import { ARTICLES_DATA } from '../data/articlesData';
 import { OrganizationDiagrams } from './OrganizationDiagrams';
 import { NetworkDiagrams } from './NetworkDiagrams';
 import { DatabaseDiagrams } from './DatabaseDiagrams';
+import { CorporateActivitiesDiagrams } from './CorporateActivitiesDiagrams';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -288,6 +289,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'organization-chart' && <div className="my-8"><OrganizationDiagrams /></div>}
                   {sec.diagram === 'network' && <div className="my-8"><NetworkDiagrams /></div>}
                   {sec.diagram === 'database' && <div className="my-8"><DatabaseDiagrams /></div>}
+                  {sec.diagram === 'corporate-activities' && <div className="my-8"><CorporateActivitiesDiagrams /></div>}
                 </section>
               ))}
             </div>
