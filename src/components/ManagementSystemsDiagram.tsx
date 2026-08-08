@@ -54,7 +54,7 @@ export const ManagementSystemsDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-emerald-50 via-white to-lime-50 p-6 rounded-2xl border border-emerald-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">お店の裏方を支える4つのシステム</h3>
         <p className="text-xs text-[#43474f] mt-1">お客様からは見えないけれど、お店が回るために欠かせない</p>

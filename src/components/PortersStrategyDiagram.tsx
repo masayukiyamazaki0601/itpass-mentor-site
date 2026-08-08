@@ -39,7 +39,7 @@ export const PortersStrategyDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-violet-50 via-white to-purple-50 p-6 rounded-2xl border border-violet-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">ポーターの3つの基本戦略</h3>
         <p className="text-xs text-[#43474f] mt-1">ライバルに勝つための「3つの道」のどれかを選ぶ</p>

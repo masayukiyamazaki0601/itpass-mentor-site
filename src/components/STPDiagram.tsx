@@ -39,7 +39,7 @@ export const STPDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-cyan-50 via-white to-teal-50 p-6 rounded-2xl border border-cyan-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">STP分析の流れ</h3>
         <p className="text-xs text-[#43474f] mt-1">分ける → 選ぶ → 位置づける。絞り込んで「誰に売るか」を決める</p>

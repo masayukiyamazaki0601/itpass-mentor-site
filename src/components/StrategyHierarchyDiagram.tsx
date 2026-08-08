@@ -36,7 +36,7 @@ export const StrategyHierarchyDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-indigo-50 via-white to-slate-50 p-6 rounded-2xl border border-indigo-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">戦略には「大きさ」が3つある</h3>
         <p className="text-xs text-[#43474f] mt-1">上から下へ、だんだん細かくなっていく</p>

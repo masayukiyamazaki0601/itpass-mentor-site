@@ -58,7 +58,7 @@ export const PPMMatrixDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-amber-50 via-white to-orange-50 p-6 rounded-2xl border border-amber-200 shadow-sm">
       <div className="text-center mb-5">
         <h3 className="text-lg font-bold text-[#111c2c]">PPMマトリックス（4つのグループ）</h3>
         <p className="text-xs text-[#43474f] mt-1">縦＝市場成長率（伸びている？） ／ 横＝市場占有率（自分は強い？）</p>

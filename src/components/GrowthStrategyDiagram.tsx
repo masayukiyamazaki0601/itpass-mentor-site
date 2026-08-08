@@ -50,7 +50,7 @@ export const GrowthStrategyDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-sky-50 via-white to-blue-50 p-6 rounded-2xl border border-sky-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">会社を「大きくする」4つの方法</h3>
         <p className="text-xs text-[#43474f] mt-1">「横・縦・合体・外注」でイメージを固定しよう</p>

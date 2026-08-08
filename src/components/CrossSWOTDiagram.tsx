@@ -50,7 +50,7 @@ export const CrossSWOTDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-teal-50 via-white to-emerald-50 p-6 rounded-2xl border border-teal-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">クロスSWOT（組み合わせて作戦を考える）</h3>
         <p className="text-xs text-[#43474f] mt-1">「自分の中」×「外の世界」を掛け合わせると、具体的な作戦が生まれる</p>

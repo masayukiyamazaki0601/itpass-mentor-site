@@ -45,7 +45,7 @@ export const FinancialMetricsDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-indigo-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">会社の「儲かり具合」を見る3つの指標</h3>
         <p className="text-xs text-[#43474f] mt-1">違いは「何で割るか」だけ！</p>

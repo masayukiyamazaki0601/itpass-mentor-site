@@ -42,7 +42,7 @@ export const InvestmentEvaluationDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-indigo-100 shadow-sm">
+    <div className="w-full bg-gradient-to-b from-blue-50 via-white to-indigo-50 p-6 rounded-2xl border border-blue-200 shadow-sm">
       <div className="text-center mb-6">
         <h3 className="text-lg font-bold text-[#111c2c]">投資が「得」かを見る3つの指標</h3>
         <p className="text-xs text-[#43474f] mt-1">ラーメン屋の2号店に当てはめて考える</p>
