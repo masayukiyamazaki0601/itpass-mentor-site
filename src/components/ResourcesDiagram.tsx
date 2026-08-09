@@ -23,11 +23,6 @@ const resources = [
 export const ResourcesDiagram: React.FC = () => {
   return (
     <div className="w-full bg-[#f8fafc] p-6 rounded-2xl border border-sky-100 shadow-sm">
-      <div className="text-center mb-6">
-        <h3 className="text-lg font-bold text-[#111c2c]">4つの経営資源</h3>
-        <p className="text-xs text-[#43474f] mt-1">企業活動を支える4つの基盤</p>
-      </div>
-
       <div className="grid grid-cols-2 gap-4">
         {resources.map((r, i) => (
           <motion.div
