@@ -1,99 +1,89 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {
+  Lock,
+  CheckCircle2,
+  CalendarRange,
+  ShieldAlert,
+  ArrowRight
+} from 'lucide-react';
 
 export const SecurityCIADiagram: React.FC = () => {
   const elements = [
     {
-      name: '機密性',
-      en: 'Confidentiality',
-      icon: 'lock',
-      role: '見られない',
-      desc: '「許可された人だけ」が情報を見られるようにする',
-      example: 'レシピを鍵付きの箱にしまう',
-      color: 'from-blue-600 to-blue-600',
-      soft: 'bg-blue-50 border-blue-300',
-      badge: 'bg-blue-100 text-blue-600',
-      delay: 0
+      name: '機密性 (Confidentiality)',
+      role: '許可された人だけが「見られる」',
+      desc: 'アクセス権限のない第三者に情報が漏れないように管理する性質です。',
+      example: 'レシピを鍵付きの金庫に厳重に保管する',
+      color: 'text-blue-400 bg-blue-950/15 border-blue-900/60'
     },
     {
-      name: '完全性',
-      en: 'Integrity',
-      icon: 'verified',
-      role: '書き換えられない',
-      desc: '情報が「正しく・書き換えられていない」状態を保つ',
-      example: 'レシピを書き換えられない',
-      color: 'from-emerald-600 to-teal-600',
-      soft: 'bg-emerald-50 border-emerald-300',
-      badge: 'bg-emerald-100 text-emerald-600',
-      delay: 0.15
+      name: '完全性 (Integrity)',
+      role: '正しいデータで「書き換えられない」',
+      desc: '情報が改ざんされたり、誤って書き換えられたりせず、正確な状態を維持する性質です。',
+      example: 'レシピに勝手な追記や改変ができないように保護する',
+      color: 'text-emerald-400 bg-emerald-950/15 border-emerald-900/60'
     },
     {
-      name: '可用性',
-      en: 'Availability',
-      icon: 'schedule',
-      role: 'いつでも使える',
-      desc: '「必要なときに」情報やシステムを使える状態に保つ',
-      example: 'いつでもレシピを使える',
-      color: 'from-amber-500 to-orange-600',
-      soft: 'bg-amber-50 border-amber-300',
-      badge: 'bg-amber-100 text-amber-600',
-      delay: 0.3
+      name: '可用性 (Availability)',
+      role: '必要な時に「いつでも使える」',
+      desc: '地震やシステムダウンなどのトラブルを防ぎ、利用者が使いたい時にいつでもサービスにアクセスできる性質です。',
+      example: '停電対策を施し、店員がいつでもレシピを閲覧・調理できるようにする',
+      color: 'text-amber-400 bg-amber-950/15 border-amber-900/60'
     }
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-blue-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-200">
-          <span className="material-symbols-outlined text-xl">security</span>
-        </div>
-        <div>
-          <h3 className="text-base font-black text-[#111c2c]">情報セキュリティの3要素</h3>
-          <p className="text-[11px] text-[#43474f]">この3つがそろって、はじめて情報は安全</p>
-        </div>
+    <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
+          Security Essentials
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          情報セキュリティの3大要素 (C.I.A.)
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          情報を安全に保つための基本理念です。この3要素が揃ってはじめて強固なセキュリティが成り立ちます。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {elements.map((e) => (
-          <motion.div
-            key={e.name}
-            className={`rounded-xl border-2 p-4 flex flex-col gap-1 shadow-sm hover:shadow-md transition-shadow ${e.soft}`}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: e.delay, duration: 0.4 }}
-          >
-            <div className="flex items-center gap-2">
-              <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${e.color} text-white flex items-center justify-center shadow-sm`}>
-                <span className="material-symbols-outlined text-lg">{e.icon}</span>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {elements.map((e, idx) => {
+          return (
+            <div 
+              key={idx} 
+              className={`p-5 rounded-2xl border ${e.color} flex flex-col justify-between space-y-4`}
+            >
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <h4 className="text-xs font-black text-slate-100">{e.name}</h4>
+                  <span className="text-[8px] bg-slate-950 text-slate-500 font-bold px-1.5 py-0.2 rounded border border-slate-900">
+                    C.I.A. 0{idx + 1}
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-350 block font-bold">{e.role}</span>
+                <p className="text-[11px] text-slate-400 leading-relaxed font-medium">
+                  {e.desc}
+                </p>
               </div>
-              <div>
-                <div className="font-black text-sm text-slate-800">{e.name}</div>
-                <div className="text-[9px] text-slate-400 font-medium">{e.en}</div>
+
+              <div className="bg-slate-950/70 p-2.5 rounded border border-slate-850 text-[10px]">
+                <div className="flex items-center gap-1.5 text-[9px] text-cyan-400 font-semibold">
+                  <CheckCircle2 className="w-3 h-3 flex-shrink-0" />
+                  <span>例：{e.example}</span>
+                </div>
               </div>
             </div>
-            <span className={`inline-block self-start mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${e.badge}`}>
-              {e.role}
-            </span>
-            <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{e.desc}</p>
-            <p className="text-[10px] text-slate-500 mt-auto pt-1.5 border-t border-slate-200/70">
-              例：{e.example}
-            </p>
-          </motion.div>
-        ))}
+          );
+        })}
       </div>
 
-      <motion.div
-        className="mt-5 rounded-xl bg-gradient-to-r from-blue-50 to-amber-50 border border-blue-100 px-4 py-3 flex items-center gap-2"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <span className="material-symbols-outlined text-blue-500 text-lg">tips_and_updates</span>
-        <p className="text-xs text-[#43474f]">
-          覚え方：<span className="font-bold text-blue-600">見られない</span>・<span className="font-bold text-emerald-600">書き換えられない</span>・<span className="font-bold text-amber-600">いつでも使える</span>
+      {/* Summary */}
+      <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3">
+        <ShieldAlert className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+        <p className="text-xs text-slate-300">
+          覚え方のコツ：<span className="font-bold text-blue-300">機密性＝見られない（漏洩防止）</span>・<span className="font-bold text-emerald-300">完全性＝書き換えられない（改ざん防止）</span>・<span className="font-bold text-amber-300">可用性＝いつでも使える（システム稼働）</span>。
         </p>
-      </motion.div>
+      </div>
     </div>
   );
 };

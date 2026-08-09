@@ -1,140 +1,120 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import {
-  ShieldCheck,
+  ShieldAlert,
   CircleX,
   TrendingDown,
   Send,
   CheckCircle2,
-  Umbrella,
-  Workflow
+  Lock,
+  ArrowRight
 } from 'lucide-react';
 
 export const RiskManagementDiagram: React.FC = () => {
-  const [active, setActive] = useState<string>('回避');
-
   const responses = [
     {
-      name: '回避',
-      icon: CircleX,
-      desc: 'リスクそのものを避ける。危険なことはやらない',
-      example: '危険な機能を使わない',
-      level: 'リスクを「なくす」',
-      color: 'from-rose-500 to-red-600',
-      border: 'border-rose-500',
-      glow: 'shadow-rose-500/20',
-      delay: 0
+      name: '回避 (Avoidance)',
+      role: 'リスクそのものを「なくす」',
+      desc: 'リスクの原因となる行為やシステム利用そのものを止め、危険性をゼロにする対応です。',
+      example: '情報漏洩リスクのある「会員のクレジットカード情報」を店内で一切持たない運用にする。',
+      color: 'text-rose-400 bg-rose-950/15 border-rose-900/60',
+      icon: CircleX
     },
     {
-      name: '軽減',
-      icon: TrendingDown,
-      desc: 'リスクの影響を小さくする。発生しにくくする',
-      example: 'バックアップ・セキュリティソフト導入',
-      level: 'リスクを「小さくする」',
-      color: 'from-sky-500 to-blue-600',
-      border: 'border-sky-500',
-      glow: 'shadow-sky-500/20',
-      delay: 0.1
+      name: '軽減 (Mitigation)',
+      role: '影響や確率を「小さくする」',
+      desc: 'リスクが発生したときの損失を小さく抑えるか、発生確率を下げるための対策を行います。',
+      example: 'ウイルス対策ソフトを導入し、売上データの定期バックアップを毎日取得する。',
+      color: 'text-blue-400 bg-blue-950/15 border-blue-900/60',
+      icon: TrendingDown
     },
     {
-      name: '移転',
-      icon: Send,
-      desc: 'リスクを他に移す。他人に負担を分担してもらう',
-      example: '保険に加入・外注する',
-      level: 'リスクを「他に移す」',
-      color: 'from-amber-500 to-orange-600',
-      border: 'border-amber-500',
-      glow: 'shadow-amber-500/20',
-      delay: 0.2
+      name: '移転 (Transfer)',
+      role: 'リスクを他者へ「分け・移す」',
+      desc: '保険に加入したり、専門の業者へ業務をアウトソーシング（委託）することで損失を分担・転嫁します。',
+      example: 'サイバー保険に加入する。または会員管理サーバーの運用を信頼できる外部企業に委託する。',
+      color: 'text-amber-400 bg-amber-950/15 border-amber-900/60',
+      icon: Send
     },
     {
-      name: '受容',
-      icon: CheckCircle2,
-      desc: 'リスクを受け入れる。影響が小さいので対策しない',
-      example: '影響が小さいので対策しない',
-      level: 'リスクを「受け入れる」',
-      color: 'from-emerald-500 to-teal-600',
-      border: 'border-emerald-500',
-      glow: 'shadow-emerald-500/20',
-      delay: 0.3
+      name: '受容 (Acceptance)',
+      role: 'リスクを「そのまま受け入れる」',
+      desc: '発生確率が極めて低く、または被害が小さいため、対策コストをかけずにそのリスクを許容します。',
+      example: '店舗掲示用の紙メニューが汚れるリスクは、再印刷が安価なため特別な対策をとらない。',
+      color: 'text-emerald-400 bg-emerald-950/15 border-emerald-900/60',
+      icon: CheckCircle2
     }
   ];
 
-  const cur = responses.find((r) => r.name === active)!;
-  const CurIcon = cur.icon;
-
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
-      {/* Header */}
       <div className="mb-6">
         <span className="text-xs font-extrabold tracking-wider text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-900/60 uppercase">
-          Risk Response Lab
+          Risk Management
         </span>
         <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-          リスクへの4つの対応策（クリックして確認）
+          リスクへの4つの対応アプローチ
         </h3>
         <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-          回避・軽減・移転・受容。リスクにどう向き合うか、それぞれの考え方を確かめましょう。
+          リスクが特定・評価された後、費用対効果などを踏まえて選択する4つの対策方式です。
         </p>
       </div>
 
-      {/* 4 buttons */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-6">
-        {responses.map((r) => {
+      {/* 4 elements */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {responses.map((r, idx) => {
           const Icon = r.icon;
-          const isSel = active === r.name;
           return (
-            <button
-              key={r.name}
-              onClick={() => setActive(r.name)}
-              className={`p-3.5 rounded-xl border text-center cursor-pointer transition-all ${
-                isSel
-                  ? `bg-slate-800 border-transparent shadow-lg ${r.glow}`
-                  : 'bg-slate-950 border-slate-900 text-slate-500 hover:border-slate-700 hover:text-slate-300'
-              }`}
+            <div 
+              key={idx} 
+              className={`p-4 rounded-xl border ${r.color} flex flex-col justify-between space-y-4`}
             >
-              <Icon className={`w-5 h-5 mx-auto mb-1.5 ${isSel ? 'text-cyan-300' : ''}`} />
-              <span className="text-sm font-bold block">{r.name}</span>
-              <span className="text-[9px] text-slate-500 block mt-0.5">{r.level}</span>
-            </button>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <h4 className="text-xs font-black text-slate-100">{r.name}</h4>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <span className="text-[10px] text-slate-355 block font-bold">{r.role}</span>
+                <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
+                  {r.desc}
+                </p>
+              </div>
+
+              <div className="bg-slate-950/70 p-2.5 rounded border border-slate-850 text-[10px]">
+                <p className="text-slate-300">
+                  <span className="text-cyan-400 font-bold">例：</span>{r.example}
+                </p>
+              </div>
+            </div>
           );
         })}
       </div>
 
-      {/* Detail */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={cur.name}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.25 }}
-          className={`rounded-2xl border bg-gradient-to-br p-5 ${cur.border} from-slate-800/60 to-slate-900/60`}
-        >
-          <div className="flex items-start gap-4">
-            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cur.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
-              <CurIcon className="w-6 h-6 text-white" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h4 className="text-base md:text-lg font-black text-white">{cur.name}</h4>
-                <span className="text-[10px] font-bold text-slate-300 bg-slate-700/50 rounded-full px-2 py-0.5">{cur.level}</span>
-              </div>
-              <p className="text-sm text-slate-300 mt-1 leading-relaxed">{cur.desc}</p>
-              <div className="mt-3 flex items-center gap-2 bg-slate-950/60 border border-slate-700/60 rounded-lg px-3 py-2">
-                <Umbrella className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <p className="text-xs font-bold text-cyan-300">カフェの例：{cur.example}</p>
-              </div>
-            </div>
+      {/* Process flow */}
+      <div className="mt-8 pt-6 border-t border-slate-800/80">
+        <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">
+          リスクマネジメントの4つのプロセス
+        </h4>
+        <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-bold">
+          <div className="bg-slate-950 p-2 rounded border border-slate-850">
+            ① 特定<br/><span className="text-[9px] text-slate-500">リスクを洗い出す</span>
           </div>
-        </motion.div>
-      </AnimatePresence>
+          <div className="bg-slate-950 p-2 rounded border border-slate-850">
+            ② 評価<br/><span className="text-[9px] text-slate-500">影響と確率を分析</span>
+          </div>
+          <div className="bg-slate-950 p-2 rounded border border-slate-850">
+            ③ 対策<br/><span className="text-[9px] text-slate-500">上の4つから選ぶ</span>
+          </div>
+          <div className="bg-slate-950 p-2 rounded border border-slate-850">
+            ④ 見直し<br/><span className="text-[9px] text-slate-500">運用状況を再チェック</span>
+          </div>
+        </div>
+      </div>
 
-      {/* Summary */}
-      <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3">
-        <Workflow className="w-4 h-4 text-sky-400 flex-shrink-0" />
-        <p className="text-xs text-slate-300">
-          流れ：<span className="font-bold text-sky-300">特定 → 評価 → 対策 → 見直し</span>
+      {/* Summary tip */}
+      <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3 text-xs text-slate-300">
+        <Lock className="w-4 h-4 text-sky-400 flex-shrink-0" />
+        <p>
+          試験対策：<span className="font-bold text-rose-300">「バックアップを取る」は軽減</span>、<span className="font-bold text-amber-300">「保険をかける」は移転</span>に分類されます。この2つが非常によく出題されます。
         </p>
       </div>
     </div>

@@ -1,102 +1,98 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {
+  PenTool,
+  UserCheck,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight
+} from 'lucide-react';
 
 export const DigitalSignatureDiagram: React.FC = () => {
-  const steps = [
-    {
-      name: '送る側',
-      en: 'Sender',
-      icon: 'draw',
-      role: '秘密鍵で署名',
-      desc: '本人だけが持つ秘密鍵でデータに「サイン」を付ける',
-      example: '店長だけが持つ印鑑でサイン',
-      color: 'from-sky-500 to-blue-600',
-      soft: 'bg-sky-50 border-sky-300',
-      badge: 'bg-sky-100 text-sky-700',
-      delay: 0
-    },
-    {
-      name: '受け取る側',
-      en: 'Receiver',
-      icon: 'verified_user',
-      role: '公開鍵で確認',
-      desc: '公開鍵で署名を確かめ、「本人のもの」「改ざんされていない」ことを確認',
-      example: '印鑑の照合で確かめる',
-      color: 'from-emerald-500 to-teal-600',
-      soft: 'bg-emerald-50 border-emerald-300',
-      badge: 'bg-emerald-100 text-emerald-700',
-      delay: 0.2
-    }
-  ];
-
   return (
-    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-sky-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center shadow-md shadow-sky-200">
-          <span className="material-symbols-outlined text-xl">draw</span>
-        </div>
-        <div>
-          <h3 className="text-base font-black text-[#111c2c]">デジタル署名の仕組み</h3>
-          <p className="text-[11px] text-[#43474f]">秘密鍵で署名し、公開鍵で確認する（公開鍵暗号の逆向き）</p>
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-stretch gap-3">
-        {steps.map((s, idx) => (
-          <React.Fragment key={s.name}>
-            <motion.div
-              className={`flex-1 rounded-xl border-2 p-4 flex flex-col gap-1 shadow-sm hover:shadow-md transition-shadow ${s.soft}`}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: s.delay, duration: 0.4 }}
-            >
-              <div className="flex items-center gap-2">
-                <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${s.color} text-white flex items-center justify-center shadow-sm`}>
-                  <span className="material-symbols-outlined text-lg">{s.icon}</span>
-                </div>
-                <div>
-                  <div className="font-black text-sm text-slate-800">{s.name}</div>
-                  <div className="text-[9px] text-slate-400 font-medium">{s.en}</div>
-                </div>
-              </div>
-              <span className={`inline-block self-start mt-1.5 text-[10px] font-bold px-2 py-0.5 rounded-full ${s.badge}`}>
-                {s.role}
-              </span>
-              <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{s.desc}</p>
-              <p className="text-[9px] text-slate-500 mt-auto pt-1.5 border-t border-slate-200/70">
-                例：{s.example}
-              </p>
-            </motion.div>
-
-            {idx < steps.length - 1 && (
-              <div className="flex items-center justify-center">
-                <motion.span
-                  className="material-symbols-outlined text-2xl text-slate-300 rotate-90 md:rotate-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: s.delay + 0.2 }}
-                >
-                  arrow_forward
-                </motion.span>
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </div>
-
-      {/* 認証局の帯 */}
-      <motion.div
-        className="mt-5 rounded-xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-100 px-4 py-3 flex items-center gap-2"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <span className="material-symbols-outlined text-sky-500 text-lg">badge</span>
-        <p className="text-xs text-[#43474f]">
-          <span className="font-bold text-sky-700">認証局（CA）</span>＝「この公開鍵は本当にこの人のもの」と証明する第三者機関（身分証を発行する役所のような存在）
+    <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-900/60 uppercase">
+          Digital Signature
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
+          デジタル署名 の仕組みと認証局の役割
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          データの「送信元の本人確認」と「改ざんの検知」を行うため、公開鍵暗号の鍵を逆向きに使う仕組みです。
         </p>
-      </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        {/* 送る側 */}
+        <div className="p-5 rounded-2xl border border-blue-900/60 bg-blue-950/15 flex flex-col justify-between space-y-4">
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <h4 className="text-xs font-black text-blue-400">1. 送信者 (署名を作成する)</h4>
+              <span className="text-[8px] bg-slate-950 text-slate-500 font-bold px-1.5 py-0.2 rounded border border-slate-900">
+                秘密鍵で署名
+              </span>
+            </div>
+            <span className="text-[10px] text-slate-350 block font-bold">本人だけが持つ「秘密鍵」でデジタル署名を生成します。</span>
+            <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
+              ハッシュ化したデータ（メッセージダイジェスト）に送信者自身の秘密鍵で鍵をかけることで、他人が偽造できない「電子の印鑑」を作成し、本文と一緒に送ります。
+            </p>
+          </div>
+
+          <div className="bg-slate-950/70 p-3 rounded-lg border border-slate-850 flex items-center gap-2 text-[10px]">
+            <PenTool className="w-4 h-4 text-blue-400 flex-shrink-0" />
+            <p className="text-slate-300">
+              例：店長（送信者）が自分専用の秘密鍵で新レシピにサインを押す。
+            </p>
+          </div>
+        </div>
+
+        {/* 受ける側 */}
+        <div className="p-5 rounded-2xl border border-emerald-900/60 bg-emerald-950/15 flex flex-col justify-between space-y-4">
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <h4 className="text-xs font-black text-emerald-400">2. 受信者 (署名を検証する)</h4>
+              <span className="text-[8px] bg-slate-950 text-slate-500 font-bold px-1.5 py-0.2 rounded border border-slate-900">
+                公開鍵で検証
+              </span>
+            </div>
+            <span className="text-[10px] text-slate-355 block font-bold">誰でも取得できる「送信者の公開鍵」で署名を解読します。</span>
+            <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
+              送信者の公開鍵で署名が開けば「確かに送信者本人が書いた」ことが証明され、復元されたハッシュ値が一致すれば「途中で改ざんされていない」ことが確認できます。
+            </p>
+          </div>
+
+          <div className="bg-slate-950/70 p-3 rounded-lg border border-slate-850 flex items-center gap-2 text-[10px]">
+            <UserCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+            <p className="text-slate-300">
+              例：本部（受信者）が店長の公開鍵でサインを照合し、正しさを確認する。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* CA Section */}
+      <div className="mt-8 pt-6 border-t border-slate-800/80">
+        <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">
+          認証局 (CA: Certificate Authority) の役割
+        </h4>
+        <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-850 space-y-2 text-xs leading-relaxed font-medium">
+          <p className="text-slate-300">
+            デジタル署名で使う「公開鍵」が、本当にその送信者のものであるか（なりすましでないか）を公的に証明する信頼できる第三者機関です。
+          </p>
+          <ul className="text-[11px] text-slate-400 space-y-1 pl-1">
+            <li>・<strong>デジタル証明書</strong>：認証局が発行する「公開鍵の所有者身分証明書」です。</li>
+            <li>・<strong>例え</strong>：公開鍵が「実印」なら、認証局（CA）は「役所」、デジタル証明書は「印鑑証明書」にあたります。</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Summary */}
+      <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3 text-xs text-slate-300">
+        <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+        <p>
+          試験対策：<span className="font-bold text-emerald-300">デジタル署名の3大役割は「本人確認」「改ざん検知」「否認防止」</span>。署名には <span className="font-bold text-blue-300">送信者の秘密鍵</span> を使い、検証には <span className="font-bold text-emerald-300">送信者の公開鍵</span> を使います。
+        </p>
+      </div>
     </div>
   );
 };
