@@ -1,149 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { 
   Cpu, 
   Database, 
   Keyboard, 
   Monitor, 
-  HelpCircle, 
-  Play, 
-  RotateCcw, 
-  ChevronRight, 
-  Info,
-  CheckCircle2,
-  HardDrive,
-  Usb,
-  Wifi,
-  Tv,
-  ArrowRight,
-  Zap,
-  Layers
+  HardDrive, 
+  Usb, 
+  Wifi, 
+  Tv, 
+  Zap, 
+  ArrowRight
 } from 'lucide-react';
 
 // ==========================================
 // 1. 5大装置とデータフロー (ComputerArchitectureDiagram)
 // ==========================================
 export const ComputerArchitectureDiagram: React.FC = () => {
-  const [step, setStep] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-
-  const stepsInfo = [
-    { text: '待機状態：プログラムの指示を待っています。', active: '' },
-    { text: '1. 入力 ➜ 記憶：入力装置からデータが入り、主記憶装置に保存されます。', active: 'input-memory' },
-    { text: '2. 制御 ➜ 記憶：制御装置が主記憶から命令を取り出します（フェッチ）。', active: 'control-fetch' },
-    { text: '3. 演算 ➜ 記憶：演算装置が主記憶からデータを読み出し、計算して結果を書き戻します。', active: 'arithmetic-write' },
-    { text: '4. 記憶 ➜ 出力：計算された結果データが出力装置へ送られ、表示されます。', active: 'memory-output' }
-  ];
-
-  const handleNextStep = () => {
-    setStep(prev => (prev + 1) % stepsInfo.length);
-  };
-
-  const handleReset = () => {
-    setStep(0);
-    setIsPlaying(false);
-  };
-
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
-            5 Elements of Computer
-          </span>
-          <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            コンピュータの5大装置とデータ・制御フロー
-          </h3>
-          <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-            入力、記憶、制御、演算、出力の5つの装置間をデータが流れる手順をトレースします。
-          </p>
-        </div>
-
-        <div className="flex gap-2 self-start md:self-auto">
-          <button
-            onClick={handleNextStep}
-            className="bg-indigo-600 hover:bg-indigo-505 border border-indigo-950 text-white font-bold text-xs py-2 px-4 rounded-xl cursor-pointer flex items-center gap-1"
-          >
-            ステップを進める <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-          <button
-            onClick={handleReset}
-            className="bg-slate-850 hover:bg-slate-800 text-slate-300 font-bold text-xs py-2 px-4 rounded-xl cursor-pointer border border-slate-800"
-          >
-            リセット
-          </button>
-        </div>
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
+          Static Block Diagram
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          コンピュータの5大装置とデータ・制御フロー
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          入力、記憶、制御、演算、出力の5つの装置が、どのように連携してデータ処理を行うかを示した関係図です。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* 左：装置配置図 */}
-        <div className="lg:col-span-8 bg-slate-950/80 p-6 rounded-2xl border border-slate-800 flex flex-col justify-center min-h-[250px]">
-          <div className="relative grid grid-cols-3 gap-6 items-center">
-            {/* 入力装置 */}
-            <div className={`p-4 rounded-xl border text-center transition-all ${
-              step === 1 ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-105' : 'bg-slate-900 border-slate-850 text-slate-500'
-            }`}>
-              <Keyboard className="w-6 h-6 mx-auto mb-1" />
-              <span className="text-[10px] font-bold block">入力装置</span>
-            </div>
+      <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="grid grid-cols-3 gap-6 items-center text-center">
+          {/* 入力装置 */}
+          <div className="p-4 rounded-xl border border-slate-850 bg-slate-900 text-slate-300">
+            <Keyboard className="w-6 h-6 mx-auto mb-1.5 text-blue-400" />
+            <span className="text-xs font-bold block">① 入力装置</span>
+            <p className="text-[9px] text-slate-500 mt-1 font-medium">例：キーボード、マウス</p>
+          </div>
 
-            {/* 記憶装置 (中央) */}
-            <div className={`p-4 rounded-xl border text-center transition-all ${
-              step === 1 || step === 2 || step === 3 || step === 4
-                ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-105'
-                : 'bg-slate-900 border-slate-850 text-slate-500'
-            }`}>
-              <Database className="w-6 h-6 mx-auto mb-1" />
-              <span className="text-[10px] font-bold block">主記憶装置</span>
-            </div>
+          {/* 記憶装置 (中央) */}
+          <div className="p-4 rounded-xl border border-slate-850 bg-slate-900 text-slate-300">
+            <Database className="w-6 h-6 mx-auto mb-1.5 text-indigo-400" />
+            <span className="text-xs font-bold block">② 主記憶装置</span>
+            <p className="text-[9px] text-slate-500 mt-1 font-medium">例：メモリ (RAM)</p>
+          </div>
 
-            {/* 出力装置 */}
-            <div className={`p-4 rounded-xl border text-center transition-all ${
-              step === 4 ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-105' : 'bg-slate-900 border-slate-850 text-slate-500'
-            }`}>
-              <Monitor className="w-6 h-6 mx-auto mb-1" />
-              <span className="text-[10px] font-bold block">出力装置</span>
-            </div>
-
-            {/* 下段：CPU（制御・演算） */}
-            <div className="col-span-3 grid grid-cols-2 gap-4 mt-4 border border-dashed border-slate-800 p-4 rounded-xl bg-slate-900/30">
-              <span className="col-span-2 text-[8px] text-slate-600 font-extrabold uppercase tracking-widest text-center">CPU (プロセッサ)</span>
-              
-              {/* 制御装置 */}
-              <div className={`p-3 rounded-lg border text-center transition-all ${
-                step === 2 ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-105' : 'bg-slate-900 border-slate-850 text-slate-500'
-              }`}>
-                <Cpu className="w-5 h-5 mx-auto mb-1" />
-                <span className="text-[9px] font-bold block">制御装置</span>
-              </div>
-
-              {/* 演算装置 */}
-              <div className={`p-3 rounded-lg border text-center transition-all ${
-                step === 3 ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-105' : 'bg-slate-900 border-slate-850 text-slate-500'
-              }`}>
-                <Cpu className="w-5 h-5 mx-auto mb-1" />
-                <span className="text-[9px] font-bold block">演算装置</span>
-              </div>
-            </div>
+          {/* 出力装置 */}
+          <div className="p-4 rounded-xl border border-slate-850 bg-slate-900 text-slate-300">
+            <Monitor className="w-6 h-6 mx-auto mb-1.5 text-emerald-400" />
+            <span className="text-xs font-bold block">⑤ 出力装置</span>
+            <p className="text-[9px] text-slate-500 mt-1 font-medium">例：ディスプレイ、プリンタ</p>
           </div>
         </div>
 
-        {/* 右：ステップ説明 */}
-        <div className="lg:col-span-4 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[250px]">
-          <div>
-            <h4 className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest border-b border-slate-800 pb-2 mb-3">
-              現在のステップ説明
-            </h4>
-            <p className="text-xs text-slate-300 leading-relaxed font-semibold">
-              {stepsInfo[step].text}
-            </p>
+        {/* CPU（制御・演算） */}
+        <div className="border border-dashed border-slate-800 p-5 rounded-xl bg-slate-900/30 grid grid-cols-2 gap-4">
+          <div className="col-span-2 text-[8px] text-slate-550 font-extrabold uppercase tracking-widest text-center">CPU (プロセッサ)</div>
+          
+          {/* 制御装置 */}
+          <div className="p-3.5 rounded-lg border border-slate-850 bg-slate-900 text-center">
+            <Cpu className="w-5 h-5 mx-auto mb-1 text-amber-400" />
+            <span className="text-xs font-bold block">③ 制御装置</span>
+            <p className="text-[9px] text-slate-500 mt-0.5 leading-normal">プログラムの命令を解読し、各装置に動作を指示する</p>
           </div>
 
-          <div className="p-3 bg-indigo-950/20 border border-indigo-900/30 rounded-xl mt-4">
-            <p className="text-[9px] text-slate-400 leading-relaxed font-semibold">
-              【試験対策】CPUは「制御」と「演算」のみ。キーボードやSSDはCPUの外部（入力・補助記憶）です。
-            </p>
+          {/* 演算装置 */}
+          <div className="p-3.5 rounded-lg border border-slate-850 bg-slate-900 text-center">
+            <Cpu className="w-5 h-5 mx-auto mb-1 text-rose-400" />
+            <span className="text-xs font-bold block">④ 演算装置</span>
+            <p className="text-[9px] text-slate-500 mt-0.5 leading-normal">四則演算や論理演算などの計算処理を行う</p>
           </div>
+        </div>
+
+        <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-850 text-[10px] font-bold text-slate-400 leading-relaxed">
+          【データの流れ】入力装置 ➔ 主記憶装置 ➔ 演算装置（計算処理）➔ 主記憶装置 ➔ 出力装置 の順でデータ（実線）が流れます。また、制御装置からすべての装置に向けて指示（制御信号・破線）が送られます。
         </div>
       </div>
     </div>
@@ -155,87 +86,47 @@ export const ComputerArchitectureDiagram: React.FC = () => {
 // 2. CPUの命令実行サイクル (CpuExecutionCycleDiagram)
 // ==========================================
 export const CpuExecutionCycleDiagram: React.FC = () => {
-  const [cycleStep, setCycleStep] = useState<number>(0);
-
-  const cycleSteps = [
-    { title: '① 命令フェッチ (Fetch)', desc: '主記憶から「命令」を取り出して命令レジスタに格納します。', component: '命令レジスタ' },
-    { title: '② 命令デコード (Decode)', desc: '命令デコーダが、命令の意味を解読します。', component: '命令デコーダ' },
-    { title: '③ データ読み出し (Load)', desc: '演算に必要なデータを主記憶から汎用レジスタに読み出します。', component: '汎用レジスタ' },
-    { title: '④ 命令実行 (Execute)', desc: 'ALU（演算器）が命令を実行し、結果をレジスタや主記憶に書き戻します。', component: '演算器' }
+  const steps = [
+    { title: '① 命令フェッチ (Fetch)', desc: '主記憶から「命令」を取り出して命令レジスタに格納します。', component: '命令レジスタ', color: 'border-blue-900/60 text-blue-400 bg-blue-950/15' },
+    { title: '② 命令デコード (Decode)', desc: '命令デコーダが、取り出した命令の意味を解読します。', component: '命令デコーダ', color: 'border-indigo-900/60 text-indigo-400 bg-indigo-950/15' },
+    { title: '③ データ読み出し (Load)', desc: '演算に必要なデータを主記憶から汎用レジスタに読み出します。', component: '汎用レジスタ', color: 'border-amber-900/60 text-amber-400 bg-amber-950/15' },
+    { title: '④ 命令実行 (Execute)', desc: 'ALU（演算器）が命令を実行し、結果をレジスタや主記憶に書き戻します。', component: '演算器 (ALU)', color: 'border-emerald-900/60 text-emerald-400 bg-emerald-950/15' }
   ];
-
-  const handleNext = () => {
-    setCycleStep(prev => (prev + 1) % 4);
-  };
 
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
-            CPU Instruction Cycle
-          </span>
-          <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            CPUの命令実行サイクル（4段階）
-          </h3>
-          <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-            CPUがメモリから命令を読み出し、計算処理を実行するまでのステップを追います。
-          </p>
-        </div>
-
-        <button
-          onClick={handleNext}
-          className="bg-indigo-600 hover:bg-indigo-505 border border-indigo-955 text-white font-bold text-xs py-2 px-4 rounded-xl cursor-pointer"
-        >
-          次のステップを実行
-        </button>
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
+          Static Flow
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          CPUの命令実行サイクル（4段階）
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          CPUが主記憶装置から命令を取り出してから、演算を実行し書き戻すまでの基本処理サイクルです。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* 左：CPU内部のコンポーネント点灯 */}
-        <div className="lg:col-span-8 bg-slate-950/80 p-6 rounded-2xl border border-slate-800 flex flex-col justify-center min-h-[220px]">
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { name: '命令レジスタ', stepActive: 0, detail: '命令を一時保管' },
-              { name: '命令デコーダ', stepActive: 1, detail: '命令の意味を解読' },
-              { name: '汎用レジスタ', stepActive: 2, detail: 'データを一時保管' },
-              { name: '演算器 (ALU)', stepActive: 3, detail: '実際の計算処理' }
-            ].map((comp, idx) => {
-              const isActive = cycleStep === comp.stepActive;
-              return (
-                <div
-                  key={idx}
-                  className={`p-3.5 rounded-xl border text-center transition-all ${
-                    isActive 
-                      ? 'bg-indigo-950/40 border-indigo-500 text-indigo-300 scale-102 font-bold' 
-                      : 'bg-slate-900 border-slate-850 text-slate-500'
-                  }`}
-                >
-                  <span className="text-[10px] font-bold block">{comp.name}</span>
-                  <span className="text-[8px] block mt-1 text-slate-500">{comp.detail}</span>
-                </div>
-              );
-            })}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+        {steps.map((step, idx) => (
+          <div 
+            key={idx} 
+            className={`p-4 rounded-xl border ${step.color} flex flex-col justify-between space-y-3.5`}
+          >
+            <div className="space-y-1.5">
+              <span className="text-[8px] bg-slate-900 text-slate-500 font-bold px-1.5 py-0.2 rounded border border-slate-850">
+                STEP 0{idx + 1}
+              </span>
+              <h4 className="text-xs font-black text-slate-100">{step.title}</h4>
+              <p className="text-[11px] text-slate-350 leading-normal font-semibold">
+                {step.desc}
+              </p>
+            </div>
+            <div className="bg-slate-900/80 p-2 rounded border border-slate-850 text-[9px] font-bold text-center text-slate-300">
+              使用回路：{step.component}
+            </div>
           </div>
-        </div>
-
-        {/* 右：ステップ説明 */}
-        <div className="lg:col-span-4 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
-          <div>
-            <h4 className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest border-b border-slate-800 pb-2 mb-3">
-              {cycleSteps[cycleStep].title}
-            </h4>
-            <p className="text-xs text-slate-300 leading-relaxed font-semibold">
-              {cycleSteps[cycleStep].desc}
-            </p>
-          </div>
-
-          <div className="p-3 bg-slate-900/50 border border-slate-850 rounded-xl mt-4">
-            <p className="text-[9px] text-slate-400 leading-relaxed font-semibold">
-              ※レジスタはCPU内部にある、非常に高速な一時記憶場所のことです。
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -246,113 +137,51 @@ export const CpuExecutionCycleDiagram: React.FC = () => {
 // 3. 記憶階層・キャッシュ (MemoryHierarchyDiagram)
 // ==========================================
 export const MemoryHierarchyDiagram: React.FC = () => {
-  const [hitRate, setHitRate] = useState<number>(0.85); // キャッシュヒット率
-  const [status, setStatus] = useState<string>('スライダーでヒット率を設定し、読み込みを実行します。');
-  const [isAccessing, setIsAccessing] = useState<boolean>(false);
-  const [accessTime, setAccessTime] = useState<number | null>(null);
-
-  const startReadTest = () => {
-    if (isAccessing) return;
-    setIsAccessing(true);
-    setStatus('データ読み込み要求発生。キャッシュメモリを参照中...');
-
-    setTimeout(() => {
-      // 確率判定 (ヒット)
-      const isHit = Math.random() <= hitRate;
-      if (isHit) {
-        setAccessTime(2); // キャッシュアクセス時間: 2ns
-        setStatus('キャッシュヒット！データを瞬時にCPUへ返しました。');
-      } else {
-        setAccessTime(60); // キャッシュミス ➜ 主記憶アクセス時間: 60ns
-        setStatus('キャッシュミス！主記憶（RAM）までデータを取りに行きました。');
-      }
-      setIsAccessing(false);
-    }, 1500);
-  };
+  const memoryLayers = [
+    { name: '① レジスタ', speed: '超高速 (〜数ナノ秒)', cap: '極小容量 (数KB)', desc: 'CPU内部にある、直接計算用の極小記憶域。', cost: '非常に高価' },
+    { name: '② キャッシュメモリ', speed: '高速 (数ナノ秒)', cap: '小容量 (数MB)', desc: 'CPUと主記憶の速度差を埋めるためのSRAMメモリ。', cost: '高価' },
+    { name: '③ 主記憶装置 (RAM)', speed: '中速 (数十ナノ秒)', cap: '中容量 (8GB〜32GB)', desc: 'プログラム実行時にデータを一時展開するDRAMメモリ。', cost: '安価' },
+    { name: '④ 補助記憶 (SSD / HDD)', speed: '低速 (数十ミリ秒)', cap: '超大容量 (512GB〜2TB)', desc: '電源を切ってもデータが消えない大容量記憶装置。', cost: '非常に安価' }
+  ];
 
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
-            Memory Hierarchy & Cache
-          </span>
-          <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            記憶階層とキャッシュメモリ
-          </h3>
-          <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-            CPUと主記憶の速度ギャップを埋めるキャッシュメモリ。ヒット率を変えてアクセス時間をシミュレートします。
-          </p>
-        </div>
-
-        <button
-          onClick={startReadTest}
-          disabled={isAccessing}
-          className="bg-indigo-650 hover:bg-indigo-505 disabled:bg-slate-800 disabled:text-slate-650 border border-slate-805 text-white font-bold text-xs py-2 px-4 rounded-xl cursor-pointer self-start md:self-auto"
-        >
-          データ読み込みを実行
-        </button>
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
+          Memory Pyramids
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          記憶階層とアクセス速度・容量のトレードオフ
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          アクセス速度が速いものほど容量が小さく高価になり、遅いものほど大容量で安価になるピラミッド構造です。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* 左：ヒット率スライダーと階層 */}
-        <div className="lg:col-span-7 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-center space-y-6">
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs">
-              <span className="text-slate-350 font-bold">キャッシュヒット率 (確率)</span>
-              <span className="text-indigo-400 font-mono font-extrabold text-base">{(hitRate * 100).toFixed(0)} %</span>
+      <div className="space-y-3.5">
+        {memoryLayers.map((layer, idx) => (
+          <div 
+            key={idx} 
+            className="p-4.5 bg-slate-950/80 border border-slate-800/80 rounded-2xl grid grid-cols-1 lg:grid-cols-12 gap-4 items-center"
+          >
+            <div className="lg:col-span-3 font-bold text-xs md:text-sm text-indigo-400">
+              {layer.name}
             </div>
-            <input
-              type="range"
-              min="0.10"
-              max="0.99"
-              step="0.05"
-              value={hitRate}
-              onChange={(e) => setHitRate(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            />
-          </div>
-
-          {/* 階層ピラミッド風リスト */}
-          <div className="space-y-1.5">
-            {[
-              { name: '① レジスタ / キャッシュ', speed: '超高速 (〜数ナノ秒)', cap: '極小容量' },
-              { name: '② 主記憶装置 (RAM)', speed: '高速 (数十ナノ秒)', cap: '中容量' },
-              { name: '③ 補助記憶 (SSD/HDD)', speed: '低速 (数十ミリ秒)', cap: '超大容量' }
-            ].map((layer, idx) => (
-              <div key={idx} className="flex justify-between items-center p-2.5 bg-slate-900 border border-slate-850 rounded-lg text-[10px]">
-                <span className="font-bold text-slate-300">{layer.name}</span>
-                <span className="text-indigo-400 font-mono">{layer.speed} ({layer.cap})</span>
+            <div className="lg:col-span-5 text-xs text-slate-350 leading-relaxed font-semibold">
+              {layer.desc}
+            </div>
+            <div className="lg:col-span-4 bg-slate-900/80 p-2.5 rounded-lg border border-slate-850 grid grid-cols-2 gap-2 text-[9px] font-bold text-center text-slate-200">
+              <div>
+                <span className="text-slate-500 block mb-0.5">速度</span>
+                {layer.speed}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 右：結果表示 */}
-        <div className="lg:col-span-5 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
-          <div>
-            <h4 className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest border-b border-slate-800 pb-2">
-              アクセス検証結果
-            </h4>
-            
-            <p className="text-xs text-slate-300 leading-relaxed font-semibold mt-4">
-              {status}
-            </p>
-
-            {accessTime !== null && (
-              <div className="mt-4 flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-bold">今回の実効アクセス時間</span>
-                <span className="font-mono font-bold text-indigo-400 text-base">{accessTime} ns (ナノ秒)</span>
+              <div>
+                <span className="text-slate-500 block mb-0.5">容量 / 単価</span>
+                {layer.cap} ({layer.cost})
               </div>
-            )}
+            </div>
           </div>
-
-          <div className="p-3 bg-slate-900/50 border border-slate-850 rounded-xl mt-4">
-            <p className="text-[9px] text-slate-405 leading-relaxed font-semibold text-slate-400">
-              【ポイント】ヒット率が高いほど、主記憶へのアクセス頻度が減るため、システム全体の平均処理速度は向上します。
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -363,112 +192,96 @@ export const MemoryHierarchyDiagram: React.FC = () => {
 // 4. 入出力インタフェース (IoInterfacesPortsDiagram)
 // ==========================================
 export const IoInterfacesPortsDiagram: React.FC = () => {
-  const [selectedPort, setSelectedPort] = useState<'USB' | 'HDMI' | 'Bluetooth' | 'WiFi'>('USB');
-
-  const portDetails = {
-    USB: {
-      title: 'USB (Type-C / 3.2 など)',
-      speed: '最大 40 Gbps',
+  const interfaces = [
+    {
+      name: 'USB (Universal Serial Bus)',
+      speed: '最大 40 Gbps (USB4)',
       type: '有線シリアル接続',
-      description: 'キーボード、マウス、外付けHDD、スマートフォンの充電やディスプレイ出力など、極めて多目的に利用される標準的なインタフェース。',
-      hotplug: '◎ ホットプラグ対応（電源を入れたまま抜き差し可能）'
+      desc: 'キーボード、マウス、プリンタ、外付けストレージなど、周辺機器を接続する最も一般的な規格。電源を入れたまま抜き差しできる「ホットプラグ」や、機器に電力を供給する「バスパワー」に対応。',
+      icon: Usb,
+      textColor: 'text-blue-400',
+      borderColor: 'border-blue-900/60',
+      bgColor: 'bg-blue-950/15'
     },
-    HDMI: {
-      title: 'HDMI',
-      speed: '最大 48 Gbps',
-      type: '有線映像・音声接続',
-      description: 'テレビ、モニター、プロジェクターに映像と音声のデジタルデータを同時に送るためのインタフェース。',
-      hotplug: '◯ 対応'
+    {
+      name: 'HDMI',
+      speed: '最大 48 Gbps (HDMI 2.1)',
+      type: '有線デジタル映像・音声接続',
+      desc: '映像と音声のデジタル信号を1本のケーブルでまとめて高品質伝送するための規格。テレビ、PCモニター、ゲーム機などの接続に標準採用されています。',
+      icon: Tv,
+      textColor: 'text-indigo-400',
+      borderColor: 'border-indigo-900/60',
+      bgColor: 'bg-indigo-950/15'
     },
-    Bluetooth: {
-      title: 'Bluetooth',
-      speed: '最大 24 Mbps',
+    {
+      name: 'Bluetooth',
+      speed: '最大 24 Mbps (Bluetooth 5.0)',
       type: '近距離無線通信',
-      description: '約10m以内の近距離で、ワイヤレスイヤホン、マウス、キーボードなどを接続する規格。障害物に強く省電力。',
-      hotplug: 'N/A'
+      desc: '半径10m程度の狭い範囲で、スマホ、ワイヤレスイヤホン、キーボードなどの周辺機器を無線接続する規格。低消費電力が特徴で、障害物があっても接続可能です。',
+      icon: Zap,
+      textColor: 'text-amber-400',
+      borderColor: 'border-amber-900/60',
+      bgColor: 'bg-amber-950/15'
     },
-    WiFi: {
-      title: 'Wi-Fi (無線LAN)',
-      speed: '最大 9.6 Gbps',
+    {
+      name: 'Wi-Fi (無線LAN)',
+      speed: '最大 9.6 Gbps (Wi-Fi 6)',
       type: '高速無線ネットワーク',
-      description: 'パソコンやスマホをインターネット回線（ルーター）に無線でつなぐための規格。複数の機器を同時に大容量通信可能。',
-      hotplug: 'N/A'
+      desc: 'PCやスマホをインターネット回線（無線LANルーター）へつなぐための規格。Bluetoothに比べて高速で大容量のデータ通信が可能ですが、消費電力が大きくなります。',
+      icon: Wifi,
+      textColor: 'text-emerald-400',
+      borderColor: 'border-emerald-900/60',
+      bgColor: 'bg-emerald-950/15'
     }
-  };
+  ];
 
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
       <div className="mb-6">
         <span className="text-xs font-extrabold tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-900/60 uppercase">
-          I/O Interfaces & Connectors
+          Static Overview
         </span>
         <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          入出力インタフェースの規格と特徴
+          入出力インタフェース規格の分類と特徴
         </h3>
         <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-          各インタフェースのカードを選択すると、最大速度や接続機器などの仕様詳細が表示されます。
+          周辺機器とコンピュータを接続する、主要な有線・無線インタフェース規格の仕様比較です。
         </p>
       </div>
 
-      {/* ポート切り替えボタン */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
-        {(['USB', 'HDMI', 'Bluetooth', 'WiFi'] as const).map(port => (
-          <button
-            key={port}
-            onClick={() => setSelectedPort(port)}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
-              selectedPort === port
-                ? 'bg-slate-800 border-indigo-500 text-indigo-400 shadow-sm'
-                : 'bg-slate-950 border-slate-900 text-slate-500 hover:text-slate-300'
-            }`}
-          >
-            {port === 'USB' && 'USB (Type-C)'}
-            {port === 'HDMI' && 'HDMI'}
-            {port === 'Bluetooth' && 'Bluetooth'}
-            {port === 'WiFi' && 'Wi-Fi'}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* 左：アイコンと主要スペック */}
-        <div className="lg:col-span-5 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-center space-y-4">
-          <div className="flex justify-center py-4 bg-slate-900 rounded-xl border border-slate-850">
-            {selectedPort === 'USB' && <Usb className="w-12 h-12 text-indigo-400" />}
-            {selectedPort === 'HDMI' && <Tv className="w-12 h-12 text-indigo-400" />}
-            {selectedPort === 'Bluetooth' && <Zap className="w-12 h-12 text-indigo-400 animate-pulse" />}
-            {selectedPort === 'WiFi' && <Wifi className="w-12 h-12 text-indigo-400" />}
-          </div>
-
-          <div className="space-y-1.5 text-xs">
-            <div className="flex justify-between border-b border-slate-850 pb-1">
-              <span className="text-slate-500">最大転送速度</span>
-              <span className="text-slate-200 font-mono font-bold">{portDetails[selectedPort].speed}</span>
-            </div>
-            <div className="flex justify-between border-b border-slate-850 pb-1">
-              <span className="text-slate-500">伝送方式</span>
-              <span className="text-slate-200 font-bold">{portDetails[selectedPort].type}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 右：詳細解説 */}
-        <div className="lg:col-span-7 bg-slate-950/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
-          <div>
-            <h4 className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest border-b border-slate-800 pb-2 mb-3">
-              規格の概要
-            </h4>
-            <p className="text-xs text-slate-300 leading-relaxed font-semibold mb-4">
-              {portDetails[selectedPort].description}
-            </p>
-
-            {portDetails[selectedPort].hotplug !== 'N/A' && (
-              <div className="text-[10px] font-bold text-indigo-400">
-                ホットプラグ機能：{portDetails[selectedPort].hotplug}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {interfaces.map((intf, idx) => {
+          const Icon = intf.icon;
+          return (
+            <div 
+              key={idx} 
+              className={`p-5 rounded-2xl border ${intf.borderColor} ${intf.bgColor} flex flex-col justify-between space-y-4`}
+            >
+              <div className="space-y-2.5">
+                <div className="flex justify-between items-center">
+                  <h4 className={`text-sm font-black ${intf.textColor}`}>{intf.name}</h4>
+                  <div className={`p-1.5 bg-slate-900 border ${intf.borderColor} ${intf.textColor} rounded-lg`}>
+                    <Icon className="w-4 h-4" />
+                  </div>
+                </div>
+                <p className="text-xs text-slate-350 leading-relaxed font-semibold">
+                  {intf.desc}
+                </p>
               </div>
-            )}
-          </div>
-        </div>
+
+              <div className="bg-slate-900 p-3 rounded-lg border border-slate-850 grid grid-cols-2 gap-2 text-[9px] font-bold text-slate-205 text-slate-300 text-center">
+                <div>
+                  <span className="text-slate-500 block mb-0.5">最大速度</span>
+                  {intf.speed}
+                </div>
+                <div>
+                  <span className="text-slate-500 block mb-0.5">伝送方式</span>
+                  {intf.type}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

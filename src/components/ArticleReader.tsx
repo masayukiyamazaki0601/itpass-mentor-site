@@ -57,6 +57,7 @@ import { ITILLifecycleDiagram, SLAAvailabilityDiagram, ServiceSupportFlowDiagram
 import { NumberConversionDiagram, SetsLogicVennDiagram, DataUnitsScaleDiagram, QueueStackVisualDiagram, SearchAlgorithmsDiagram } from './Chapter9Diagrams';
 import { ClientServerVisualDiagram, RaidVisualizationDiagram, ThroughputResponseTimeDiagram, SystemReliabilityCalcDiagram } from './Chapter10Diagrams';
 import { ComputerArchitectureDiagram, CpuExecutionCycleDiagram, MemoryHierarchyDiagram, IoInterfacesPortsDiagram } from './Chapter11Diagrams';
+import { OsLayerStaticDiagram, FileSystemTreeStaticDiagram, BackupTypesStaticDiagram, SoftwareLicenseStaticDiagram } from './Chapter12Diagrams';
 
 interface ArticleReaderProps {
   currentArticleId: string;
@@ -460,6 +461,10 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'cpu-execution-cycle' && <div className="my-8"><CpuExecutionCycleDiagram /></div>}
                   {sec.diagram === 'memory-hierarchy' && <div className="my-8"><MemoryHierarchyDiagram /></div>}
                   {sec.diagram === 'io-interfaces-ports' && <div className="my-8"><IoInterfacesPortsDiagram /></div>}
+                  {sec.diagram === 'os-layer-static' && <div className="my-8"><OsLayerStaticDiagram /></div>}
+                  {sec.diagram === 'file-system-tree-static' && <div className="my-8"><FileSystemTreeStaticDiagram /></div>}
+                  {sec.diagram === 'backup-types-static' && <div className="my-8"><BackupTypesStaticDiagram /></div>}
+                  {sec.diagram === 'software-license-static' && <div className="my-8"><SoftwareLicenseStaticDiagram /></div>}
                 </section>
               ))}
             </div>

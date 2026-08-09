@@ -15621,6 +15621,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'OSって何？',
+        diagram: 'os-layer-static',
         content:
           'OS（Operating System）は、パソコンやスマホで最初に動いている「土台のプログラム」のことです。\n\nWindows、macOS、iOS、AndroidなどがOSです。\n\nスマホを「マンション」に例えると、OSは「管理人さん」のような存在です。\n\n住人（アプリ）が快適に暮らせるように、設備を管理してくれます。\n\nOSがないと、アプリを動かしたり、画面を表示したりすることすらできません。',
         bentoCards: [
@@ -15867,9 +15868,9 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-3',
         title: 'フォルダの階層構造',
+        diagram: 'file-system-tree-static',
         content:
           'フォルダの中にフォルダを作ることを「階層（ツリー）構造」といいます。\n\nカフェの例で見てみましょう。\n\n「レシピ」フォルダの中に、「コーヒー」「スイーツ」というフォルダを作る、というイメージです。\n\n下の図で、フォルダのツリー構造を確認しましょう。',
-        diagram: 'file-system-tree',
         callout: {
           title: 'フォルダの階層',
           items: [
@@ -16084,6 +16085,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-4',
         title: 'バックアップの種類を比べる',
+        diagram: 'backup-types-static',
         content:
           '3種類の違いを、表で整理しましょう。',
         comparisonTable: {
@@ -16236,9 +16238,9 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-2',
         title: 'アプリケーションソフトって何？',
+        diagram: 'os-layer-static',
         content:
           'アプリケーションソフトウェアとは、みなさんが「目的のために使う」ソフトウェアのことです。略して「アプリ」とも呼ばれます。\n\nLINEで友達と話す、Excelで表を作る、ゲームで遊ぶ…。これらはすべてアプリです。\n\n前のページで学んだOS（管理人さん）の上で、アプリ（住人）が動く、というイメージです。\n\n下の図で、アプリの種類をクリックして確認しましょう。',
-        diagram: 'app-software',
         bentoCards: [
           {
             title: 'ワープロソフト',
@@ -16522,6 +16524,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         id: 'section-5',
         title: 'ライセンスの種類',
+        diagram: 'software-license-static',
         content:
           'ソフトウェアのライセンスには、いくつかの代表的な種類があります。\n\nカフェの例と合わせて覚えましょう。',
         comparisonTable: {
