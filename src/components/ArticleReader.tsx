@@ -100,6 +100,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
   useEffect(() => {
     setActiveSectionId('section-1');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, [article?.id]);
 
   useEffect(() => {
