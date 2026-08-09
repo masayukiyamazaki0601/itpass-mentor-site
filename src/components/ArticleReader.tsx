@@ -81,7 +81,6 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
   completedArticles = [],
   onToggleComplete
 }) => {
-  const [readingProgress, setReadingProgress] = useState(0);
   const [activeSectionId, setActiveSectionId] = useState<string>('section-1');
 
   // Term Modal State
@@ -99,20 +98,11 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
   const isCompleted = completedArticles.includes(currentArticleId);
 
   useEffect(() => {
-    setReadingProgress(0);
     setActiveSectionId('section-1');
   }, [article?.id]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height =
-        document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (height > 0) {
-        const scrolled = (winScroll / height) * 100;
-        setReadingProgress(Math.min(100, Math.max(0, scrolled)));
-      }
-
       if (!article) return;
       article.sections.forEach((sec) => {
         const el = document.getElementById(sec.id);
@@ -210,14 +200,6 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
   return (
     <div className="flex-1 w-full max-w-full">
-      {/* Reading Progress Indicator */}
-      <div className="fixed top-20 left-0 w-full h-1 bg-slate-200 z-50">
-        <div
-          className="h-full bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 transition-all duration-150 shadow-sm"
-          style={{ width: `${readingProgress}%` }}
-        />
-      </div>
-
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Main Article Canvas */}
         <main className="flex-1 w-full max-w-3xl">
