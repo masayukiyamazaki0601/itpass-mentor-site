@@ -31,7 +31,7 @@ export const ch2Articles: Article[] = [
       {
         "id": "section-2",
         "title": "知的財産権の3つのグループ",
-        "content": "知的財産権は、大きく3つのグループに分かれます。\n\nカフェの例で、何がどのグループに入るか見てみましょう。",
+        "content": "知的財産権は、大きく3つのグループに分かれます。",
         "bentoCards": [
           {
             "title": "産業財産権",
