@@ -1,21 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
   Briefcase, Factory, UserCog, Building2, Smartphone, Monitor,
-  Users, Workflow, ArrowRight, MousePointerClick
+  Users, Workflow, MousePointerClick
 } from 'lucide-react';
 
 export function OrganizationDiagrams() {
-  const [activeTab, setActiveTab] = useState<'functional' | 'divisional' | 'matrix'>('functional');
-
-  const tabs = [
-    { id: 'functional', label: '機能別組織', icon: Workflow },
-    { id: 'divisional', label: '事業部制組織', icon: Building2 },
-    { id: 'matrix', label: 'マトリックス組織', icon: Users },
-  ] as const;
-
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8">
       {/* イントロダクション */}
@@ -26,49 +18,75 @@ export function OrganizationDiagrams() {
         </p>
       </div>
 
-      {/* タブ切り替え */}
-      <div className="flex p-1 bg-slate-100/50 rounded-2xl border border-slate-200 w-full max-w-2xl mx-auto backdrop-blur-sm">
-        {tabs.map((tab) => {
-          const isActive = activeTab === tab.id;
-          const Icon = tab.icon;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 relative ${
-                isActive ? 'text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'
-              }`}
-            >
-              {isActive && (
-                <motion.div
-                  layoutId="active-tab"
-                  className="absolute inset-0 bg-white rounded-xl shadow-sm border border-slate-200/50"
-                  initial={false}
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              <Icon className="w-4 h-4 relative z-10" />
-              <span className="relative z-10">{tab.label}</span>
-            </button>
-          );
-        })}
-      </div>
+      {/* 機能別組織 */}
+      <DiagramSection
+        number="1"
+        title="機能別組織"
+        desc="営業・製造・総務など、業務の専門分野ごとに分ける組織。専門性が高まりやすい。"
+        icon={Workflow}
+        color="sky"
+      >
+        <FunctionalDiagram />
+      </DiagramSection>
 
-      {/* コンテンツエリア */}
-      <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden min-h-[500px]">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500" />
-        
-        <div className="p-8">
-          <AnimatePresence mode="wait">
-            {activeTab === 'functional' && <FunctionalDiagram key="functional" />}
-            {activeTab === 'divisional' && <DivisionalDiagram key="divisional" />}
-            {activeTab === 'matrix' && <MatrixDiagram key="matrix" />}
-          </AnimatePresence>
-        </div>
-      </div>
+      {/* 事業部制組織 */}
+      <DiagramSection
+        number="2"
+        title="事業部制組織"
+        desc="製品や地域ごとに分け、各事業部が損益に責任を持つ組織。スピーディーに意思決定できる。"
+        icon={Building2}
+        color="rose"
+      >
+        <DivisionalDiagram />
+      </DiagramSection>
+
+      {/* マトリックス組織 */}
+      <DiagramSection
+        number="3"
+        title="マトリックス組織"
+        desc="機能別組織と事業部制（プロジェクト）を掛け合わせた組織。上司が複数になるため複雑だが、柔軟な人材活用が可能。"
+        icon={Users}
+        color="amber"
+      >
+        <MatrixDiagram />
+      </DiagramSection>
 
       {/* 比較表 */}
       <ComparisonTable />
+    </div>
+  );
+}
+
+// ─── セクション見出し ───
+function DiagramSection({ number, title, desc, icon: Icon, color, children }: {
+  number: string;
+  title: string;
+  desc: string;
+  icon: any;
+  color: 'sky' | 'rose' | 'amber';
+  children: React.ReactNode;
+}) {
+  const colorMap = {
+    sky: 'bg-sky-50 text-sky-700 border-sky-200',
+    rose: 'bg-rose-50 text-rose-700 border-rose-200',
+    amber: 'bg-amber-50 text-amber-700 border-amber-200',
+  };
+
+  return (
+    <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500" />
+
+      <div className="p-6 sm:p-8">
+        <div className="text-center mb-8">
+          <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border font-black text-sm mb-3 ${colorMap[color]}`}>
+            <Icon className="w-4 h-4" />
+            {number}. {title}
+          </span>
+          <p className="text-slate-600 text-sm max-w-xl mx-auto">{desc}</p>
+        </div>
+
+        {children}
+      </div>
     </div>
   );
 }
@@ -79,16 +97,9 @@ function FunctionalDiagram() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
       className="space-y-8"
     >
-      <div className="text-center">
-        <h3 className="text-2xl font-black text-slate-800 mb-2">機能別組織</h3>
-        <p className="text-slate-600 text-sm">
-          営業・製造・総務など、業務の専門分野ごとに分ける組織。専門性が高まりやすい。
-        </p>
-      </div>
-
       {/* 図解 */}
       <div className="relative flex flex-col items-center pt-4">
         {/* 社長 */}
@@ -99,7 +110,7 @@ function FunctionalDiagram() {
 
         {/* 縦線 */}
         <div className="w-0.5 h-10 bg-slate-300" />
-        
+
         {/* 横線 */}
         <div className="w-3/4 h-0.5 bg-slate-300 relative">
           <div className="absolute top-0 left-0 w-0.5 h-6 bg-slate-300" />
@@ -115,8 +126,8 @@ function FunctionalDiagram() {
         </div>
       </div>
 
-      <ExampleBox 
-        title="カフェの例" 
+      <ExampleBox
+        title="カフェの例"
         text="「キッチン担当」「ホール担当」「経理担当」のように分業するイメージ。"
       />
     </motion.div>
@@ -129,16 +140,9 @@ function DivisionalDiagram() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
       className="space-y-8"
     >
-      <div className="text-center">
-        <h3 className="text-2xl font-black text-slate-800 mb-2">事業部制組織</h3>
-        <p className="text-slate-600 text-sm">
-          製品や地域ごとに分け、各事業部が損益に責任を持つ組織。スピーディーに意思決定できる。
-        </p>
-      </div>
-
       {/* 図解 */}
       <div className="relative flex flex-col items-center pt-4">
         {/* 社長 */}
@@ -161,7 +165,7 @@ function DivisionalDiagram() {
               製品A 事業部
             </div>
             <Monitor className="w-8 h-8 text-sky-500 mt-4 mb-2" />
-            
+
             <div className="flex w-full justify-around mt-4 pt-4 border-t border-sky-100">
               <div className="text-[10px] font-bold text-slate-600 flex flex-col items-center gap-1">
                 <Briefcase className="w-4 h-4 text-sky-400" /> 営業
@@ -178,7 +182,7 @@ function DivisionalDiagram() {
               製品B 事業部
             </div>
             <Smartphone className="w-8 h-8 text-rose-500 mt-4 mb-2" />
-            
+
             <div className="flex w-full justify-around mt-4 pt-4 border-t border-rose-100">
               <div className="text-[10px] font-bold text-slate-600 flex flex-col items-center gap-1">
                 <Briefcase className="w-4 h-4 text-rose-400" /> 営業
@@ -191,8 +195,8 @@ function DivisionalDiagram() {
         </div>
       </div>
 
-      <ExampleBox 
-        title="カフェの例" 
+      <ExampleBox
+        title="カフェの例"
         text="「喫茶事業部」と「通販事業部」に分かれ、それぞれで売上とコストを管理する。"
       />
     </motion.div>
@@ -205,16 +209,9 @@ function MatrixDiagram() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
       className="space-y-8"
     >
-      <div className="text-center">
-        <h3 className="text-2xl font-black text-slate-800 mb-2">マトリックス組織</h3>
-        <p className="text-slate-600 text-sm">
-          機能別組織と事業部制（プロジェクト）を掛け合わせた組織。<br/>上司が複数になるため複雑だが、柔軟な人材活用が可能。
-        </p>
-      </div>
-
       {/* 図解 */}
       <div className="relative pt-6 max-w-lg mx-auto">
         {/* グリッドレイアウト */}
@@ -243,25 +240,25 @@ function MatrixDiagram() {
         </div>
 
         {/* 指示系統のアニメーション */}
-        <motion.div 
+        <motion.div
           className="absolute left-[37.5%] top-16 w-0.5 h-16 bg-sky-400"
           animate={{ opacity: [0, 1, 0], scaleY: [0, 1, 1], transformOrigin: 'top' }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute left-1/4 top-[4.5rem] w-16 h-0.5 bg-rose-400"
           animate={{ opacity: [0, 1, 0], scaleX: [0, 1, 1], transformOrigin: 'left' }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
-        
+
         <div className="absolute left-[32%] top-[6rem] bg-white text-[10px] font-black text-slate-800 px-2 py-1 rounded shadow-lg border border-slate-200 flex items-center gap-1 z-20">
           <MousePointerClick className="w-3 h-3 text-amber-500" /> 上司が2人！
         </div>
 
       </div>
 
-      <ExampleBox 
-        title="カフェの例" 
+      <ExampleBox
+        title="カフェの例"
         text="通販事業部（プロジェクト軸）に所属しながら、マーケティング部（機能軸）にも所属する状態。"
       />
     </motion.div>
