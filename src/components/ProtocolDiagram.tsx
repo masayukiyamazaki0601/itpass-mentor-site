@@ -1,104 +1,98 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {
+  Globe,
+  Radio,
+  FileText,
+  MapPin,
+  CheckCircle2,
+  Lock
+} from 'lucide-react';
 
 export const ProtocolDiagram: React.FC = () => {
   const protocols = [
     {
-      name: 'TCP/IP',
-      icon: 'swap_vert',
-      role: 'データを分割して届ける',
-      desc: 'TCPが「データを分割して確実に届ける」、IPが「宛先を指定する」。インターネットの標準ルール。',
-      example: '注文データを分割して届ける',
-      color: 'from-sky-500 to-blue-600',
-      soft: 'bg-sky-50 border-sky-300',
-      badge: 'bg-sky-100 text-sky-700',
-      delay: 0
+      name: 'TCP / IP',
+      role: '分割 ＆ 宛先指定のインターネット標準',
+      desc: 'TCPが「データを扱いやすいサイズ（パケット）に分割し、確実に届ける」役割を、IPが「データに宛先（IPアドレス）を割り当てて送る」役割を担います。',
+      example: '注文データをパケットに分けて確実に送る。',
+      color: 'text-blue-400 bg-blue-950/15 border-blue-900/60'
     },
     {
-      name: 'HTTP・HTTPS',
-      icon: 'language',
-      role: 'Webページを表示する',
-      desc: 'Webページを表示するためのルール。HTTPSは暗号化されていて安全。',
-      example: 'Webサイトを見る',
-      color: 'from-emerald-500 to-teal-600',
-      soft: 'bg-emerald-50 border-emerald-300',
-      badge: 'bg-emerald-100 text-emerald-700',
-      delay: 0.1
+      name: 'HTTP / HTTPS',
+      role: 'Webページを送受信するルール',
+      desc: 'ブラウザ（クライアント）とWebサーバ間で、Webページ（HTML等）のデータをやり取りするための規則。HTTPSは中身を暗号化して安全にした規格です。',
+      example: 'カフェの公式サイトを安全に閲覧する。',
+      color: 'text-emerald-400 bg-emerald-950/15 border-emerald-900/60'
     },
     {
       name: 'IPアドレス',
-      icon: 'pin',
-      role: 'コンピュータの住所',
-      desc: 'コンピュータに割り当てられた「住所」。この住所宛にデータを届ける。',
-      example: '本社のコンピュータの住所',
-      color: 'from-amber-500 to-orange-600',
-      soft: 'bg-amber-50 border-amber-300',
-      badge: 'bg-amber-100 text-amber-700',
-      delay: 0.2
+      role: 'ネットワーク上の「数字の住所」',
+      desc: 'コンピュータやルータなど、ネットワークに接続されているすべての機器を識別するために割り振られた、重複のない数字の並び（例: 192.168.1.1）です。',
+      example: '本社のサーバーコンピュータを特定する。',
+      color: 'text-amber-400 bg-amber-950/15 border-amber-900/60'
     },
     {
       name: 'ドメイン名',
-      icon: 'public',
-      role: '人間用の名前',
-      desc: 'IPアドレスを人間が覚えやすいようにした名前。DNSがIPアドレスに変換する。',
-      example: 'example.com（店名）',
-      color: 'from-rose-500 to-pink-600',
-      soft: 'bg-rose-50 border-rose-300',
-      badge: 'bg-rose-100 text-rose-700',
-      delay: 0.3
+      role: '人間が覚えやすい「文字の名前」',
+      desc: '数字のIPアドレスは覚えにくいため、人間が理解しやすいアルファベットなどの文字列（例: example.com）に変換した名称。DNSがIPアドレスと紐付けます。',
+      example: 'ブラウザに店名のURLを入力する。',
+      color: 'text-rose-400 bg-rose-950/15 border-rose-900/60'
     }
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-slate-50 via-white to-sky-50/40 p-6 rounded-2xl border border-slate-200 shadow-md">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center shadow-md shadow-sky-200">
-          <span className="material-symbols-outlined text-xl">swap_vert</span>
-        </div>
-        <div>
-          <h3 className="text-base font-black text-[#111c2c]">代表的なプロトコル</h3>
-          <p className="text-[11px] text-[#43474f]">「分割・表示・住所・名前」で覚える</p>
-        </div>
+    <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
+      <div className="mb-6">
+        <span className="text-xs font-extrabold tracking-wider text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-900/60 uppercase">
+          Network Protocols
+        </span>
+        <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
+          インターネットの通信規則と識別子
+        </h3>
+        <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
+          コンピュータ同士が正しく「会話」するために定められた共通の約束ごと（プロトコル）と、住所の仕組みです。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {protocols.map((p) => (
-          <motion.div
-            key={p.name}
-            className={`rounded-xl border-2 p-4 flex flex-col gap-1 shadow-sm hover:shadow-md transition-shadow ${p.soft}`}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: p.delay, duration: 0.4 }}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {protocols.map((p, idx) => (
+          <div 
+            key={idx} 
+            className={`p-4 rounded-xl border ${p.color} flex flex-col justify-between space-y-4`}
           >
-            <div className="flex items-center gap-2">
-              <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${p.color} text-white flex items-center justify-center shadow-sm`}>
-                <span className="material-symbols-outlined text-lg">{p.icon}</span>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <h4 className="text-xs font-black text-slate-100">{p.name}</h4>
+                <span className="text-[8px] bg-slate-950 text-slate-500 font-bold px-1.5 py-0.2 rounded border border-slate-900">
+                  PROTOCOL 0{idx + 1}
+                </span>
               </div>
-              <span className="font-black text-sm text-slate-800">{p.name}</span>
+              <span className="text-[10px] text-slate-355 block font-bold">{p.role}</span>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-medium">
+                {p.desc}
+              </p>
             </div>
-            <span className={`inline-block self-start mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${p.badge}`}>
-              {p.role}
-            </span>
-            <p className="text-[10px] text-slate-600 mt-1 leading-relaxed">{p.desc}</p>
-            <p className="text-[9px] text-slate-500 mt-auto pt-1.5 border-t border-slate-200/70">
-              例：{p.example}
-            </p>
-          </motion.div>
+
+            <div className="bg-slate-950/70 p-2.5 rounded border border-slate-850 text-[10px]">
+              <div className="flex items-center gap-1.5 text-[9px] text-cyan-400 font-semibold">
+                <CheckCircle2 className="w-3 h-3 flex-shrink-0" />
+                <span>例：{p.example}</span>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
-      <motion.div
-        className="mt-5 rounded-xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-100 px-4 py-3 flex items-center gap-2"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <span className="material-symbols-outlined text-sky-500 text-lg">tips_and_updates</span>
-        <p className="text-xs text-[#43474f]">
-          <span className="font-bold text-sky-700">TCP/IP＝分割</span>・<span className="font-bold text-emerald-700">HTTP＝表示</span>・<span className="font-bold text-amber-700">IPアドレス＝住所</span>・<span className="font-bold text-rose-700">ドメイン＝名前</span>
-        </p>
-      </motion.div>
+      {/* DNS Summary */}
+      <div className="mt-6 flex flex-col md:flex-row md:items-center gap-3 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3 text-xs text-slate-300">
+        <div className="font-bold text-sky-400 flex items-center gap-1">
+          <Lock className="w-4 h-4" />
+          DNS (Domain Name System) の役割:
+        </div>
+        <div>
+          人間が入力した <span className="font-bold text-rose-300">ドメイン名 (文字)</span> を、コンピュータが理解できる <span className="font-bold text-amber-300">IPアドレス (数字)</span> へ自動翻訳・変換する重要なシステムです。
+        </div>
+      </div>
     </div>
   );
 };
