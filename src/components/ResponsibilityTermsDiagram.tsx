@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Globe,
   Scale,
@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 
 type Term = {
-  id: string;
   name: string;
   english: string;
   point: string;
@@ -25,7 +24,6 @@ type Term = {
 
 const terms: Term[] = [
   {
-    id: 'csr',
     name: 'CSR',
     english: '企業の社会的責任',
     point: '利益追求だけでなく、環境保護や地域貢献など、社会を良くするために自発的に行う活動',
@@ -37,7 +35,6 @@ const terms: Term[] = [
     ring: 'border-sky-700/70'
   },
   {
-    id: 'compliance',
     name: 'コンプライアンス',
     english: '法令遵守',
     point: '法律を守るのはもちろん、社会のルールや企業倫理（モラル）も守って活動すること',
@@ -49,7 +46,6 @@ const terms: Term[] = [
     ring: 'border-emerald-700/70'
   },
   {
-    id: 'governance',
     name: 'コーポレートガバナンス',
     english: '企業統治',
     point: '経営者が不正をしたり会社を私物化したりしないよう、企業を監視・管理する仕組み',
@@ -61,7 +57,6 @@ const terms: Term[] = [
     ring: 'border-amber-700/70'
   },
   {
-    id: 'disclosure',
     name: 'ディスクロージャー',
     english: '情報開示',
     point: '経営状況や財務状況を、株主・投資家・社会に対して隠さずに正しく公開すること',
@@ -73,7 +68,6 @@ const terms: Term[] = [
     ring: 'border-cyan-700/70'
   },
   {
-    id: 'sustainability',
     name: 'サステナビリティ',
     english: '持続可能性',
     point: '環境・社会・経済のバランスを保ちながら、事業をずっと続けられるようにする考え方',
@@ -87,9 +81,6 @@ const terms: Term[] = [
 ];
 
 export const ResponsibilityTermsDiagram: React.FC = () => {
-  const [activeId, setActiveId] = useState<string>('csr');
-  const active = terms.find((t) => t.id === activeId) ?? terms[0];
-
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
       <div className="mb-6">
@@ -100,70 +91,57 @@ export const ResponsibilityTermsDiagram: React.FC = () => {
           企業の責任 5つのキーワード
         </h3>
         <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-          用語をクリックすると、意味とカフェでの例を確認できます。
+          どれも「企業の責任」を表す重要な用語です。意味・例・覚え方をまとめました。
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2.5 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {terms.map((t) => {
-          const isActive = t.id === activeId;
+          const Icon = t.icon;
           return (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => setActiveId(t.id)}
-              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-bold transition-colors cursor-pointer ${
-                isActive ? t.chip : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200'
-              }`}
+            <div
+              key={t.name}
+              className={`rounded-2xl border ${t.ring} bg-slate-950/70 p-5 flex flex-col gap-3`}
             >
-              <t.icon className="w-4 h-4" />
-              {t.name}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className={`rounded-2xl border ${active.ring} bg-slate-950/70 p-5 md:p-6`}>
-        <div className="flex items-start gap-4">
-          <div className={`p-2.5 rounded-xl bg-slate-900 border ${active.ring}`}>
-            <active.icon className={`w-5 h-5 ${active.accent}`} />
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1 mb-2">
-              <h4 className="text-base md:text-lg font-black text-slate-100">{active.name}</h4>
-              <span className={`text-xs font-bold ${active.accent}`}>{active.english}</span>
-            </div>
-
-            <div className="space-y-3 mt-3">
-              <div className="flex items-start gap-2">
-                <span className={`mt-0.5 text-[10px] font-black ${active.accent} flex-shrink-0`}>ポイント</span>
-                <p className="text-xs text-slate-300 leading-relaxed font-medium">{active.point}</p>
+              <div className="flex items-center gap-3">
+                <div className={`p-2 rounded-xl bg-slate-900 border ${t.ring}`}>
+                  <Icon className={`w-5 h-5 ${t.accent}`} />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-black text-slate-100 leading-tight">{t.name}</h4>
+                  <span className={`text-[10px] font-bold ${t.accent}`}>{t.english}</span>
+                </div>
               </div>
 
-              <div className="bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-3">
+              <div className="flex items-start gap-2">
+                <span className={`mt-0.5 text-[10px] font-black ${t.accent} flex-shrink-0`}>ポイント</span>
+                <p className="text-[11px] text-slate-300 leading-relaxed font-medium">{t.point}</p>
+              </div>
+
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2.5 flex-1">
                 <div className="flex items-center gap-1.5 text-[10px] text-cyan-400 font-semibold mb-1">
                   <Coffee className="w-3 h-3" />
                   <span>カフェでの例</span>
                 </div>
-                <p className="text-[11px] text-slate-300 leading-relaxed">{active.example}</p>
+                <p className="text-[11px] text-slate-300 leading-relaxed">{t.example}</p>
               </div>
 
               <div className="flex items-center gap-2 text-[11px]">
-                <span className="inline-flex items-center gap-1.5 font-bold text-slate-100 bg-slate-800/70 border border-slate-700 px-2.5 py-1 rounded-lg">
-                  <Lightbulb className={`w-3.5 h-3.5 ${active.accent}`} />
+                <span className={`inline-flex items-center gap-1.5 font-bold text-slate-100 bg-slate-800/70 border border-slate-700 px-2.5 py-1 rounded-lg ${t.chip}`}>
+                  <Lightbulb className={`w-3.5 h-3.5 ${t.accent}`} />
                   覚え方
                 </span>
-                <span className="text-slate-300">{active.tip}</span>
+                <span className="text-slate-300 leading-snug">{t.tip}</span>
               </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3">
         <CheckCircle2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
         <p className="text-xs text-slate-300">
-          どれも「企業の責任」を表す言葉。試験では<span className="font-bold text-blue-300">用語と意味の結びつき</span>がよく出題されます。
+          試験では<span className="font-bold text-blue-300">用語と意味の結びつき</span>がよく出題されます。上記の「覚え方」で一気に整理しましょう。
         </p>
       </div>
     </div>
