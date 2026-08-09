@@ -3,7 +3,12 @@ import { Article } from '../types';
 import { ARTICLES_DATA } from '../data/articlesData';
 import { OrganizationDiagrams } from './OrganizationDiagrams';
 import { NetworkDiagrams } from './NetworkDiagrams';
-import { DatabaseDiagrams } from './DatabaseDiagrams';
+import { 
+  DatabaseBasicsStaticDiagram, 
+  RelationalDbStaticDiagram, 
+  DatabaseDesignStaticDiagram, 
+  DbmsSqlStaticDiagram 
+} from './DatabaseDiagrams';
 import { CorporateActivitiesDiagrams } from './CorporateActivitiesDiagrams';
 import { CompanyStructureDiagrams } from './CompanyStructureDiagrams';
 import { DepartmentsDiagrams } from './DepartmentsDiagrams';
@@ -377,7 +382,10 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {/* Diagrams */}
                   {sec.diagram === 'organization-chart' && <div className="my-8"><OrganizationDiagrams /></div>}
                   {sec.diagram === 'network' && <div className="my-8"><NetworkDiagrams /></div>}
-                  {sec.diagram === 'database' && <div className="my-8"><DatabaseDiagrams /></div>}
+                  {sec.diagram === 'database-basics-static' && <div className="my-8"><DatabaseBasicsStaticDiagram /></div>}
+                  {sec.diagram === 'relational-db-static' && <div className="my-8"><RelationalDbStaticDiagram /></div>}
+                  {sec.diagram === 'database-design-static' && <div className="my-8"><DatabaseDesignStaticDiagram /></div>}
+                  {sec.diagram === 'dbms-sql-static' && <div className="my-8"><DbmsSqlStaticDiagram /></div>}
                   {sec.diagram === 'corporate-activities' && <div className="my-8"><CorporateActivitiesDiagrams /></div>}
                   {sec.diagram === 'company-structure' && <div className="my-8"><CompanyStructureDiagrams /></div>}
                   {sec.diagram === 'departments' && <div className="my-8"><DepartmentsDiagrams /></div>}

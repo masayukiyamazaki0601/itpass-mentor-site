@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import {
   FileText,
   Table2,
@@ -10,135 +9,95 @@ import {
 } from 'lucide-react';
 
 export const AppSoftwareDiagram: React.FC = () => {
-  const [active, setActive] = useState<string>('ワープロ');
-
   const apps = [
     {
       name: 'ワープロソフト',
-      app: 'Word',
+      app: 'Word / Googleドキュメント',
       icon: FileText,
-      do: '文章の作成・編集',
-      desc: '文章を作ったり編集したりする。メニュー表の文章など。',
-      example: 'メニュー表の文章を作る',
-      color: 'from-sky-500 to-blue-600',
-      border: 'border-sky-500',
-      glow: 'shadow-sky-500/20',
-      delay: 0
+      do: '文章の作成・レイアウト編集',
+      desc: 'テキスト文章の作成やレイアウト調整を行います。報告書や契約書の作成などに使われます。',
+      example: 'カフェ新メニューの文章と利用規約を作る',
+      color: 'text-blue-400 bg-blue-950/15 border-blue-900/60'
     },
     {
       name: '表計算ソフト',
-      app: 'Excel',
+      app: 'Excel / Googleスプレッドシート',
       icon: Table2,
-      do: '表・計算・グラフ',
-      desc: '表を作って計算や集計を行う。売上の集計など。',
-      example: '売上を表にまとめる',
-      color: 'from-emerald-500 to-teal-600',
-      border: 'border-emerald-500',
-      glow: 'shadow-emerald-500/20',
-      delay: 0.1
+      do: '表・計算・集計・グラフ化',
+      desc: '数値データの計算や集計、グラフ作成を行います。売上管理や顧客一覧の作成に必須です。',
+      example: '毎日の売上集計と利益率をグラフ化する',
+      color: 'text-emerald-400 bg-emerald-950/15 border-emerald-900/60'
     },
     {
-      name: 'プレゼンテーションソフト',
-      app: 'PowerPoint',
+      name: 'プレゼンソフト',
+      app: 'PowerPoint / Keynote',
       icon: Presentation,
-      do: 'スライドの作成・発表',
-      desc: 'スライドを作って発表するためのソフト。',
-      example: '新メニューの発表資料',
-      color: 'from-amber-500 to-orange-600',
-      border: 'border-amber-500',
-      glow: 'shadow-amber-500/20',
-      delay: 0.2
+      do: 'スライドの作成・発表資料化',
+      desc: '会議や講義用のスライドを作成します。図解やアニメーションを用いてわかりやすく伝えます。',
+      example: '新規出店計画や新メニュー発表のスライドを作る',
+      color: 'text-amber-400 bg-amber-950/15 border-amber-900/60'
     },
     {
       name: 'Webブラウザ',
-      app: 'Chrome / Safari',
+      app: 'Chrome / Safari / Edge',
       icon: Globe,
-      do: 'Webページを表示',
-      desc: 'インターネットのページを表示するソフト。',
-      example: 'ネット注文のページを見る',
-      color: 'from-rose-500 to-pink-600',
-      border: 'border-rose-500',
-      glow: 'shadow-rose-500/20',
-      delay: 0.3
+      do: 'Webサイトの閲覧・表示',
+      desc: 'インターネット上のWebサイトを表示します。Webベースのシステム利用や情報収集に必要です。',
+      example: '競合店のリサーチやオンライン発注ページを開く',
+      color: 'text-rose-400 bg-rose-950/15 border-rose-900/60'
     }
   ];
 
-  const cur = apps.find((a) => a.name === active)!;
-  const CurIcon = cur.icon;
-
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 my-6">
-      {/* Header */}
       <div className="mb-6">
         <span className="text-xs font-extrabold tracking-wider text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-900/60 uppercase">
-          App Explorer
+          App Architecture
         </span>
         <h3 className="text-xl md:text-2xl font-black mt-2 bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-          アプリの種類（クリックして確認）
+          アプリケーションソフトウェアの分類
         </h3>
         <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-          「目的のために使う」ソフトがアプリ。それぞれの役割を確認しましょう。
+          OSの上で動作し、ユーザーが「特定の目的を果たすために使う」各種ソフトウェアの機能と用途です。
         </p>
       </div>
 
-      {/* 4 buttons */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-6">
-        {apps.map((a) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {apps.map((a, idx) => {
           const Icon = a.icon;
-          const isSel = active === a.name;
           return (
-            <button
-              key={a.name}
-              onClick={() => setActive(a.name)}
-              className={`p-3.5 rounded-xl border text-center cursor-pointer transition-all ${
-                isSel
-                  ? `bg-slate-800 border-transparent shadow-lg ${a.glow}`
-                  : 'bg-slate-950 border-slate-900 text-slate-500 hover:border-slate-700 hover:text-slate-300'
-              }`}
+            <div 
+              key={idx} 
+              className={`p-4 rounded-xl border ${a.color} flex flex-col justify-between space-y-4`}
             >
-              <Icon className={`w-5 h-5 mx-auto mb-1.5 ${isSel ? 'text-cyan-300' : ''}`} />
-              <span className="text-[10px] md:text-[11px] font-bold block">{a.name}</span>
-              <span className="text-[9px] text-slate-500 block mt-0.5">{a.app}</span>
-            </button>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <h4 className="text-xs font-black text-slate-100">{a.name}</h4>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <span className="text-[9px] text-slate-500 font-bold block">{a.app}</span>
+                <p className="text-[11px] text-slate-350 leading-relaxed font-semibold">
+                  {a.desc}
+                </p>
+              </div>
+
+              <div className="bg-slate-950/70 p-2.5 rounded border border-slate-850 space-y-1.5 text-[10px]">
+                <span className="text-[8px] text-slate-500 font-bold block">役割 ＆ 業務での例</span>
+                <div className="text-slate-355 font-bold text-slate-300">{a.do}</div>
+                <div className="flex items-center gap-1 text-[9px] text-cyan-400 font-semibold border-t border-slate-900 pt-1.5">
+                  <CheckCircle2 className="w-3 h-3 flex-shrink-0" />
+                  <span>例：{a.example}</span>
+                </div>
+              </div>
+            </div>
           );
         })}
       </div>
 
-      {/* Detail */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={cur.name}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.25 }}
-          className={`rounded-2xl border bg-gradient-to-br p-5 ${cur.border} from-slate-800/60 to-slate-900/60`}
-        >
-          <div className="flex items-start gap-4">
-            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cur.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
-              <CurIcon className="w-6 h-6 text-white" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h4 className="text-base md:text-lg font-black text-white">{cur.name}</h4>
-                <span className="text-[10px] font-bold text-slate-300 bg-slate-700/50 rounded-full px-2 py-0.5">{cur.app}</span>
-              </div>
-              <p className="text-sm text-slate-300 mt-1">{cur.do}</p>
-              <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{cur.desc}</p>
-              <div className="mt-3 flex items-center gap-2 bg-slate-950/60 border border-slate-700/60 rounded-lg px-3 py-2">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <p className="text-xs font-bold text-cyan-300">カフェの例：{cur.example}</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Summary */}
       <div className="mt-6 flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 rounded-xl px-4 py-3">
         <Layers className="w-4 h-4 text-sky-400 flex-shrink-0" />
         <p className="text-xs text-slate-300">
-          覚え方：<span className="font-bold text-sky-300">文章＝Word</span>・<span className="font-bold text-emerald-300">計算＝Excel</span>・<span className="font-bold text-amber-300">発表＝PowerPoint</span>。アプリは<span className="font-bold text-cyan-300">OSの上で</span>動く
+          覚え方の基本：<span className="font-bold text-sky-300">文章作成＝Word</span>・<span className="font-bold text-emerald-300">表計算・グラフ＝Excel</span>・<span className="font-bold text-amber-300">発表資料＝PowerPoint</span>。これらは全て、OSという管理人（基本ソフト）の上で動く店員（アプリ）にあたります。
         </p>
       </div>
     </div>

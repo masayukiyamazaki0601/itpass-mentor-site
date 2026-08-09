@@ -16631,7 +16631,7 @@ export const ARTICLES_DATA: Article[] = [
         title: '会員データが増えてきたら',
         content:
           'カフェ「ひまわりコーヒー」では、会員カードを発行しています。\n\n会員の名前、住所、来店回数…。\n\nデータが増えてくると、バラバラに置いておいては探せません。\n\nそこで、データを「きれいに整理して、まとめて保管する」場所が必要です。\n\nそれが「データベース」です。\n\nこのページでは、データベースの基本を学びます。',
-        diagram: 'database',
+        diagram: 'database-basics-static',
         callout: {
           title: '今日のゴール',
           items: [
@@ -16855,6 +16855,7 @@ export const ARTICLES_DATA: Article[] = [
         title: '表の形でデータを管理',
         content:
           'カフェ「ひまわりコーヒー」では、会員と注文をコンピュータで管理しています。\n\nデータは、表（テーブル）の形で保存されています。\n\n・会員表：会員の名前や住所\n・注文表：注文の内容\n\nこの「表」でデータを管理するデータベースが「関係データベース」です。\n\nこのページでは、関係データベースを学びます。',
+        diagram: 'relational-db-static',
         callout: {
           title: '今日のゴール',
           items: [
@@ -17059,6 +17060,7 @@ export const ARTICLES_DATA: Article[] = [
         title: '注文システムの設計図',
         content:
           'カフェ「ひまわりコーヒー」で、新しい注文システムを作ることになりました。\n\nいきなり作るのではなく、まず「設計図」を描きます。\n\n・どんな表を作るか\n・どんなデータを入れるか\n\n家を建てる前に設計図を描くように、データベースも先に設計してから作ります。\n\nこのページでは、データベース設計を学びます。',
+        diagram: 'database-design-static',
         callout: {
           title: '今日のゴール',
           items: [
@@ -17261,6 +17263,7 @@ export const ARTICLES_DATA: Article[] = [
         title: 'データの管理人',
         content:
           'カフェ「ひまわりコーヒー」には、会員や注文のデータがたくさんあります。\n\nこのデータを管理してくれるのが「管理人」のようなソフトウェアです。\n\nそれが「DBMS」です。\n\nそして、DBMSに「データをください」と指示するための言葉が「SQL」です。\n\nこのページでは、DBMSとSQLを学びます。',
+        diagram: 'dbms-sql-static',
         callout: {
           title: '今日のゴール',
           items: [
