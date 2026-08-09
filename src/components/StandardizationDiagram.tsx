@@ -51,7 +51,7 @@ export const StandardizationDiagram: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-4 bg-white border border-slate-200 rounded-xl p-3"
+        className="mt-4 bg-sky-50 border border-sky-100 rounded-xl p-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}

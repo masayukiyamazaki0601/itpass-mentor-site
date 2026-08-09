@@ -3,19 +3,19 @@ import { motion } from 'framer-motion';
 
 const laws = [
   {
-    name: '不正アクセス禁止法', icon: 'no_encryption', color: 'bg-red-50 border-red-200', iconColor: 'text-red-500 bg-red-100',
+    name: '不正アクセス禁止法', icon: 'no_encryption', color: 'bg-red-50 border-red-300', iconColor: 'text-red-500 bg-red-100',
     point: 'ネットワーク経由', desc: '他人のIDを使ったなりすましや、脆弱性を突いた侵入を禁止', key: '「ネットワーク経由」が条件'
   },
   {
-    name: '個人情報保護法', icon: 'badge', color: 'bg-blue-50 border-blue-200', iconColor: 'text-blue-500 bg-blue-100',
+    name: '個人情報保護法', icon: 'badge', color: 'bg-blue-50 border-blue-300', iconColor: 'text-blue-500 bg-blue-100',
     point: '匿名加工情報', desc: '個人情報の収集・管理・提供のルール。漏えい時は報告が義務', key: '匿名化すれば同意不要で提供可'
   },
   {
-    name: 'サイバーセキュリティ基本法', icon: 'security', color: 'bg-purple-50 border-purple-200', iconColor: 'text-purple-500 bg-purple-100',
+    name: 'サイバーセキュリティ基本法', icon: 'security', color: 'bg-purple-50 border-purple-300', iconColor: 'text-purple-500 bg-purple-100',
     point: '国・企業・国民', desc: 'サイバー攻撃から国を守るための国の基本方針を定めた法律', key: '国民には「努力義務」'
   },
   {
-    name: 'プロバイダ責任制限法', icon: 'manage_search', color: 'bg-emerald-50 border-emerald-200', iconColor: 'text-emerald-500 bg-emerald-100',
+    name: 'プロバイダ責任制限法', icon: 'manage_search', color: 'bg-emerald-50 border-emerald-300', iconColor: 'text-emerald-500 bg-emerald-100',
     point: '発信者情報の開示', desc: 'ネット上の誹謗中傷に対し、書いた人の情報をプロバイダに開示請求できる', key: '「開示請求」と「責任制限」の2本柱'
   },
 ];

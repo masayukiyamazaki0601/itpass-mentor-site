@@ -26,8 +26,8 @@ export const IndustrialPropertyDiagram: React.FC = () => {
             transition={{ delay: i * 0.1, duration: 0.4 }}
           >
             <div className="flex items-center gap-2">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${r.badge}`}>
-                <span className="material-symbols-outlined text-sm">{r.icon}</span>
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${r.badge}`}>
+                <span className="material-symbols-outlined text-xl">{r.icon}</span>
               </div>
               <h4 className="font-bold text-sm text-slate-800">{r.name}</h4>
             </div>
@@ -40,7 +40,7 @@ export const IndustrialPropertyDiagram: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-4 text-xs text-center text-[#43474f] bg-white border border-slate-200 rounded-xl px-4 py-2"
+        className="mt-4 text-xs text-center text-[#43474f] bg-sky-50 border border-sky-100 rounded-xl px-4 py-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
