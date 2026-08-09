@@ -305,7 +305,7 @@ export const ch1Articles: Article[] = [
       {
         "id": "section-3",
         "title": "社会への責任：CSRとコンプライアンス",
-        "content": "企業が社会に対して果たす責任を表す言葉に、CSRとコンプライアンスがあります。\n\nカフェの例と合わせて覚えましょう。",
+        "content": "企業が社会に対して果たす責任を表す言葉に、CSRとコンプライアンスがあります。\n\nカフェの例と合わせて覚えましょう。\n\n下の図で、企業の責任を表すキーワードを整理しましょう。",
         "bentoCards": [
           {
             "title": "CSR（企業の社会的責任）",
@@ -328,7 +328,8 @@ export const ch1Articles: Article[] = [
             "どちらも「責任」という言葉がつく",
             "「自発的に行う」か「守る」かで区別しよう"
           ]
-        }
+        },
+        "diagram": "responsibility-terms"
       },
       {
         "id": "section-4",

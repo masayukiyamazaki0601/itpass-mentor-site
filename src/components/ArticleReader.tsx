@@ -13,6 +13,7 @@ import { CorporateActivitiesDiagrams } from './CorporateActivitiesDiagrams';
 import { CompanyStructureDiagrams } from './CompanyStructureDiagrams';
 import { DepartmentsDiagrams } from './DepartmentsDiagrams';
 import { StakeholderDiagram } from './StakeholderDiagram';
+import { ResponsibilityTermsDiagram } from './ResponsibilityTermsDiagram';
 import { ResourcesDiagram } from './ResourcesDiagram';
 import { BusinessFlowDiagram } from './BusinessFlowDiagram';
 import { SWOTDiagram } from './SWOTDiagram';
@@ -372,6 +373,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                   {sec.diagram === 'company-structure' && <div className="my-8"><CompanyStructureDiagrams /></div>}
                   {sec.diagram === 'departments' && <div className="my-8"><DepartmentsDiagrams /></div>}
                   {sec.diagram === 'stakeholder' && <div className="my-8"><StakeholderDiagram /></div>}
+                  {sec.diagram === 'responsibility-terms' && <div className="my-8"><ResponsibilityTermsDiagram /></div>}
                   {sec.diagram === 'resources' && <div className="my-8"><ResourcesDiagram /></div>}
                   {sec.diagram === 'business-flow' && <div className="my-8"><BusinessFlowDiagram /></div>}
                   {sec.diagram === 'swot' && <div className="my-8"><SWOTDiagram /></div>}
