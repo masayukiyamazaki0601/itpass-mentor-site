@@ -202,9 +202,9 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
   return (
     <div className="flex-1 w-full max-w-full">
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col xl:flex-row gap-8">
         {/* Main Article Canvas */}
-        <main className="flex-1 w-full max-w-3xl">
+        <main className="flex-1 w-full max-w-3xl mx-auto xl:mx-0">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 mb-4 font-semibold">
             <span onClick={onBackToToc} className="hover:text-sky-600 cursor-pointer">目次</span>
@@ -525,7 +525,7 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
         </main>
 
         {/* Right Sticky Table of Contents Sidebar */}
-        <aside className="hidden lg:block w-64 flex-shrink-0">
+        <aside className="hidden xl:block w-64 flex-shrink-0">
           <div className="sticky top-[100px] glass-panel-light rounded-3xl p-6 shadow-xs border border-slate-200/80">
             <h3 className="font-black text-base text-slate-900 mb-4 pb-3 border-b border-slate-200/80 tracking-tight">
               章の目次
