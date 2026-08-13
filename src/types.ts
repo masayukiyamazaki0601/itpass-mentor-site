@@ -83,13 +83,20 @@ export interface LectureOption {
   correct?: boolean;
 }
 
+export interface LectureTestItem {
+  statement: string;
+  correct: boolean;
+  explanation?: string;
+}
+
 export type LectureBlock =
-  | { kind: 'question'; num: string; head: string; scenario?: string; options: LectureOption[]; answer: string; explanation: string }
+  | { kind: 'question'; num: string; head: string; mode?: 'choice' | 'bool'; scenario?: string; options: LectureOption[]; answer: string; explanation: string }
   | { kind: 'note'; title?: string; text: string }
   | { kind: 'point'; title?: string; items: string[] }
   | { kind: 'check'; title?: string; items: string[] }
   | { kind: 'preview'; title: string; text: string }
-  | { kind: 'table'; title: string; headers: string[]; rows: string[][] };
+  | { kind: 'table'; title: string; headers: string[]; rows: string[][] }
+  | { kind: 'test'; title?: string; items: LectureTestItem[] };
 
 export interface QuizOption {
   id: string;

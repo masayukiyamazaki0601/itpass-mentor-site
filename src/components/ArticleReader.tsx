@@ -83,8 +83,6 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
   completedArticles = [],
   onToggleComplete
 }) => {
-  const [activeSectionId, setActiveSectionId] = useState<string>('section-1');
-
   // Term Modal State
   const [activeTermModal, setActiveTermModal] = useState<{
     term: string;
@@ -100,35 +98,8 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
   const isCompleted = completedArticles.includes(currentArticleId);
 
   useEffect(() => {
-    setActiveSectionId('section-1');
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, [article?.id]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!article) return;
-      article.sections.forEach((sec) => {
-        const el = document.getElementById(sec.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 100) {
-            setActiveSectionId(sec.id);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [article]);
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSectionId(sectionId);
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   const renderTextWithTermPills = (text: string) => {
     const keyTerms: { term: string; english?: string; reading?: string; description: string; examTip?: string }[] = [
@@ -203,9 +174,9 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
 
   return (
     <div className="flex-1 w-full max-w-full">
-      <div className="flex flex-col xl:flex-row gap-8">
+      <div className="flex flex-col gap-8">
         {/* Main Article Canvas */}
-        <main className="flex-1 w-full max-w-3xl mx-auto xl:mx-0">
+        <main className="flex-1 w-full max-w-3xl mx-auto">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 mb-4 font-semibold">
             <span onClick={onBackToToc} className="hover:text-sky-600 cursor-pointer">目次</span>
@@ -528,53 +499,6 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
             ) : <div />}
           </div>
         </main>
-
-        {/* Right Sticky Table of Contents Sidebar */}
-        <aside className="hidden xl:block w-64 flex-shrink-0">
-          <div className="sticky top-[100px] glass-panel-light rounded-3xl p-6 shadow-xs border border-slate-200/80">
-            <h3 className="font-black text-base text-slate-900 mb-4 pb-3 border-b border-slate-200/80 tracking-tight">
-              章の目次
-            </h3>
-            <ul className="space-y-3 text-xs font-medium text-slate-600">
-              {article.sections.map((sec) => {
-                const isActive = activeSectionId === sec.id;
-                return (
-                  <li key={sec.id}>
-                    <button
-                      onClick={() => scrollToSection(sec.id)}
-                      className={`hover:text-sky-600 transition-colors flex items-start gap-2 text-left w-full cursor-pointer ${
-                        isActive ? 'text-sky-600 font-extrabold' : ''
-                      }`}
-                    >
-                      <span
-                        className={`material-symbols-outlined text-[18px] mt-0.5 ${
-                          isActive ? 'text-sky-600' : 'text-slate-300'
-                        }`}
-                      >
-                        {isActive ? 'adjust' : 'radio_button_unchecked'}
-                      </span>
-                      <span>{sec.title}</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <div className="mt-6 pt-6 border-t border-slate-200/80">
-              <h4 className="font-bold text-xs text-slate-400 uppercase tracking-widest mb-3">関連タグ</h4>
-              <div className="flex flex-wrap gap-2">
-                {article.tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-slate-100 px-3 py-1 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200 cursor-pointer transition-colors"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
 
       {/* Term Modal Popup */}

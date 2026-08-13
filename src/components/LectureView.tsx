@@ -45,9 +45,10 @@ function playSound(correct: boolean) {
   }
 }
 
-function QuestionBlock({ num, head, scenario, options, answer, explanation }: {
+function QuestionBlock({ num, head, mode = 'choice', scenario, options, answer, explanation }: {
   num: string;
   head: string;
+  mode?: 'choice' | 'bool';
   scenario?: string;
   options: LectureOption[];
   answer: string;
@@ -64,6 +65,11 @@ function QuestionBlock({ num, head, scenario, options, answer, explanation }: {
     playSound(idx === correctIndex);
   };
 
+  const optionLabel = (idx: number) => {
+    if (mode === 'bool') return idx === 0 ? '○' : '×';
+    return String.fromCharCode(65 + idx);
+  };
+
   return (
     <div className="my-6">
       <h3 className="text-lg font-black text-slate-900 mb-2 flex items-center gap-2">
@@ -73,7 +79,7 @@ function QuestionBlock({ num, head, scenario, options, answer, explanation }: {
       <div className="q-box">
         <div className="q-head">
           <span className="q-num">問題{num}</span>
-          {head}
+          {mode === 'bool' ? '○か×かでお答えください' : head}
         </div>
         {scenario && (
           <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line mb-3">
@@ -81,45 +87,61 @@ function QuestionBlock({ num, head, scenario, options, answer, explanation }: {
           </p>
         )}
 
-        {options.map((opt, oi) => {
-          let className = 'opt cursor-pointer';
-          let stateMark: string | null = null;
-          if (isAnswered) {
-            if (oi === correctIndex) {
-              className += ' correct';
-              stateMark = '○';
-            } else if (oi === selected) {
-              className += ' wrong';
-              stateMark = '×';
+        <div className={mode === 'bool' ? 'flex gap-3' : 'flex flex-col'}>
+          {options.map((opt, oi) => {
+            let className = 'opt cursor-pointer';
+            let stateMark: string | null = null;
+            if (isAnswered) {
+              if (oi === correctIndex) {
+                className += ' correct';
+                stateMark = '○';
+              } else if (oi === selected) {
+                className += ' wrong';
+                stateMark = '×';
+              }
             }
-          }
-          return (
-            <button
-              key={oi}
-              type="button"
-              onClick={() => handleSelect(oi)}
-              disabled={isAnswered}
-              className={className}
-            >
-              <span className="inline-flex items-center gap-2">
-                {String.fromCharCode(65 + oi)}. {opt.text}
-                {stateMark && (
-                  <span className="text-base font-black">{stateMark}</span>
+            if (mode === 'bool') {
+              className += ' text-center';
+            }
+            return (
+              <button
+                key={oi}
+                type="button"
+                onClick={() => handleSelect(oi)}
+                disabled={isAnswered}
+                className={className}
+              >
+                <span className="inline-flex items-center gap-2">
+                  {mode === 'bool' ? (
+                    <span className={`text-xl font-black ${oi === 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                      {optionLabel(oi)}
+                    </span>
+                  ) : (
+                    <>
+                      {optionLabel(oi)}. {opt.text}
+                    </>
+                  )}
+                  {stateMark && (
+                    <span className="text-base font-black">{stateMark}</span>
+                  )}
+                </span>
+                {mode === 'bool' && (
+                  <span className="block text-sm font-semibold">{opt.text}</span>
                 )}
-              </span>
-              <span className="opt-note">
-                {isAnswered ? opt.note : 'クリックして回答'}
-              </span>
-            </button>
-          );
-        })}
+                <span className="opt-note">
+                  {isAnswered ? opt.note : 'クリックして回答'}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
         {isAnswered && (
           <>
             <div className={`ans ${isCorrect ? 'correct' : ''}`}>
               {isCorrect ? '🎉 正解です！' : '❌ 不正解です。'}
               <div className="mt-1">
-                <strong>正解は {String.fromCharCode(65 + correctIndex)}</strong> ／ {answer}
+                <strong>正解は {optionLabel(correctIndex)}</strong> ／ {answer}
               </div>
             </div>
             <p className="text-sm text-slate-600 leading-relaxed mt-3 whitespace-pre-line">
@@ -128,6 +150,79 @@ function QuestionBlock({ num, head, scenario, options, answer, explanation }: {
             </p>
           </>
         )}
+      </div>
+    </div>
+  );
+}
+
+function TestBlock({ title, items }: { title?: string; items: { statement: string; correct: boolean; explanation?: string }[] }) {
+  const [selections, setSelections] = useState<(boolean | null)[]>(() => items.map(() => null));
+
+  const handleSelect = (qIdx: number, chosen: boolean) => {
+    if (selections[qIdx] !== null) return;
+    const correct = chosen === items[qIdx].correct;
+    playSound(correct);
+    setSelections((prev) => {
+      const next = [...prev];
+      next[qIdx] = chosen;
+      return next;
+    });
+  };
+
+  return (
+    <div className="my-6">
+      <h3 className="text-lg font-black text-slate-900 mb-2 flex items-center gap-2">
+        <span className="w-1.5 h-6 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full inline-block" />
+        確認テスト
+      </h3>
+      <div className="check-list">
+        {title && <h4>{title}</h4>}
+        <div className="space-y-4">
+          {items.map((item, qi) => {
+            const sel = selections[qi];
+            const isAnswered = sel !== null;
+            const isCorrect = isAnswered && sel === item.correct;
+            return (
+              <div key={qi} className="bg-white/70 rounded-xl border border-slate-200 p-4">
+                <div className="text-sm font-semibold text-slate-800 mb-2">
+                  Q{qi + 1}. {item.statement}
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(qi, true)}
+                    disabled={isAnswered}
+                    className={`opt cursor-pointer text-center flex-1 ${
+                      isAnswered && item.correct === true ? 'correct' : ''
+                    } ${isAnswered && sel === true && item.correct !== true ? 'wrong' : ''}`}
+                  >
+                    <span className="text-xl font-black text-emerald-600">○</span>
+                    <span className="block text-sm font-semibold">正しい</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(qi, false)}
+                    disabled={isAnswered}
+                    className={`opt cursor-pointer text-center flex-1 ${
+                      isAnswered && item.correct === false ? 'correct' : ''
+                    } ${isAnswered && sel === false && item.correct !== false ? 'wrong' : ''}`}
+                  >
+                    <span className="text-xl font-black text-rose-600">×</span>
+                    <span className="block text-sm font-semibold">誤り</span>
+                  </button>
+                </div>
+                {isAnswered && (
+                  <div className={`mt-2 text-xs font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}>
+                    {isCorrect ? '🎉 正解！' : '❌ 不正解'}
+                    {item.explanation && (
+                      <span className="block font-medium text-slate-600 mt-1">{item.explanation}</span>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -156,6 +251,7 @@ export const LectureView: React.FC<LectureViewProps> = ({ meta, aim, blocks }) =
                   key={i}
                   num={block.num}
                   head={block.head}
+                  mode={block.mode}
                   scenario={block.scenario}
                   options={block.options}
                   answer={block.answer}
@@ -242,6 +338,9 @@ export const LectureView: React.FC<LectureViewProps> = ({ meta, aim, blocks }) =
                   </div>
                 </div>
               );
+
+            case 'test':
+              return <TestBlock key={i} title={block.title} items={block.items} />;
 
             default:
               return null;
