@@ -32,6 +32,11 @@ export interface ArticleSection {
   id: string;
   title: string;
   content: string;
+  lecture?: {
+    meta: string;
+    aim: string;
+    blocks: LectureBlock[];
+  };
   bentoCards?: {
     title: string;
     icon: string;
@@ -71,6 +76,20 @@ export interface Article {
   nextArticleId?: string;
   nextArticleTitle?: string;
 }
+
+export interface LectureOption {
+  text: string;
+  note: string;
+  correct?: boolean;
+}
+
+export type LectureBlock =
+  | { kind: 'question'; num: string; head: string; scenario?: string; options: LectureOption[]; answer: string; explanation: string }
+  | { kind: 'note'; title?: string; text: string }
+  | { kind: 'point'; title?: string; items: string[] }
+  | { kind: 'check'; title?: string; items: string[] }
+  | { kind: 'preview'; title: string; text: string }
+  | { kind: 'table'; title: string; headers: string[]; rows: string[][] };
 
 export interface QuizOption {
   id: string;

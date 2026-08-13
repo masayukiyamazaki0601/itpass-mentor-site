@@ -14,6 +14,7 @@ import { CompanyStructureDiagrams } from './CompanyStructureDiagrams';
 import { DepartmentsDiagrams } from './DepartmentsDiagrams';
 import { StakeholderDiagram } from './StakeholderDiagram';
 import { ResponsibilityTermsDiagram } from './ResponsibilityTermsDiagram';
+import { LectureView } from './LectureView';
 import { ResourcesDiagram } from './ResourcesDiagram';
 import { BusinessFlowDiagram } from './BusinessFlowDiagram';
 import { SWOTDiagram } from './SWOTDiagram';
@@ -242,9 +243,13 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
                     {sec.title}
                   </h2>
 
-                  <p className="mb-6 text-base leading-relaxed whitespace-pre-line text-slate-700 font-medium">
-                    {renderTextWithTermPills(sec.content)}
-                  </p>
+                  {sec.lecture ? (
+                    <LectureView meta={sec.lecture.meta} aim={sec.lecture.aim} blocks={sec.lecture.blocks} />
+                  ) : (
+                    <p className="mb-6 text-base leading-relaxed whitespace-pre-line text-slate-700 font-medium">
+                      {renderTextWithTermPills(sec.content)}
+                    </p>
+                  )}
 
                   {/* Comparison Table */}
                   {sec.comparisonTable && (
