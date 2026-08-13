@@ -144,8 +144,8 @@ function QuestionBlock({ num, head, mode = 'choice', scenario, options, answer, 
                 <strong>正解は {optionLabel(correctIndex)}</strong> ／ {answer}
               </div>
             </div>
-            <p className="text-sm text-slate-600 leading-relaxed mt-3 whitespace-pre-line">
-              <strong className="text-slate-800">解説：</strong>
+            <p className="text-sm text-slate-800 leading-relaxed mt-3 whitespace-pre-line">
+              <strong className="text-slate-900">解説：</strong>
               {explanation}
             </p>
           </>
@@ -215,7 +215,7 @@ function TestBlock({ title, items }: { title?: string; items: { statement: strin
                   <div className={`mt-2 text-xs font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}>
                     {isCorrect ? '🎉 正解！' : '❌ 不正解'}
                     {item.explanation && (
-                      <span className="block font-medium text-slate-600 mt-1">{item.explanation}</span>
+                      <span className="block font-medium text-slate-700 mt-1">{item.explanation}</span>
                     )}
                   </div>
                 )}
@@ -265,7 +265,7 @@ export const LectureView: React.FC<LectureViewProps> = ({ meta, aim, blocks }) =
                   {block.title && (
                     <h4 className="font-extrabold text-slate-800 mb-1">{block.title}</h4>
                   )}
-                  <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">{block.text}</p>
+                  <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-line">{block.text}</p>
                 </div>
               );
 
@@ -324,7 +324,7 @@ export const LectureView: React.FC<LectureViewProps> = ({ meta, aim, blocks }) =
                             {row.map((cell, ci) => (
                               <td
                                 key={ci}
-                                className={`p-3.5 ${ci === 0 ? 'font-bold text-sky-600' : 'text-slate-600 font-medium'} ${
+                                className={`p-3.5 ${ci === 0 ? 'font-bold text-sky-700' : 'text-slate-800 font-medium'} ${
                                   ci === 0 ? 'whitespace-nowrap' : ''
                                 }`}
                               >
